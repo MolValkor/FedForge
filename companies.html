@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companies • FedForge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .deco-card { background-color: #121826; border: 1px solid #2A3142; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .deco-card:hover { transform: translateY(-4px); border-color: #D4AF37; }
+        .gold-text { color: #D4AF37; }
+    </style>
+</head>
+<body class="bg-[#0B0F1A] text-[#E8E8E8]">
+    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-3xl tracking-[-1.5px]"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="index.html">Dashboard</a>
+                <a href="sectors.html">Sectors</a>
+                <a href="companies.html" class="text-[#D4AF37]">Companies</a>
+                <a href="movers.html">Biggest Movers</a>
+                <a href="pipeline.html">Policy Pipeline</a>
+                <a href="free-report.html">Free Report</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-screen-2xl mx-auto px-8 py-16">
+        <div class="mb-10">
+            <h1 class="text-5xl font-semibold tracking-tighter">Companies Receiving Federal Funding</h1>
+            <p class="mt-3 text-[#A0AEC0] max-w-2xl">Tracking major public companies that have received direct federal investment, grants, loans, or equity stakes — and what they are doing with the funding.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- IBM -->
+            <div class="deco-card rounded-3xl p-8">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-xl font-semibold">IBM</div>
+                        <div class="text-xs text-[#64748B]">Quantum Computing</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-emerald-400">~$500M+</div>
+                        <div class="text-xs text-[#64748B]">CHIPS Equity</div>
+                    </div>
+                </div>
+                <div class="mt-6 text-sm text-[#A0AEC0]">
+                    IBM is using federal funding to accelerate quantum hardware development and establish U.S.-based quantum foundry capabilities. Recent partnership with GlobalFoundries for scaling.
+                </div>
+                <div class="mt-6 text-xs">
+                    <a href="#" class="text-[#D4AF37] hover:underline">View full profile →</a>
+                </div>
+            </div>
+
+            <!-- OKLO -->
+            <div class="deco-card rounded-3xl p-8">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-xl font-semibold">OKLO</div>
+                        <div class="text-xs text-[#64748B]">Nuclear / AI Power</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-emerald-400">Significant</div>
+                        <div class="text-xs text-[#64748B]">DOE + Meta deals</div>
+                    </div>
+                </div>
+                <div class="mt-6 text-sm text-[#A0AEC0]">
+                    Oklo is advancing small modular reactor (SMR) technology for data center power. Recent offtake agreements with Meta and federal support for deployment.
+                </div>
+                <div class="mt-6 text-xs">
+                    <a href="#" class="text-[#D4AF37] hover:underline">View full profile →</a>
+                </div>
+            </div>
+
+            <!-- MP Materials -->
+            <div class="deco-card rounded-3xl p-8">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-xl font-semibold">MP Materials</div>
+                        <div class="text-xs text-[#64748B]">Critical Minerals</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-emerald-400">$550M+</div>
+                        <div class="text-xs text-[#64748B]">DoD Equity</div>
+                    </div>
+                </div>
+                <div class="mt-6 text-sm text-[#A0AEC0]">
+                    MP Materials received DoD equity and loan support to expand rare earth magnet production. Key part of domestic supply chain strategy.
+                </div>
+                <div class="mt-6 text-xs">
+                    <a href="#" class="text-[#D4AF37] hover:underline">View full profile →</a>
+                </div>
+            </div>
+
+            <!-- IONQ -->
+            <div class="deco-card rounded-3xl p-8">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-xl font-semibold">IONQ</div>
+                        <div class="text-xs text-[#64748B]">Quantum</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-emerald-400">Part of $2B</div>
+                        <div class="text-xs text-[#64748B]">CHIPS Package</div>
+                    </div>
+                </div>
+                <div class="mt-6 text-sm text-[#A0AEC0]">
+                    IONQ is scaling trapped-ion quantum systems with federal support. Focused on error-corrected quantum computing for commercial applications.
+                </div>
+                <div class="mt-6 text-xs">
+                    <a href="#" class="text-[#D4AF37] hover:underline">View full profile →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center text-xs text-[#64748B]">
+            This is a growing list of major recipients. More company profiles coming soon.
+        </div>
+    </div>
+</body>
+</html>
