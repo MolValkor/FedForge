@@ -6,52 +6,90 @@
     <title>Biggest Movers • FedForge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .deco-card { background-color: #121826; border: 1px solid #2A3142; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .deco-card:hover { transform: translateY(-3px); border-color: #D4AF37; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
+        .gold-text { color: #D4AF37; }
+        .deco-card { background: #121826; border: 1px solid #2A3142; }
     </style>
 </head>
-<body class="bg-[#0B0F1A] text-[#E8E8E8]">
+<body>
     <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-3xl tracking-[-1.5px]"><span class="text-white">FED</span><span class="text-[#D4AF37]">FORGE</span></a>
-            <div class="flex gap-x-8 text-sm">
-                <a href="index.html" class="hover:text-[#D4AF37]">Dashboard</a>
-                <a href="sectors.html" class="hover:text-[#D4AF37]">Sectors</a>
-                <a href="movers.html" class="text-[#D4AF37]">Biggest Movers</a>
-                <a href="pipeline.html" class="hover:text-[#D4AF37]">Policy Pipeline</a>
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
+            <div class="hidden md:flex gap-6 text-sm font-medium">
+                <a href="index.html">Dashboard</a>
+                <a href="sectors.html">Sectors</a>
+                <a href="companies.html">Companies</a>
+                <a href="movers.html" class="gold-text">Biggest Movers</a>
+                <a href="pipeline.html">Policy Pipeline</a>
+                <a href="international.html">International</a>
+                <a href="historical.html">Historical</a>
+                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37]">Free Report</a>
             </div>
         </div>
     </nav>
 
-    <div class="max-w-screen-2xl mx-auto px-8 py-16">
-        <h1 class="text-5xl font-semibold tracking-tighter mb-4">Biggest Movers</h1>
-        <p class="text-[#A0AEC0] max-w-2xl">Deals with the highest potential impact on public markets, ranked by stock reaction and federal capital deployed.</p>
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-semibold mb-2">Biggest Movers</h1>
+        <p class="text-[#A0AEC0] mb-10">Companies and themes seeing the strongest recent federal capital or policy momentum (as of July 2026).</p>
 
-        <div class="mt-10 space-y-4 max-w-5xl">
-            <div class="deco-card rounded-3xl p-8 flex justify-between items-center">
+        <div class="space-y-4">
+            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <span class="text-xs px-3 py-1 bg-violet-900/50 text-violet-400 rounded">$2.013B Quantum Deal</span>
-                    <div class="mt-3 text-2xl font-semibold">Commerce $2B Quantum CHIPS Incentives</div>
-                    <div class="text-sm text-[#A0AEC0] mt-1">May 2026 • Equity stakes in 9 companies</div>
+                    <div class="text-xs text-emerald-400 mb-1">CRITICAL MINERALS</div>
+                    <div class="text-xl font-semibold">MP Materials (MP)</div>
+                    <p class="text-sm text-[#A0AEC0] mt-1">DoD multi-billion partnership: $400M equity + $150M loan + offtake + price floor. Largest shareholder status.</p>
                 </div>
                 <div class="text-right">
-                    <div class="text-emerald-400 text-xl font-semibold">+28% avg</div>
-                    <div class="text-xs">IONQ +31% • RGTI +27%</div>
-                    <a href="index.html" class="text-xs mt-4 inline-block px-5 py-2 border border-[#D4AF37] rounded-2xl hover:bg-[#D4AF37] hover:text-black">View Details →</a>
+                    <div class="text-emerald-400 font-semibold">Highest Momentum</div>
+                    <div class="text-xs text-[#64748B]">Equity + offtake</div>
                 </div>
             </div>
 
-            <div class="deco-card rounded-3xl p-8 flex justify-between items-center">
+            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <span class="text-xs px-3 py-1 bg-teal-900/50 text-teal-400 rounded">Critical Minerals</span>
-                    <div class="mt-3 text-2xl font-semibold">DoD $550M MP Materials Deal</div>
-                    <div class="text-sm text-[#A0AEC0] mt-1">Equity + loan with price floor</div>
+                    <div class="text-xs text-blue-400 mb-1">QUANTUM</div>
+                    <div class="text-xl font-semibold">IBM + Quantum Pure-Plays</div>
+                    <p class="text-sm text-[#A0AEC0] mt-1">$2.013B CHIPS LOIs + June 2026 EO for large-scale quantum computer. Foundry and hardware focus.</p>
                 </div>
                 <div class="text-right">
-                    <div class="text-emerald-400 text-xl font-semibold">+22%</div>
-                    <div class="text-xs">MP Materials</div>
-                    <a href="index.html" class="text-xs mt-4 inline-block px-5 py-2 border border-[#D4AF37] rounded-2xl hover:bg-[#D4AF37] hover:text-black">View Details →</a>
+                    <div class="text-blue-400 font-semibold">Very High</div>
+                    <div class="text-xs text-[#64748B]">CHIPS + EO</div>
+                </div>
+            </div>
+
+            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <div class="text-xs text-orange-400 mb-1">NUCLEAR / AI POWER</div>
+                    <div class="text-xl font-semibold">Oklo (OKLO)</div>
+                    <p class="text-sm text-[#A0AEC0] mt-1">Multiple DOE reactor pilot selections. Targeting criticality mid-2026. Meta 1.2 GW offtake. Strong policy tailwinds for SMRs powering AI.</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-orange-400 font-semibold">Very High</div>
+                    <div class="text-xs text-[#64748B]">DOE pilots + offtake</div>
+                </div>
+            </div>
+
+            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <div class="text-xs text-purple-400 mb-1">SEMICONDUCTORS</div>
+                    <div class="text-xl font-semibold">CHIPS Ecosystem (AMAT, KLAC, etc.)</div>
+                    <p class="text-sm text-[#A0AEC0] mt-1">Continued award flow and equipment demand from $645B+ private investment wave.</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-purple-400 font-semibold">High</div>
+                    <div class="text-xs text-[#64748B]">Ongoing awards</div>
+                </div>
+            </div>
+
+            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <div class="text-xs text-cyan-400 mb-1">AI POWER</div>
+                    <div class="text-xl font-semibold">Utilities & Power (VST, CEG)</div>
+                    <p class="text-sm text-[#A0AEC0] mt-1">AI data center demand + nuclear co-location opportunities. DOE site selections for AI infrastructure.</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-cyan-400 font-semibold">High</div>
+                    <div class="text-xs text-[#64748B]">Power bottleneck</div>
                 </div>
             </div>
         </div>

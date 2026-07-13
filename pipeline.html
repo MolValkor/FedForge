@@ -6,40 +6,82 @@
     <title>Policy Pipeline • FedForge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .deco-card { background-color: #121826; border: 1px solid #2A3142; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
+        .gold-text { color: #D4AF37; }
+        .deco-card { background: #121826; border: 1px solid #2A3142; }
     </style>
 </head>
-<body class="bg-[#0B0F1A] text-[#E8E8E8]">
-    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142]">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex justify-between">
-            <a href="index.html" class="font-bold text-3xl"><span class="text-white">FED</span><span class="text-[#D4AF37]">FORGE</span></a>
-            <div class="flex gap-x-8 text-sm">
+<body>
+    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
+            <div class="hidden md:flex gap-6 text-sm font-medium">
                 <a href="index.html">Dashboard</a>
                 <a href="sectors.html">Sectors</a>
+                <a href="companies.html">Companies</a>
                 <a href="movers.html">Biggest Movers</a>
-                <a href="pipeline.html" class="text-[#D4AF37]">Policy Pipeline</a>
+                <a href="pipeline.html" class="gold-text">Policy Pipeline</a>
+                <a href="international.html">International</a>
+                <a href="historical.html">Historical</a>
+                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37]">Free Report</a>
             </div>
         </div>
     </nav>
 
-    <div class="max-w-screen-2xl mx-auto px-8 py-16">
-        <h1 class="text-5xl font-semibold tracking-tighter">Policy Pipeline</h1>
-        <p class="mt-3 text-[#A0AEC0]">Upcoming legislation and policy moves that could drive significant new federal investment.</p>
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-semibold mb-2">Policy Pipeline</h1>
+        <p class="text-[#A0AEC0] mb-10">Upcoming legislation, executive actions, and funding opportunities that could move capital into strategic sectors.</p>
 
-        <div class="mt-10 grid md:grid-cols-2 gap-6 max-w-6xl">
-            <div class="deco-card rounded-3xl p-8">
-                <span class="text-emerald-400 text-xs">HIGH PROBABILITY • Q3 2026</span>
-                <h3 class="mt-4 text-2xl font-semibold">National Quantum Initiative Reauthorization</h3>
-                <p class="mt-3 text-sm">Extends NQI through 2034 with new centers and increased funding.</p>
-                <div class="mt-4 text-xs text-[#D4AF37]">Key beneficiaries: IBM, IONQ, RGTI</div>
+        <div class="space-y-6">
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 bg-blue-900/40 text-blue-400 text-xs rounded-full">EXECUTIVE ACTION</span>
+                    <span class="text-xs text-[#64748B]">June 22, 2026</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-2">Quantum Innovation Executive Order</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">Directs development of a large-scale quantum computer for DOE scientific discovery. Private-sector partnership models to be explored within 180 days. Builds on National Quantum Initiative.</p>
+                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Quantum, Computing, Defense</div>
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/" target="_blank" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official EO →</a>
             </div>
-            
-            <div class="deco-card rounded-3xl p-8">
-                <span class="text-amber-400 text-xs">MEDIUM-HIGH • FY2027</span>
-                <h3 class="mt-4 text-2xl font-semibold">Critical Minerals Stockpile Expansion Act</h3>
-                <p class="mt-3 text-sm">New DoD equity and offtake authorities for domestic mining.</p>
-                <div class="mt-4 text-xs text-[#D4AF37]">Key beneficiaries: MP Materials</div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded-full">FUNDING OPPORTUNITY</span>
+                    <span class="text-xs text-[#64748B]">Open / Rolling</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-2">Critical Minerals & Materials Accelerator</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">DOE up to $69M for technologies advancing domestic production and refining of critical materials. Part of broader $30B+ critical minerals mobilization.</p>
+                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Critical Minerals, Energy Storage, Advanced Manufacturing</div>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 bg-orange-900/40 text-orange-400 text-xs rounded-full">IMPLEMENTATION</span>
+                    <span class="text-xs text-[#64748B]">2026</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-2">Nuclear for AI Data Centers</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">DOE identifying 16 federal sites for AI data centers with nuclear co-location potential. Reactor pilot programs targeting criticality by July 4, 2026. Streamlined NRC processes and loan support.</p>
+                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Nuclear, AI Infrastructure, Utilities</div>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 bg-purple-900/40 text-purple-400 text-xs rounded-full">ONGOING</span>
+                    <span class="text-xs text-[#64748B]">CHIPS Act</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-2">CHIPS Act Award Flow & Expansion</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">Continued disbursements and new LOIs. Focus expanding beyond leading-edge logic into packaging, SiC, materials, and secure microelectronics for defense.</p>
+                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Semiconductors, Defense Tech, Quantum</div>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded-full">STRATEGIC RESERVE</span>
+                    <span class="text-xs text-[#64748B]">Project Vault</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-2">Project Vault – Critical Minerals Stockpile</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">$10B EXIM direct loan to establish domestic strategic reserve of refined critical minerals. Multiplier effect expected via private capital.</p>
+                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Critical Minerals, Defense, Energy</div>
             </div>
         </div>
     </div>

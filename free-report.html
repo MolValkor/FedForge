@@ -3,90 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free 2026 Federal Investment Themes Report • FedForge</title>
-    <meta name="description" content="Get the free 2026 Federal Investment Themes Report. Discover the top sectors receiving major federal funding and the public companies best positioned to benefit.">
+    <title>Free Report • FedForge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Inter', system_ui, sans-serif; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
         .gold-text { color: #D4AF37; }
-        .deco-card { background-color: #121826; border: 1px solid #2A3142; }
+        .deco-card { background: #121826; border: 1px solid #2A3142; }
     </style>
 </head>
-<body class="bg-[#0B0F1A] text-[#E8E8E8]">
-    <!-- Nav -->
-    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142]">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-3xl tracking-[-1.5px]">
-                <span class="text-white">FED</span><span class="gold-text">FORGE</span>
-            </a>
-            <a href="index.html" class="text-sm hover:text-[#D4AF37]">← Back to Dashboard</a>
+<body>
+    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
+            <div class="hidden md:flex gap-6 text-sm">
+                <a href="index.html">Dashboard</a>
+                <a href="companies.html">Companies</a>
+                <a href="free-report.html" class="gold-text">Free Report</a>
+            </div>
         </div>
     </nav>
 
-    <div class="max-w-4xl mx-auto px-8 py-16">
-        <div class="text-center">
-            <div class="inline px-4 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] text-xs tracking-[1.5px]">FREE DOWNLOAD</div>
-            <h1 class="mt-6 text-5xl font-semibold tracking-tighter">2026 Federal Investment Themes Report</h1>
-            <p class="mt-4 text-xl text-[#A0AEC0]">The top 8 sectors receiving major federal funding right now — and the public companies best positioned to benefit.</p>
-        </div>
+    <div class="max-w-xl mx-auto px-6 py-20 text-center">
+        <h1 class="text-4xl font-semibold mb-4">2026 Federal Investment Themes Report</h1>
+        <p class="text-[#A0AEC0] mb-8">Free investor briefing covering the biggest federal capital flows into nuclear, quantum, AI power, semiconductors, critical minerals, and defense tech — plus the public companies best positioned to benefit.</p>
 
-        <div class="mt-12 grid md:grid-cols-5 gap-8">
-            <!-- Benefits -->
-            <div class="md:col-span-3">
-                <div class="deco-card rounded-3xl p-8">
-                    <h3 class="font-semibold text-xl">What's Inside:</h3>
-                    <ul class="mt-6 space-y-4 text-sm">
-                        <li class="flex gap-x-3"><span class="text-[#D4AF37]">→</span> <span>Quantum Computing: The $2B+ equity push and which stocks are best positioned</span></li>
-                        <li class="flex gap-x-3"><span class="text-[#D4AF37]">→</span> <span>Nuclear Renaissance: How AI power demand is accelerating federal support</span></li>
-                        <li class="flex gap-x-3"><span class="text-[#D4AF37]">→</span> <span>Critical Minerals: DoD equity deals and the companies gaining momentum</span></li>
-                        <li class="flex gap-x-3"><span class="text-[#D4AF37]">→</span> <span>Semiconductors: Where the next wave of CHIPS funding is heading</span></li>
-                        <li class="flex gap-x-3"><span class="text-[#D4AF37]">→</span> <span>AI Infrastructure: The intersection of federal power policy and data centers</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Signup Form -->
-            <div class="md:col-span-2">
-                <div class="deco-card rounded-3xl p-8">
-                    <h3 class="font-semibold">Get the free report + weekly updates</h3>
-                    
-                    <form id="report-form" onsubmit="claimReport(event)" class="mt-6">
-                        <input type="email" id="report-email" required placeholder="your@work.email" 
-                               class="w-full bg-[#0B0F1A] border border-[#2A3142] focus:border-[#D4AF37] rounded-2xl px-5 py-3.5 text-sm mb-4">
-                        
-                        <button type="submit" 
-                                class="w-full py-4 bg-white text-[#0B0F1A] font-semibold rounded-2xl hover:bg-[#D4AF37] transition">
-                            DOWNLOAD FREE REPORT
-                        </button>
-                    </form>
-
-                    <p class="text-xs text-[#64748B] mt-4 text-center">We respect your inbox. Unsubscribe anytime.</p>
-                </div>
+        <div class="deco-card rounded-3xl p-8">
+            <form onsubmit="event.preventDefault(); document.getElementById('success').classList.remove('hidden'); this.classList.add('hidden');">
+                <input type="email" required placeholder="Enter your best email" class="w-full bg-[#0B0F1A] border border-[#2A3142] focus:border-[#D4AF37] rounded-2xl px-5 py-3.5 text-sm mb-4 outline-none">
+                <button type="submit" class="w-full py-4 bg-white text-[#0B0F1A] font-semibold rounded-2xl hover:bg-[#D4AF37] transition">Download Free Report</button>
+            </form>
+            <div id="success" class="hidden">
+                <div class="text-emerald-400 font-semibold mb-2">Thank you — you're subscribed!</div>
+                <p class="text-sm text-[#A0AEC0] mb-4">The 2026 Themes Report is ready. We've also added you to the weekly digest.</p>
+                <a href="#" class="inline-block px-6 py-3 bg-white text-[#0B0F1A] font-semibold rounded-2xl">View / Download Report Now</a>
             </div>
         </div>
+        <p class="mt-6 text-xs text-[#64748B]">No spam. Unsubscribe anytime. Data from official sources only.</p>
     </div>
-
-    <script>
-        function claimReport(e) {
-            e.preventDefault();
-            const email = document.getElementById('report-email').value;
-            
-            // In production: Send to email service + trigger download
-            console.log('Lead captured:', email);
-            
-            const form = document.getElementById('report-form');
-            form.innerHTML = `
-                <div class="text-center py-8">
-                    <div class="text-emerald-400 text-4xl mb-4">✓</div>
-                    <div class="font-semibold">Thank you! Check your email for the report.</div>
-                    <p class="text-sm text-[#A0AEC0] mt-2">We've also added you to the weekly digest.</p>
-                </div>
-            `;
-            
-            // Store in localStorage for demo
-            localStorage.setItem('fedforge_lead_captured', 'true');
-            localStorage.setItem('fedforge_email', email);
-        }
-    </script>
 </body>
 </html>

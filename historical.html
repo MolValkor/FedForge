@@ -3,239 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historical Federal Investment Returns • FedForge</title>
+    <title>Historical Returns • FedForge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .deco-card { background-color: #121826; border: 1px solid #2A3142; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .deco-card:hover { transform: translateY(-4px); border-color: #D4AF37; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
         .gold-text { color: #D4AF37; }
+        .deco-card { background: #121826; border: 1px solid #2A3142; }
     </style>
 </head>
-<body class="bg-[#0B0F1A] text-[#E8E8E8]">
+<body>
     <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-3xl tracking-[-1.5px]"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
-            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
+            <div class="hidden md:flex gap-6 text-sm font-medium">
                 <a href="index.html">Dashboard</a>
                 <a href="sectors.html">Sectors</a>
                 <a href="companies.html">Companies</a>
-                <a href="international.html">International Deals</a>
-                <a href="historical.html" class="text-[#D4AF37]">Historical Returns</a>
-                <a href="free-report.html">Free Report</a>
+                <a href="movers.html">Biggest Movers</a>
+                <a href="pipeline.html">Policy Pipeline</a>
+                <a href="international.html">International</a>
+                <a href="historical.html" class="gold-text">Historical</a>
+                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37]">Free Report</a>
             </div>
         </div>
     </nav>
 
-    <div class="max-w-screen-2xl mx-auto px-8 py-16">
-        <div class="mb-12 text-center">
-            <h1 class="text-5xl font-semibold tracking-tighter">Historical Federal Investment Returns</h1>
-            <p class="mt-4 text-xl text-[#A0AEC0] max-w-3xl mx-auto">
-                Evidence that when the U.S. government makes major investments in strategic sectors, 
-                private investors who position themselves early have historically been rewarded.
-            </p>
-        </div>
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-semibold mb-2">Historical Federal Investment Returns</h1>
+        <p class="text-[#A0AEC0] mb-10 max-w-3xl">Evidence that when the U.S. government makes large, sustained investments in strategic technologies, companies and investors who position early have often been rewarded over the long term.</p>
 
-        <!-- NASA / Space Race -->
-        <div class="mb-16">
-            <div class="flex items-center gap-x-4 mb-6">
-                <span class="px-4 py-1 rounded-full bg-blue-900/50 text-blue-400 text-sm">1958–1970s</span>
-                <h2 class="text-3xl font-semibold">NASA & The Space Race</h2>
-            </div>
-            
+        <div class="space-y-8">
+            <!-- NASA -->
             <div class="deco-card rounded-3xl p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-blue-900/40 text-blue-400 text-xs rounded-full">1958–1970s</span>
+                    <h2 class="text-2xl font-semibold">NASA & The Space Race</h2>
+                </div>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="font-semibold text-xl mb-4">Government Investment</h3>
-                        <ul class="space-y-3 text-sm text-[#A0AEC0]">
-                            <li>• NASA budget peaked at ~4% of the entire federal budget in the mid-1960s</li>
-                            <li>• Massive contracts for Apollo program, satellites, and research</li>
-                            <li>• Created entire new industries in aerospace, computing, and materials science</li>
+                        <h3 class="font-semibold mb-2">Government Investment</h3>
+                        <ul class="text-sm text-[#A0AEC0] space-y-1">
+                            <li>• NASA budget peaked near 4% of the entire federal budget</li>
+                            <li>• Massive Apollo contracts for aerospace, computing, and materials</li>
+                            <li>• Created entire new industries</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-xl mb-4">Companies That Benefited</h3>
-                        <div class="grid grid-cols-2 gap-3 text-sm">
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Boeing</div>
-                                <div class="text-xs text-[#64748B]">Major Apollo contractor → became global aerospace leader</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Lockheed Martin</div>
-                                <div class="text-xs text-[#64748B]">Key defense & space contractor, long-term growth</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">IBM</div>
-                                <div class="text-xs text-[#64748B]">Built computers for Apollo → dominated enterprise computing</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Northrop Grumman</div>
-                                <div class="text-xs text-[#64748B]">Grew significantly through government space contracts</div>
-                            </div>
+                        <h3 class="font-semibold mb-2">Companies That Benefited</h3>
+                        <div class="text-sm text-[#A0AEC0]">
+                            Boeing, Lockheed Martin, IBM, Northrop Grumman — multi-decade growth as foundational aerospace and computing contractors.
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-8 pt-6 border-t border-[#2A3142]">
-                    <div class="text-sm">
-                        <span class="font-semibold text-[#D4AF37]">Key Lesson:</span> 
-                        Early positioning in government-backed high-tech sectors led to multi-decade growth for contractors and suppliers. 
-                        Many of these companies became foundational to the U.S. economy.
-                    </div>
+                <div class="mt-4 pt-4 border-t border-[#2A3142] text-sm">
+                    <span class="gold-text">Key Lesson:</span> Early positioning in government-backed high-tech sectors produced multi-decade winners.
                 </div>
             </div>
-        </div>
 
-        <!-- Internet / ARPANET -->
-        <div class="mb-16">
-            <div class="flex items-center gap-x-4 mb-6">
-                <span class="px-4 py-1 rounded-full bg-purple-900/50 text-purple-400 text-sm">1960s–1990s</span>
-                <h2 class="text-3xl font-semibold">ARPANET & The Internet</h2>
-            </div>
-            
+            <!-- Internet -->
             <div class="deco-card rounded-3xl p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-purple-900/40 text-purple-400 text-xs rounded-full">1960s–1990s</span>
+                    <h2 class="text-2xl font-semibold">ARPANET & The Internet</h2>
+                </div>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="font-semibold text-xl mb-4">Government Investment</h3>
-                        <ul class="space-y-3 text-sm text-[#A0AEC0]">
-                            <li>• DARPA (then ARPA) funded the creation of ARPANET in 1969</li>
-                            <li>• Decades of government R&D spending on networking, computing, and communications</li>
-                            <li>• Eventually led to the commercial internet boom of the 1990s</li>
+                        <h3 class="font-semibold mb-2">Government Investment</h3>
+                        <ul class="text-sm text-[#A0AEC0] space-y-1">
+                            <li>• DARPA funded ARPANET (1969) and decades of networking research</li>
+                            <li>• Created the foundation for the commercial internet</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-xl mb-4">Companies That Benefited</h3>
-                        <div class="grid grid-cols-2 gap-3 text-sm">
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Cisco Systems</div>
-                                <div class="text-xs text-[#64748B]">Built routers that powered the early internet → massive growth</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Intel</div>
-                                <div class="text-xs text-[#64748B]">Semiconductors powered by government research demand</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Microsoft & Apple</div>
-                                <div class="text-xs text-[#64748B]">Indirect beneficiaries as computing became mainstream</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Amazon, Google, Meta</div>
-                                <div class="text-xs text-[#64748B]">Later built on the infrastructure created by government investment</div>
-                            </div>
+                        <h3 class="font-semibold mb-2">Companies That Benefited</h3>
+                        <div class="text-sm text-[#A0AEC0]">
+                            Cisco, Intel → later Amazon, Google, Meta, Microsoft built on the infrastructure.
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-8 pt-6 border-t border-[#2A3142]">
-                    <div class="text-sm">
-                        <span class="font-semibold text-[#D4AF37]">Key Lesson:</span> 
-                        Foundational government research spending created the conditions for trillions in private sector value creation decades later.
-                    </div>
+                <div class="mt-4 pt-4 border-t border-[#2A3142] text-sm">
+                    <span class="gold-text">Key Lesson:</span> Foundational government R&D created conditions for trillions in private value creation decades later.
                 </div>
             </div>
-        </div>
 
-        <!-- Bell Labs -->
-        <div class="mb-16">
-            <div class="flex items-center gap-x-4 mb-6">
-                <span class="px-4 py-1 rounded-full bg-emerald-900/50 text-emerald-400 text-sm">1925–1980s</span>
-                <h2 class="text-3xl font-semibold">Bell Labs & Fundamental Research</h2>
-            </div>
-            
+            <!-- Bell Labs -->
             <div class="deco-card rounded-3xl p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded-full">1925–1980s</span>
+                    <h2 class="text-2xl font-semibold">Bell Labs</h2>
+                </div>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="font-semibold text-xl mb-4">Government Investment</h3>
-                        <ul class="space-y-3 text-sm text-[#A0AEC0]">
-                            <li>• Massive military and government contracts during WWII and Cold War</li>
-                            <li>• AT&T (parent company) operated as a regulated monopoly with government support</li>
-                            <li>• Funded groundbreaking basic research that private markets alone might not have supported</li>
+                        <h3 class="font-semibold mb-2">Government Investment</h3>
+                        <ul class="text-sm text-[#A0AEC0] space-y-1">
+                            <li>• Military and government contracts during WWII and Cold War</li>
+                            <li>• Regulated monopoly structure enabled long-horizon basic research</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-xl mb-4">Major Breakthroughs & Impact</h3>
-                        <div class="grid grid-cols-2 gap-3 text-sm">
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Transistor (1947)</div>
-                                <div class="text-xs text-[#64748B]">Foundation of all modern electronics and computing</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Laser & Solar Cell</div>
-                                <div class="text-xs text-[#64748B]">Enabled entire new industries in optics and energy</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Information Theory</div>
-                                <div class="text-xs text-[#64748B]">Claude Shannon’s work underpins all digital communication</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Unix & C Language</div>
-                                <div class="text-xs text-[#64748B]">Basis for modern operating systems and software</div>
-                            </div>
+                        <h3 class="font-semibold mb-2">Breakthroughs</h3>
+                        <div class="text-sm text-[#A0AEC0]">
+                            Transistor (1947), laser, solar cell, information theory (Shannon), Unix, C language — foundation of modern electronics and computing.
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-8 pt-6 border-t border-[#2A3142]">
-                    <div class="text-sm">
-                        <span class="font-semibold text-[#D4AF37]">Key Lesson:</span> 
-                        Government-supported basic research at Bell Labs created foundational technologies that powered trillions in economic value across multiple industries for decades.
-                    </div>
+                <div class="mt-4 pt-4 border-t border-[#2A3142] text-sm">
+                    <span class="gold-text">Key Lesson:</span> Government-supported basic research produced technologies that powered entire industries for decades.
                 </div>
             </div>
-        </div>
 
-        <!-- Universities & Federal Research Funding -->
-        <div class="mb-16">
-            <div class="flex items-center gap-x-4 mb-6">
-                <span class="px-4 py-1 rounded-full bg-amber-900/50 text-amber-400 text-sm">Post-WWII to Present</span>
-                <h2 class="text-3xl font-semibold">Universities & Federal Research Funding</h2>
-            </div>
-            
+            <!-- Universities -->
             <div class="deco-card rounded-3xl p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-amber-900/40 text-amber-400 text-xs rounded-full">Post-WWII – Present</span>
+                    <h2 class="text-2xl font-semibold">Universities & Federal Research</h2>
+                </div>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="font-semibold text-xl mb-4">Government Investment</h3>
-                        <ul class="space-y-3 text-sm text-[#A0AEC0]">
-                            <li>• Post-WWII surge in federal funding for university research (NSF, NIH, DARPA, DOE)</li>
-                            <li>• Billions annually in grants supporting basic and applied science</li>
-                            <li>• Created the modern U.S. research university system</li>
+                        <h3 class="font-semibold mb-2">Government Investment</h3>
+                        <ul class="text-sm text-[#A0AEC0] space-y-1">
+                            <li>• NSF, NIH, DARPA, DOE grants created the modern research university</li>
+                            <li>• Billions annually in basic and applied science</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-xl mb-4">Major Impacts & Companies Spawned</h3>
-                        <div class="grid grid-cols-2 gap-3 text-sm">
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Stanford University</div>
-                                <div class="text-xs text-[#64748B]">Federal research funding helped birth Silicon Valley (HP, Google, etc.)</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">MIT</div>
-                                <div class="text-xs text-[#64748B]">Defense and computing research led to companies like Raytheon, Draper Labs spinouts</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">Biotech Revolution</div>
-                                <div class="text-xs text-[#64748B]">NIH funding led to Genentech, Amgen, Moderna and modern pharmaceuticals</div>
-                            </div>
-                            <div class="bg-[#0B0F1A] p-4 rounded-2xl">
-                                <div class="font-semibold">GPS & Computing</div>
-                                <div class="text-xs text-[#64748B]">DARPA and university research enabled GPS, internet protocols, and AI foundations</div>
-                            </div>
+                        <h3 class="font-semibold mb-2">Impact</h3>
+                        <div class="text-sm text-[#A0AEC0]">
+                            Stanford → Silicon Valley; MIT → defense/computing spinouts; NIH → Genentech, Amgen, Moderna and the biotech industry; DARPA → GPS, internet protocols, AI foundations.
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-8 pt-6 border-t border-[#2A3142]">
-                    <div class="text-sm">
-                        <span class="font-semibold text-[#D4AF37]">Key Lesson:</span> 
-                        Sustained federal investment in university research has been one of the highest-ROI public investments in history, creating entire new industries and trillions in economic value.
-                    </div>
+                <div class="mt-4 pt-4 border-t border-[#2A3142] text-sm">
+                    <span class="gold-text">Key Lesson:</span> Sustained federal research funding has been one of the highest-ROI public investments in history.
+                </div>
+            </div>
+
+            <!-- Semiconductors & Nuclear summary -->
+            <div class="deco-card rounded-3xl p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-purple-900/40 text-purple-400 text-xs rounded-full">1950s–Present</span>
+                    <h2 class="text-2xl font-semibold">Semiconductors, Nuclear & Biotech</h2>
+                </div>
+                <p class="text-sm text-[#A0AEC0] mb-4">
+                    Early military and government demand for transistors and integrated circuits seeded Intel, Texas Instruments, and Fairchild. Manhattan Project and post-war nuclear programs created the commercial nuclear industry (Westinghouse, GE, Bechtel). NIH and federal biotech funding underpinned Genentech, Amgen, and later mRNA platforms (Moderna).
+                </p>
+                <div class="text-sm">
+                    <span class="gold-text">Pattern:</span> Government demand + patient capital → foundational technologies → massive private-sector value creation.
                 </div>
             </div>
         </div>
 
-        <div class="text-center text-sm text-[#64748B] max-w-2xl mx-auto">
-            These historical examples show a consistent pattern: when the federal government makes large, sustained investments in strategic technologies and research, 
-            companies and institutions positioned to support or commercialize those investments have often delivered extraordinary long-term returns for investors and society.
+        <div class="mt-12 text-center text-sm text-[#64748B] max-w-2xl mx-auto">
+            These historical cases show a consistent pattern: when the federal government makes large, sustained investments in strategic technologies, companies and investors positioned early have often captured significant long-term returns.
         </div>
     </div>
 </body>
