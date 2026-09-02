@@ -5,27 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historical Returns • FedForge</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #12150F; color: #E8E4D9; }
-        .bronze-text { color: #C4A574; }
-        .deco-card { background: #1A2118; border: 1px solid #2C382E; transition: all 0.3s; }
-        .deco-card:hover { border-color: #C4A574; transform: translateY(-3px); }
-        .nav-link { transition: color 0.2s; }
-        .nav-link:hover { color: #C4A574; }
-        .section-header::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(to right, #C4A574, transparent); margin-top: 8px; }
-        .amount-text { color: #6B9B7A; }
-        .badge-green { background: rgba(61,107,79,0.35); color: #6B9B7A; }
-        .badge-bronze { background: rgba(140,106,63,0.35); color: #C4A574; }
-    </style>
+    <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
     <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="font-bold text-2xl tracking-tight">
-                <span class="text-white">FED</span><span class="bronze-text">FORGE</span>
+                <span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span>
             </a>
-            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#C4A574] border border-[#C4A574] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <button id="nav-toggle" class="md:hidden p-2 border border-[#2C382E] rounded-lg bronze-text" aria-label="Open menu" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
+                </svg>
             </button>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="index.html" class="nav-link">Dashboard</a>
@@ -35,31 +26,27 @@
                 <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="bronze-text">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] hover:bg-[#C4A574] hover:text-[#12150F] transition">Free Report</a>
+                <a href="free-report.html" class="px-4 py-2 rounded-xl cta-outline transition">Free Report</a>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2C382E] bg-[#12150F]">
-            <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
-                <a href="index.html" class="nav-link">Dashboard</a>
-                <a href="sectors.html" class="nav-link">Sectors</a>
-                <a href="companies.html" class="nav-link">Companies</a>
-                <a href="movers.html" class="nav-link">Biggest Movers</a>
-                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
-                <a href="international.html" class="nav-link">International</a>
-                <a href="historical.html" class="bronze-text">Historical</a>
-                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] text-center">Free Report</a>
-            </div>
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-4 space-y-1 text-sm">
+            <a href="index.html">Dashboard</a>
+            <a href="sectors.html">Sectors</a>
+            <a href="companies.html">Companies</a>
+            <a href="movers.html">Biggest Movers</a>
+            <a href="pipeline.html">Policy Pipeline</a>
+            <a href="international.html">International</a>
+            <a href="historical.html">Historical</a>
+            <a href="free-report.html" class="bronze-text">Free Report</a>
         </div>
     </nav>
-
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-4xl font-semibold mb-2">Historical Federal Investment Returns</h1>
-        <p class="text-[#8A8F82] mb-10 max-w-3xl">Evidence that when the U.S. government makes large, sustained investments in strategic technologies, companies and investors who position early have often been rewarded over the long term.</p>
-
+        <p class="text-[#8A8F82] mb-10 max-w-3xl">Evidence that when the U.S. government makes large, sustained investments in strategic technologies, companies and investors who position early have often been rewarded over the long term. Historical narrative — not a forecast, not investment advice.</p>
         <div class="space-y-8">
             <div class="deco-card rounded-3xl p-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <span class="px-3 py-1 bg-blue-900/40 text-blue-400 text-xs rounded-full">1958–1970s</span>
+                    <span class="px-3 py-1 badge-green text-xs rounded-full">1958–1970s</span>
                     <h2 class="text-2xl font-semibold">NASA &amp; The Space Race</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
@@ -73,19 +60,16 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Companies That Benefited</h3>
-                        <div class="text-sm text-[#8A8F82]">
-                            Boeing, Lockheed Martin, IBM, Northrop Grumman — multi-decade growth as foundational aerospace and computing contractors.
-                        </div>
+                        <div class="text-sm text-[#8A8F82]">Boeing, Lockheed Martin, IBM, Northrop Grumman — multi-decade growth as foundational aerospace and computing contractors.</div>
                     </div>
                 </div>
                 <div class="mt-4 pt-4 border-t border-[#2C382E] text-sm">
                     <span class="bronze-text">Key Lesson:</span> Early positioning in government-backed high-tech sectors produced multi-decade winners.
                 </div>
             </div>
-
             <div class="deco-card rounded-3xl p-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <span class="px-3 py-1 bg-purple-900/40 text-purple-400 text-xs rounded-full">1960s–1990s</span>
+                    <span class="px-3 py-1 badge-green text-xs rounded-full">1960s–1990s</span>
                     <h2 class="text-2xl font-semibold">ARPANET &amp; The Internet</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
@@ -98,16 +82,13 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Companies That Benefited</h3>
-                        <div class="text-sm text-[#8A8F82]">
-                            Cisco, Intel → later Amazon, Google, Meta, Microsoft built on the infrastructure.
-                        </div>
+                        <div class="text-sm text-[#8A8F82]">Cisco, Intel → later Amazon, Google, Meta, Microsoft built on the infrastructure.</div>
                     </div>
                 </div>
                 <div class="mt-4 pt-4 border-t border-[#2C382E] text-sm">
                     <span class="bronze-text">Key Lesson:</span> Foundational government R&amp;D created conditions for trillions in private value creation decades later.
                 </div>
             </div>
-
             <div class="deco-card rounded-3xl p-8">
                 <div class="flex items-center gap-3 mb-4">
                     <span class="px-3 py-1 badge-green text-xs rounded-full">1925–1980s</span>
@@ -123,19 +104,16 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Breakthroughs</h3>
-                        <div class="text-sm text-[#8A8F82]">
-                            Transistor (1947), laser, solar cell, information theory (Shannon), Unix, C language — foundation of modern electronics and computing.
-                        </div>
+                        <div class="text-sm text-[#8A8F82]">Transistor (1947), laser, solar cell, information theory (Shannon), Unix, C language — foundation of modern electronics and computing.</div>
                     </div>
                 </div>
                 <div class="mt-4 pt-4 border-t border-[#2C382E] text-sm">
                     <span class="bronze-text">Key Lesson:</span> Government-supported basic research produced technologies that powered entire industries for decades.
                 </div>
             </div>
-
             <div class="deco-card rounded-3xl p-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <span class="px-3 py-1 bg-amber-900/40 text-amber-400 text-xs rounded-full">Post-WWII – Present</span>
+                    <span class="px-3 py-1 badge-green text-xs rounded-full">Post-WWII – Present</span>
                     <h2 class="text-2xl font-semibold">Universities &amp; Federal Research</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
@@ -148,52 +126,32 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Impact</h3>
-                        <div class="text-sm text-[#8A8F82]">
-                            Stanford → Silicon Valley; MIT → defense/computing spinouts; NIH → Genentech, Amgen, Moderna and the biotech industry; DARPA → GPS, internet protocols, AI foundations.
-                        </div>
+                        <div class="text-sm text-[#8A8F82]">Stanford → Silicon Valley; MIT → defense/computing spinouts; NIH → Genentech, Amgen, Moderna and the biotech industry; DARPA → GPS, internet protocols, AI foundations.</div>
                     </div>
                 </div>
                 <div class="mt-4 pt-4 border-t border-[#2C382E] text-sm">
                     <span class="bronze-text">Key Lesson:</span> Sustained federal research funding has been one of the highest-ROI public investments in history.
                 </div>
             </div>
-
             <div class="deco-card rounded-3xl p-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <span class="px-3 py-1 bg-purple-900/40 text-purple-400 text-xs rounded-full">1950s–Present</span>
+                    <span class="px-3 py-1 badge-green text-xs rounded-full">1950s–Present</span>
                     <h2 class="text-2xl font-semibold">Semiconductors, Nuclear &amp; Biotech</h2>
                 </div>
-                <p class="text-sm text-[#8A8F82] mb-4">
-                    Early military and government demand for transistors and integrated circuits seeded Intel, Texas Instruments, and Fairchild. Manhattan Project and post-war nuclear programs created the commercial nuclear industry (Westinghouse, GE, Bechtel). NIH and federal biotech funding underpinned Genentech, Amgen, and later mRNA platforms (Moderna).
-                </p>
+                <p class="text-sm text-[#8A8F82] mb-4">Early military and government demand for transistors and integrated circuits seeded Intel, Texas Instruments, and Fairchild. Manhattan Project and post-war nuclear programs created the commercial nuclear industry (Westinghouse, GE, Bechtel). NIH and federal biotech funding underpinned Genentech, Amgen, and later mRNA platforms (Moderna).</p>
                 <div class="text-sm">
                     <span class="bronze-text">Pattern:</span> Government demand + patient capital → foundational technologies → massive private-sector value creation.
                 </div>
             </div>
         </div>
-
-        <div class="mt-12 text-center text-sm text-[#8A8F82] max-w-2xl mx-auto">
-            These historical cases show a consistent pattern: when the federal government makes large, sustained investments in strategic technologies, companies and investors positioned early have often captured significant long-term returns.
-        </div>
+        <div class="mt-12 text-center text-sm text-[#8A8F82] max-w-2xl mx-auto">These historical cases show a consistent pattern: when the federal government makes large, sustained investments in strategic technologies, companies and investors positioned early have often captured significant long-term returns.</div>
     </div>
-
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
         <div class="max-w-7xl mx-auto px-6">
             <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
             <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
         </div>
     </footer>
-    <script>
-        (function () {
-            var btn = document.getElementById('mobile-menu-btn');
-            var menu = document.getElementById('mobile-menu');
-            if (!btn || !menu) return;
-            btn.addEventListener('click', function () {
-                var open = menu.classList.toggle('hidden') === false;
-                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-            });
-        })();
-    </script>
+    <script src="js/nav.js"></script>
 </body>
 </html>
