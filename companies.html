@@ -45,8 +45,16 @@
         <h1 class="text-4xl font-semibold mb-2">Companies</h1>
         <p class="text-[#8A8F82] mb-4 max-w-3xl">Flagship tickers this window — LMT, RTX, LEU, USAR, PCG, GFS — link to official notices already in <code>data/curated.json</code>. Amounts are as cited there. Context cards below stay honest: previously reported or USAspending new-prime only. For a ranked federal-money screen (not a buy list), see <a href="top-companies.html" class="bronze-link">Top companies</a>. Acronyms: <a href="glossary.html" class="bronze-link">glossary</a>. Not investment advice.</p>
         <p class="text-sm text-[#8A8F82] mb-10">Sourced dollars and status tags live on the <a href="awards.html#flagship" class="bronze-link">flagship awards strip</a> and the <a href="awards.html#new-primes" class="bronze-link">new primes strip</a>.</p>
-        <p class="text-sm text-[#8A8F82] mb-6">The six flagship ticker cards and six context cards are unchanged from the prior roster. This page is a directory, not a ranked buy list.</p>
-        <p class="text-sm text-[#8A8F82]"><a href="top-companies.html" class="bronze-link">Open the ranked Top companies screen →</a></p>
+
+        <h2 class="text-2xl font-semibold section-header mb-4">Verified flagship this window</h2>
+        <div id="flagship-companies" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <p class="text-sm text-[#8A8F82]">Loading flagship tickers from curated.json…</p>
+        </div>
+
+        <h2 class="text-2xl font-semibold section-header mb-4">Context names</h2>
+        <p class="text-sm text-[#8A8F82] mb-6">Previously reported or USAspending new-prime only. Not flagship tickers except as noted.</p>
+        <div id="context-companies" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <p class="mt-10 text-center text-sm text-[#8A8F82]">Tickers on context cards are listed symbols, not a claim they won a new flagship award unless marked flagship. We do not invent dollars.</p>
     </div>
     </main>
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
@@ -57,5 +65,6 @@
         </div>
     </footer>
     <script src="js/nav.js"></script>
+    <script src="js/companies.js"></script>
 </body>
 </html>
