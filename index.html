@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FedForge • Track Federal Investments | Nuclear • Quantum • AI • Semiconductors • Critical Minerals</title>
-    <meta name="description" content="Investor-focused tracker of U.S. federal government investments in nuclear, quantum computing, AI infrastructure, semiconductors (CHIPS Act), critical minerals, and defense tech. Latest deals, companies, and stock implications.">
+    <title>FedForge • Track Federal Investments | Nuclear • Magnets • Semiconductors</title>
+    <meta name="description" content="Tracker of U.S. federal prime awards in nuclear/SMRs, magnets and rare earths, and semiconductors (CHIPS). Live USAspending feed. Not investment advice.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #12150F; color: #E8E4D9; }
-        .bronze-text { color: #C4A574; }
-        .deco-card { background: #1A2118; border: 1px solid #2C382E; transition: all 0.3s; }
-        .deco-card:hover { border-color: #C4A574; transform: translateY(-3px); }
-        .nav-link { transition: color 0.2s; }
-        .nav-link:hover { color: #C4A574; }
-        .section-header::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(to right, #C4A574, transparent); margin-top: 8px; }
-        .amount-text { color: #6B9B7A; }
-        .badge-green { background: rgba(61,107,79,0.35); color: #6B9B7A; }
-        .badge-bronze { background: rgba(140,106,63,0.35); color: #C4A574; }
-    </style>
+    <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
     <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="font-bold text-2xl tracking-tight">
-                <span class="text-white">FED</span><span class="bronze-text">FORGE</span>
+                <span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span>
             </a>
-            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#C4A574] border border-[#C4A574] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <button id="nav-toggle" class="md:hidden p-2 border border-[#2C382E] rounded-lg bronze-text" aria-label="Open menu" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
+                </svg>
             </button>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="index.html" class="bronze-text">Dashboard</a>
@@ -36,179 +27,80 @@
                 <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] hover:bg-[#C4A574] hover:text-[#12150F] transition">Free Report</a>
+                <a href="free-report.html" class="px-4 py-2 rounded-xl cta-outline transition">Free Report</a>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2C382E] bg-[#12150F]">
-            <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
-                <a href="index.html" class="bronze-text">Dashboard</a>
-                <a href="sectors.html" class="nav-link">Sectors</a>
-                <a href="companies.html" class="nav-link">Companies</a>
-                <a href="movers.html" class="nav-link">Biggest Movers</a>
-                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
-                <a href="international.html" class="nav-link">International</a>
-                <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] text-center">Free Report</a>
-            </div>
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-4 space-y-1 text-sm">
+            <a href="index.html">Dashboard</a>
+            <a href="sectors.html">Sectors</a>
+            <a href="companies.html">Companies</a>
+            <a href="movers.html">Biggest Movers</a>
+            <a href="pipeline.html">Policy Pipeline</a>
+            <a href="international.html">International</a>
+            <a href="historical.html">Historical</a>
+            <a href="free-report.html" class="bronze-text">Free Report</a>
         </div>
     </nav>
 
     <section class="max-w-7xl mx-auto px-6 py-16 text-center">
         <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
             Track where the U.S. government is investing<br>
-            <span class="bronze-text">and which public companies stand to benefit</span>
+            <span class="bronze-text">into companies and sectors — follow the money</span>
         </h1>
         <p class="text-[#8A8F82] max-w-2xl mx-auto text-lg">
-            Federal funding in nuclear, quantum, AI infrastructure, semiconductors, critical minerals &amp; defense tech — translated into clear stock implications for investors.
+            Prime federal awards in nuclear and SMRs, magnets and rare earths, and semiconductors / CHIPS. Defense tech only when the dollars are clearly federal. This is not investment advice.
         </p>
-        <div class="mt-8 flex justify-center gap-4">
-            <a href="free-report.html" class="px-8 py-3 bg-white text-[#12150F] font-semibold rounded-2xl hover:bg-[#C4A574] transition">Get Free 2026 Themes Report</a>
-            <a href="#live-tracker" class="px-8 py-3 border border-[#2C382E] rounded-2xl hover:border-[#C4A574] transition">View Live Deals</a>
+        <div class="mt-8 flex justify-center gap-4 flex-wrap">
+            <a href="free-report.html" class="px-8 py-3 bg-[#E8E4D9] text-[#12150F] font-semibold rounded-2xl hover:bg-[#C4A574] transition">Get Free 2026 Themes Report</a>
+            <a href="#live-tracker" class="px-8 py-3 border border-[#2C382E] rounded-2xl hover:border-[#C4A574] transition">View Live Awards</a>
         </div>
     </section>
 
     <section class="max-w-7xl mx-auto px-6 mb-12">
-        <div class="deco-card rounded-3xl p-6 border-l-4 border-[#C4A574]">
-            <div class="flex items-center gap-3 mb-2">
-                <span class="px-3 py-1 badge-green text-xs rounded-full">UPDATED September 1, 2026</span>
-                <span class="text-sm text-[#8A8F82]">Fresh federal investment news</span>
+        <div class="deco-card rounded-3xl p-6 border-l-4" style="border-left-color:#C4A574">
+            <div class="flex items-center gap-3 mb-2 flex-wrap">
+                <span class="px-3 py-1 badge-green text-xs rounded-full">UPDATED 1 Sep 2026</span>
+                <span class="text-sm text-[#8A8F82]">Sourced from USAspending prime awards in this snapshot</span>
             </div>
             <h2 class="text-xl font-semibold mb-3">Latest Developments</h2>
             <ul class="space-y-2 text-sm text-[#8A8F82]">
-                <li>• <strong class="text-white">Nuclear</strong>: Oklo’s Groves Isotope Test Reactor reached criticality (DOE, Aug. 6, 2026) — the fifth DOE-authorized advanced reactor this summer under the Reactor Pilot Program. This is a zero-power test unit in Lockhart, TX, not the Aurora commercial plant.</li>
-                <li>• <strong class="text-white">AI + Nuclear R&amp;D</strong>: DOE Genesis Mission (July 22) selected 278 projects; the largest is a 3-year, $60M nuclear-AI award. DOE also announced more than $800M in consortium partner commitments. Selections are for award negotiations, not final funding.</li>
-                <li>• <strong class="text-white">Semiconductors</strong>: Commerce signed 7 CHIPS R&amp;D letters of intent on July 29 for $874M (photonics, memory, packaging, substrates). LOIs are not final awards; Commerce takes a minority, non-controlling equity stake if funded.</li>
-                <li>• <strong class="text-white">Critical Minerals</strong>: July 30 Presidential Determination under DPA §101 on recoverable CMMs (black mass, end-of-life REE magnets, scrap). BIS temporary final rule (Aug. 6) requires, as of Aug. 27, 100% of monthly black-mass and tungsten scrap sales to U.S. persons unless BIS grants an exception.</li>
-                <li>• <strong class="text-white">Quantum</strong>: $2.013B CHIPS Act LOIs (May 21, 2026) for 9 companies remain letters of intent, not closed awards. June 22 EO 14413 still directs a utility-scale QC-ADDS machine for a DOE facility; DOE partnership-model report is due within 180 days of the order.</li>
-                <li>• <strong class="text-white">Large nuclear</strong>: DOE EDF issued a $17.5B conditional loan commitment (June 23) for long-lead items on up to 10 Westinghouse AP1000 units. Separate Oct. 2025 partnership targets at least $80B of Westinghouse reactor construction — that figure is project value, not a cash grant.</li>
+                <li>• <strong class="text-[#E8E4D9]">Nuclear</strong>: DOE task order <strong class="text-[#E8E4D9]">$900M</strong> to American Centrifuge Operating (start 6 Jul 2026) to stand up commercial HALEU capacity. Separate DOE cooperative agreement <strong class="text-[#E8E4D9]">$28.4M</strong> to Global Laser Enrichment (29 Jun) for front-end nuclear fuel-cycle technology.</li>
+                <li>• <strong class="text-[#E8E4D9]">Magnets / rare earths</strong>: 1 Sep NSF awards for critical-mineral recovery (University of Alaska Anchorage <strong class="text-[#E8E4D9]">$3.82M</strong>, Montana Tech <strong class="text-[#E8E4D9]">$1.26M</strong>, Rareterra SBIR). NSF Alaska Critical Mineral Accelerator <strong class="text-[#E8E4D9]">$7.5M</strong> (1 Aug). DOE RAPID-REE at South Dakota Mines <strong class="text-[#E8E4D9]">$3.1M</strong> (15 Jul).</li>
+                <li>• <strong class="text-[#E8E4D9]">Semiconductors</strong>: NSF FAST Engine in Oregon <strong class="text-[#E8E4D9]">$7.5M</strong> (1 Aug). DoD silicon-carbide CMOS work at University of Arkansas <strong class="text-[#E8E4D9]">$6.43M</strong> (1 Jul). NIST CHIPS R&amp;D buys include CAMECA atom-probe tools (<strong class="text-[#E8E4D9]">$3.87M</strong>, 31 Jul) and Mosaic Microsystems wafer fabrication.</li>
             </ul>
         </div>
     </section>
 
     <section id="live-tracker" class="max-w-7xl mx-auto px-6 mb-16">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
-            <div>
-                <h2 class="text-3xl font-semibold section-header mb-2">Live Deal Tracker</h2>
-                <p class="text-sm text-[#8A8F82] max-w-2xl">Prime awards from <a class="bronze-text hover:underline" href="https://www.usaspending.gov/" target="_blank" rel="noopener">USAspending.gov</a> (~90 days through 1 Sep 2026) for nuclear, magnets/rare earths, semiconductors &amp; CHIPS. Amounts and recipients are from the public API — not estimates.</p>
-            </div>
-            <div class="text-sm text-[#8A8F82]"><span class="badge-green px-3 py-1 rounded-full text-xs">41 awards in feed</span></div>
-        </div>
-        <div id="awards-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 class="text-3xl font-semibold section-header mb-3">Live Deal Tracker</h2>
+        <p id="awards-meta" class="text-sm text-[#8A8F82] mb-8">Loading USAspending snapshot…</p>
+        <div id="awards-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4 gap-3">
-                    <div>
-                        <div class="text-xs text-[#8A8F82]">NUCLEAR</div>
-                        <div class="text-xl font-semibold">NAC INTERNATIONAL INC.</div>
-                        <div class="text-xs text-[#8A8F82] mt-1">Department of Energy</div>
-                    </div>
-                    <div class="text-right shrink-0">
-                        <div class="amount-text font-semibold">$17.68M</div>
-                        <span class="inline-block mt-1 px-2 py-1 badge-green text-xs rounded">2026-08-27</span>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mb-3">TRANSPORTATION SERVICES, ESCORT SERVICES, AND TECHNICAL SUPPORT FOR THE SHIPMENT OF RADIOACTIVE IRRADIATED TRITIUM PRODUCING BURNABLE ABSORBER RODS (TPBARS) TO SUPPORT THE SAVANNAH RIVER SITE TRITIUM EXTRACTION FACILITY.</p>
-                <div class="text-xs mt-2 text-[#8A8F82]">No verified public ticker</div>
-                <a href="https://www.usaspending.gov/award/CONT_AWD_89233123CNA000305_8900_-NONE-_-NONE-" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-text hover:underline">USAspending source →</a>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4 gap-3">
-                    <div>
-                        <div class="text-xs text-[#8A8F82]">NUCLEAR</div>
-                        <div class="text-xl font-semibold">SEATECH GLOBAL SECURITY SOLUTIONS</div>
-                        <div class="text-xs text-[#8A8F82] mt-1">Department of Energy</div>
-                    </div>
-                    <div class="text-right shrink-0">
-                        <div class="amount-text font-semibold">$17.53M</div>
-                        <span class="inline-block mt-1 px-2 py-1 badge-green text-xs rounded">2026-08-27</span>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mb-3">TASKS INCLUDE DESIGN, INTEGRATION, CONSTRUCTION, COMMUNICATIONS, LOGISTICS, TRAINING, AND EQUIPMENT PROCUREMENT TO SUPPORT THE DEPLOYMENT OF COUNTER NUCLEAR SMUGGLING SYSTEMS. EXAMPLES OF COUNTER NUCLEAR SMUGGLING SYSTEM COMPONENTS INCLUDE BUT ARE NO</p>
-                <div class="text-xs mt-2 text-[#8A8F82]">No verified public ticker</div>
-                <a href="https://www.usaspending.gov/award/CONT_AWD_89233124FNA400649_8900_89233124DNA000056_8900" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-text hover:underline">USAspending source →</a>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4 gap-3">
-                    <div>
-                        <div class="text-xs text-[#8A8F82]">SEMICONDUCTORS / CHIPS</div>
-                        <div class="text-xl font-semibold">FJG CHEMICAL LLC</div>
-                        <div class="text-xs text-[#8A8F82] mt-1">National Aeronautics and Space Administration</div>
-                    </div>
-                    <div class="text-right shrink-0">
-                        <div class="amount-text font-semibold">$643.1K</div>
-                        <span class="inline-block mt-1 px-2 py-1 badge-green text-xs rounded">2026-08-27</span>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mb-3">THE PURPOSE OF THIS REQUIREMENT IS TO PROVIDE SEMICONDUCTOR OR HIGHER GRADE CHEMICALS. THESE ITEMS ARE CRITICAL FOR THE CONTINUOUS DAILY OPERATION OF THE GOVERNMENTS LABORATORIES LOCATED IN BUILDING 11 AND BUILDING 30-DDL.</p>
-                <div class="text-xs mt-2 text-[#8A8F82]">No verified public ticker</div>
-                <a href="https://www.usaspending.gov/award/CONT_AWD_80GSFC24CA047_8000_-NONE-_-NONE-" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-text hover:underline">USAspending source →</a>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4 gap-3">
-                    <div>
-                        <div class="text-xs text-[#8A8F82]">NUCLEAR</div>
-                        <div class="text-xl font-semibold">THE AEROSPACE CORPORATION</div>
-                        <div class="text-xs text-[#8A8F82] mt-1">Department of Energy</div>
-                    </div>
-                    <div class="text-right shrink-0">
-                        <div class="amount-text font-semibold">$36.94M</div>
-                        <span class="inline-block mt-1 px-2 py-1 badge-green text-xs rounded">2026-08-26</span>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mb-3">SYSTEM ENGINEERING AND INTEGRATION (SE&amp;I) SUPPORT AND INDEPENDENT TECHNICAL AND PROGRAMMATIC ANALYSIS FOR THE OFFICES OF DEFENSE NUCLEAR NONPROLIFERATION AND DEFENSE PROGRAMS</p>
-                <div class="text-xs mt-2 text-[#8A8F82]">No verified public ticker</div>
-                <a href="https://www.usaspending.gov/award/CONT_AWD_89233125FNA400697_8900_89233125DNA000062_8900" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-text hover:underline">USAspending source →</a>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4 gap-3">
-                    <div>
-                        <div class="text-xs text-[#8A8F82]">NUCLEAR</div>
-                        <div class="text-xl font-semibold">THE AEROSPACE CORPORATION</div>
-                        <div class="text-xs text-[#8A8F82] mt-1">Department of Energy</div>
-                    </div>
-                    <div class="text-right shrink-0">
-                        <div class="amount-text font-semibold">$20.49M</div>
-                        <span class="inline-block mt-1 px-2 py-1 badge-green text-xs rounded">2026-08-26</span>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mb-3">SYSTEM ENGINEERING AND INTEGRATION (SE&amp;I) SUPPORT AND INDEPENDENT TECHNICAL AND PROGRAMMATIC ANALYSIS FOR THE OFFICES OF DEFENSE NUCLEAR NONPROLIFERATION (DNN - NA-20)</p>
-                <div class="text-xs mt-2 text-[#8A8F82]">No verified public ticker</div>
-                <a href="https://www.usaspending.gov/award/CONT_AWD_89233125FNA400696_8900_89233125DNA000062_8900" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-text hover:underline">USAspending source →</a>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4 gap-3">
-                    <div>
-                        <div class="text-xs text-[#8A8F82]">NUCLEAR</div>
-                        <div class="text-xl font-semibold">NEVADA SYSTEM OF HIGHER EDUCATION</div>
-                        <div class="text-xs text-[#8A8F82] mt-1">Department of Energy</div>
-                    </div>
-                    <div class="text-right shrink-0">
-                        <div class="amount-text font-semibold">$17.79M</div>
-                        <span class="inline-block mt-1 px-2 py-1 badge-green text-xs rounded">2026-08-26</span>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mb-3">TECHNICAL RESEARCH, ENGINEERING, AND DEVELOPMENT SERVICES (TREDS) II SUPPORTING THE DEPARTMENT OF ENERGY (DOE) NATIONAL NUCLEAR SECURITY ADMINISTRATION (NNSA) - NEVADA FIELD OFFICE (NFO)</p>
-                <div class="text-xs mt-2 text-[#8A8F82]">No verified public ticker</div>
-                <a href="https://www.usaspending.gov/award/CONT_AWD_89233122CNA000255_8900_-NONE-_-NONE-" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-text hover:underline">USAspending source →</a>
+                <div class="text-xs text-[#8A8F82]">NUCLEAR</div>
+                <div class="text-xl font-semibold">American Centrifuge Operating, LLC</div>
+                <div class="text-lg font-semibold amount-pos mt-2 mb-2">$900M</div>
+                <p class="text-sm text-[#8A8F82] mb-4">DOE task order to establish domestic commercial HALEU capacity and begin production of HALEU UF6 for purchase by DOE. 6 Jul 2026.</p>
+                <div class="text-xs"><span class="bronze-text">Ticker:</span> LEU</div>
+                <a href="https://www.usaspending.gov/award/CONT_AWD_89243226FNE400212_8900_89243225DNE000022_8900" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-link">USAspending source →</a>
             </div>
         </div>
-        <p id="awards-status" class="mt-6 text-center text-xs text-[#8A8F82]">Showing baked snapshot. Loading live <code class="bronze-text">data/awards.json</code>…</p>
     </section>
 
     <section class="max-w-7xl mx-auto px-6 mb-16">
         <div class="grid md:grid-cols-4 gap-4">
-            <a href="companies.html" class="deco-card rounded-2xl p-6 text-center hover:border-[#C4A574]">
+            <a href="companies.html" class="deco-card rounded-2xl p-6 text-center">
                 <div class="text-2xl font-semibold mb-1">Companies</div>
                 <div class="text-xs text-[#8A8F82]">Who is receiving the money</div>
             </a>
-            <a href="historical.html" class="deco-card rounded-2xl p-6 text-center hover:border-[#C4A574]">
+            <a href="historical.html" class="deco-card rounded-2xl p-6 text-center">
                 <div class="text-2xl font-semibold mb-1">Historical</div>
                 <div class="text-xs text-[#8A8F82]">Why it has paid off before</div>
             </a>
-            <a href="pipeline.html" class="deco-card rounded-2xl p-6 text-center hover:border-[#C4A574]">
+            <a href="pipeline.html" class="deco-card rounded-2xl p-6 text-center">
                 <div class="text-2xl font-semibold mb-1">Pipeline</div>
                 <div class="text-xs text-[#8A8F82]">Bills &amp; future deals</div>
             </a>
-            <a href="free-report.html" class="deco-card rounded-2xl p-6 text-center hover:border-[#C4A574]">
+            <a href="free-report.html" class="deco-card rounded-2xl p-6 text-center">
                 <div class="text-2xl font-semibold mb-1">Free Report</div>
                 <div class="text-xs text-[#8A8F82]">2026 Themes PDF</div>
             </a>
@@ -221,69 +113,8 @@
             <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
         </div>
     </footer>
-    <script>
-        (function () {
-            var btn = document.getElementById('mobile-menu-btn');
-            var menu = document.getElementById('mobile-menu');
-            if (btn && menu) {
-                btn.addEventListener('click', function () {
-                    var open = menu.classList.toggle('hidden') === false;
-                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-                    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-                });
-            }
-            function fmtAmount(n) {
-                if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
-                if (n >= 1e6) return '$' + (n/1e6).toFixed(2) + 'M';
-                if (n >= 1e3) return '$' + (n/1e3).toFixed(1) + 'K';
-                return '$' + Math.round(n).toLocaleString();
-            }
-            function sectorLabel(s) {
-                return ({ nuclear: 'NUCLEAR', magnets: 'MAGNETS / CRITICAL MINERALS', chips: 'SEMICONDUCTORS / CHIPS', other: 'OTHER' })[s] || String(s || '').toUpperCase();
-            }
-            function escapeHtml(str) {
-                return String(str || '').replace(/[&<>"']/g, function (c) {
-                    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
-                });
-            }
-            function renderAwards(payload) {
-                var grid = document.getElementById('awards-grid');
-                var status = document.getElementById('awards-status');
-                if (!grid || !payload || !payload.awards) return;
-                var list = payload.awards.slice(0, 18);
-                grid.innerHTML = list.map(function (a) {
-                    var tick = a.ticker
-                        ? '<div class="text-xs mt-2"><span class="bronze-text">Ticker:</span> ' + escapeHtml(a.ticker) + '</div>'
-                        : '<div class="text-xs mt-2 text-[#8A8F82]">No verified public ticker</div>';
-                    var desc = escapeHtml((a.description || '').slice(0, 280)) + ((a.description || '').length > 280 ? '…' : '');
-                    return (
-                        '<div class="deco-card rounded-3xl p-6">' +
-                        '<div class="flex justify-between items-start mb-4 gap-3"><div>' +
-                        '<div class="text-xs text-[#8A8F82]">' + escapeHtml(sectorLabel(a.sector)) + '</div>' +
-                        '<div class="text-xl font-semibold">' + escapeHtml((a.recipient_name || '').slice(0, 60)) + '</div>' +
-                        '<div class="text-xs text-[#8A8F82] mt-1">' + escapeHtml((a.agency || '').slice(0, 80)) + '</div>' +
-                        '</div><div class="text-right shrink-0">' +
-                        '<div class="amount-text font-semibold">' + fmtAmount(a.amount || 0) + '</div>' +
-                        '<span class="inline-block mt-1 px-2 py-1 badge-green text-xs rounded">' + escapeHtml(a.date || '') + '</span>' +
-                        '</div></div>' +
-                        '<p class="text-sm text-[#8A8F82] mb-3">' + desc + '</p>' + tick +
-                        '<a href="' + escapeHtml(a.source_url || 'https://www.usaspending.gov/') + '" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-text hover:underline">USAspending source →</a>' +
-                        '</div>'
-                    );
-                }).join('');
-                if (status) {
-                    status.textContent = 'Live from data/awards.json · ' + (payload.count || list.length) + ' prime awards · window ' +
-                        ((payload.window && payload.window.start) || '') + ' → ' + ((payload.window && payload.window.end) || '');
-                }
-            }
-            fetch('data/awards.json', { cache: 'no-store' })
-                .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-                .then(renderAwards)
-                .catch(function (err) {
-                    var status = document.getElementById('awards-status');
-                    if (status) status.textContent = 'Showing baked snapshot (live fetch unavailable: ' + err.message + ').';
-                });
-        })();
-    </script>
+    <script src="js/nav.js"></script>
+    <script src="js/awards-data.js"></script>
+    <script src="js/awards-feed.js"></script>
 </body>
 </html>
