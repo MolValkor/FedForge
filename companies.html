@@ -3,139 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Companies • FedForge</title>
+    <title>Companies · FedForge</title>
+    <meta name="description" content="Named recipients of in-window federal awards. Tickers only if verified public companies.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
-    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl tracking-tight">
-                <span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span>
-            </a>
-            <button id="nav-toggle" class="md:hidden p-2 border border-[#2C382E] rounded-lg bronze-text" aria-label="Open menu" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
-                </svg>
-            </button>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur" aria-label="Primary">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home"><span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span></a>
+            <button type="button" id="nav-toggle" class="md:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <div class="hidden md:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
                 <a href="index.html" class="nav-link">Dashboard</a>
                 <a href="sectors.html" class="nav-link">Sectors</a>
-                <a href="companies.html" class="bronze-text">Companies</a>
-                <a href="movers.html" class="nav-link">Biggest Movers</a>
-                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
+                <a href="awards.html" class="nav-link">Awards</a>
+                <a href="companies.html" class="nav-link is-active" aria-current="page">Companies</a>
+                <a href="pipeline.html" class="nav-link">Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 rounded-xl cta-outline transition">Free Report</a>
+                <a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
             </div>
         </div>
-        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-4 space-y-1 text-sm">
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
             <a href="index.html">Dashboard</a>
             <a href="sectors.html">Sectors</a>
-            <a href="companies.html">Companies</a>
-            <a href="movers.html">Biggest Movers</a>
-            <a href="pipeline.html">Policy Pipeline</a>
+            <a href="awards.html">Awards</a>
+            <a href="companies.html" class="is-active" aria-current="page">Companies</a>
+            <a href="pipeline.html">Pipeline</a>
             <a href="international.html">International</a>
             <a href="historical.html">Historical</a>
-            <a href="free-report.html" class="bronze-text">Free Report</a>
+            <a href="free-report.html">Free briefing</a>
         </div>
     </nav>
+    <main id="main">
     <div class="max-w-7xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-semibold mb-2">Companies Receiving Federal Funding</h1>
-        <p class="text-[#8A8F82] mb-4">Public names that remain useful context for nuclear, magnets/rare earths, and semiconductors. Dollar figures on this page are from prior public announcements — we are not adding new amounts here.</p>
-        <p class="text-sm text-[#8A8F82] mb-10">The live list of recent prime awards (with sourced dollars) is the <a href="index.html#live-tracker" class="bronze-link">awards feed on the dashboard</a>, backed by <code>data/awards.json</code>.</p>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between">
-                    <div>
-                        <div class="text-xl font-semibold">MP Materials</div>
-                        <div class="text-xs text-[#8A8F82]">Critical Minerals / Rare Earth Magnets</div>
-                    </div>
-                    <div class="text-right text-sm">
-                        <div class="amount-pos">DoD partnership</div>
-                        <div class="text-xs text-[#8A8F82]">previously reported</div>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mt-4">U.S. rare earth miner/magnet maker previously reported as receiving DoD equity, loan, offtake, and price-floor support for a domestic magnet facility. Not in this 90-day USAspending new-award snapshot.</p>
-                <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> MP</div>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between">
-                    <div>
-                        <div class="text-xl font-semibold">IBM</div>
-                        <div class="text-xs text-[#8A8F82]">Quantum / advanced manufacturing</div>
-                    </div>
-                    <div class="text-right text-sm">
-                        <div class="amount-pos">CHIPS LOI (prior)</div>
-                        <div class="text-xs text-[#8A8F82]">previously reported</div>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mt-4">Previously named in Commerce quantum CHIPS letters of intent. No new IBM prime award in this USAspending window — see the live feed for current dollars.</p>
-                <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> IBM</div>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between">
-                    <div>
-                        <div class="text-xl font-semibold">Oklo</div>
-                        <div class="text-xs text-[#8A8F82]">Advanced Nuclear / SMRs</div>
-                    </div>
-                    <div class="text-right text-sm">
-                        <div class="amount-pos">DOE pilots (prior)</div>
-                        <div class="text-xs text-[#8A8F82]">previously reported</div>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mt-4">Advanced fission developer previously reported as selected for DOE reactor pilots. No Oklo prime award appeared in this 90-day USAspending pull.</p>
-                <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> OKLO</div>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between">
-                    <div>
-                        <div class="text-xl font-semibold">IonQ</div>
-                        <div class="text-xs text-[#8A8F82]">Trapped-Ion Quantum</div>
-                    </div>
-                    <div class="text-right text-sm">
-                        <div class="amount-pos">CHIPS LOI (prior)</div>
-                        <div class="text-xs text-[#8A8F82]">previously reported</div>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mt-4">Previously included in Commerce quantum incentive announcements. Not sourced as a new prime award in this snapshot.</p>
-                <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> IONQ</div>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between">
-                    <div>
-                        <div class="text-xl font-semibold">GlobalFoundries</div>
-                        <div class="text-xs text-[#8A8F82]">Semiconductor manufacturing</div>
-                    </div>
-                    <div class="text-right text-sm">
-                        <div class="amount-pos">CHIPS (prior)</div>
-                        <div class="text-xs text-[#8A8F82]">previously reported</div>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mt-4">U.S. foundry previously named in CHIPS-related quantum manufacturing support. No new GlobalFoundries prime award in this window.</p>
-                <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> GFS</div>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between">
-                    <div>
-                        <div class="text-xl font-semibold">BWX Technologies</div>
-                        <div class="text-xs text-[#8A8F82]">Nuclear Components</div>
-                    </div>
-                    <div class="text-right text-sm">
-                        <div class="amount-pos">DoD / DOE (ongoing)</div>
-                        <div class="text-xs text-[#8A8F82]">previously reported</div>
-                    </div>
-                </div>
-                <p class="text-sm text-[#8A8F82] mt-4">Naval nuclear and advanced-reactor component supplier. No new-award hit under the BWX name in this 90-day USAspending query.</p>
-                <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> BWXT</div>
-            </div>
+        <h1 class="text-4xl font-semibold mb-2">Companies</h1>
+        <p class="text-[#8A8F82] mb-10 max-w-3xl">Public companies appear here only when they are the named recipient of an in-window federal item. Private recipients are listed without tickers.</p>
+        <h2 class="text-xl font-semibold mb-4">Verified public recipients</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <article id="lmt" class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between gap-3"><div><div class="text-xl font-semibold">Lockheed Martin</div><div class="text-xs text-[#8A8F82]">Missile defense · THAAD + PAC-3 MSE</div></div><div class="text-xs bronze-text">LMT</div></div>
+                <p class="text-sm text-[#8A8F82] mt-4">Jun 24 THAAD UCA: $35,327,237,604 total / $842,871,672 obligated. Jul 29 PAC-3 MSE modification: $53,859,843,289 added; cumulative face $58,620,843,289; no funds obligated on that mod.</p>
+                <a class="bronze-link text-xs mt-3 inline-block" href="https://www.war.gov/News/Contracts/Contract/Article/4525817/contracts-for-june-24-2026/" target="_blank" rel="noopener">DoW Jun 24 notice →</a>
+            </article>
+            <article id="rtx" class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between gap-3"><div><div class="text-xl font-semibold">RTX / Raytheon</div><div class="text-xs text-[#8A8F82]">Munitions · Tomahawk + AMRAAM</div></div><div class="text-xs bronze-text">RTX</div></div>
+                <p class="text-sm text-[#8A8F82] mt-4">Aug 17: $22.9B Navy / DoW munitions acceleration (Tomahawk). Jun 23: AMRAAM D4/C9 UCA $398,691,358 with $104,103,634 FMS obligated.</p>
+                <a class="bronze-link text-xs mt-3 inline-block" href="https://www.war.gov/News/Releases/Release/Article/4573544/department-of-war-and-rtx-accelerate-critical-munitions-production-through-navy/" target="_blank" rel="noopener">DoW Aug 17 release →</a>
+            </article>
+            <article id="leu" class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between gap-3"><div><div class="text-xl font-semibold">Centrus Energy</div><div class="text-xs text-[#8A8F82]">HALEU · American Centrifuge Operating</div></div><div class="text-xs bronze-text">LEU</div></div>
+                <p class="text-sm text-[#8A8F82] mt-4">Jul 1 DOE task order to ACO LLC: $900M FFP / about $1.07B base+options.</p>
+                <a class="bronze-link text-xs mt-3 inline-block" href="https://www.usaspending.gov/award/CONT_AWD_89243226FNE400212_8900_89243225DNE000022_8900" target="_blank" rel="noopener">USAspending award →</a>
+            </article>
+            <article id="usar" class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between gap-3"><div><div class="text-xl font-semibold">USA Rare Earth</div><div class="text-xs text-[#8A8F82]">CHIPS mine-to-magnet</div></div><div class="text-xs bronze-text">USAR</div></div>
+                <p class="text-sm text-[#8A8F82] mt-4">Jun 3 Commerce definitive agreement: up to $277M CHIPS funding plus up to $1.3B loan. Amounts are ceilings.</p>
+                <a class="bronze-link text-xs mt-3 inline-block" href="https://www.nist.gov/news-events/news/2026/06/department-commerces-chips-program-finalizes-definitive-agreement-usa-rare" target="_blank" rel="noopener">NIST release →</a>
+            </article>
+            <article id="pcg" class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between gap-3"><div><div class="text-xl font-semibold">PG&amp;E</div><div class="text-xs text-[#8A8F82]">Diablo Canyon Civil Nuclear Credit</div></div><div class="text-xs bronze-text">PCG</div></div>
+                <p class="text-sm text-[#8A8F82] mt-4">Aug 14 DOE: first CNC payment, $271M paid — not a loan and not a construction grant.</p>
+                <a class="bronze-link text-xs mt-3 inline-block" href="https://www.energy.gov/ne/articles/department-energy-awards-first-civil-nuclear-credit-payment-california-power-plant" target="_blank" rel="noopener">DOE release →</a>
+            </article>
+            <article id="gfs" class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between gap-3"><div><div class="text-xl font-semibold">GlobalFoundries</div><div class="text-xs text-[#8A8F82]">CHIPS R&amp;D LOI</div></div><div class="text-xs bronze-text">GFS</div></div>
+                <p class="text-sm text-[#8A8F82] mt-4">Jul 29: named in the $874M seven-company LOI package, up to $300M planned. Status is LOI — not a closed award.</p>
+                <a class="bronze-link text-xs mt-3 inline-block" href="https://www.nist.gov/news-events/news/2026/07/department-commerce-announces-letters-intent-7-companies-874-million" target="_blank" rel="noopener">NIST LOI release →</a>
+            </article>
         </div>
-        <p class="mt-10 text-center text-sm text-[#8A8F82]">For verified dollars and dates, use the dashboard awards feed. Tickers on this page are the companies’ listed symbols, not a claim that they won an award in the current snapshot.</p>
+        <h2 class="text-xl font-semibold mb-4">Named private recipients (no ticker)</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="deco-card rounded-3xl p-6"><div class="text-xl font-semibold">ANDP HOLDCO LLC</div><p class="text-sm text-[#8A8F82] mt-3">Westinghouse sponsor vehicle for $17.5B DOE EDF conditional AP1000 long-lead loans. Westinghouse is private. Cameco (CCJ) is a partner, not the loan recipient — ticker omitted here.</p></article>
+            <article class="deco-card rounded-3xl p-6"><div class="text-xl font-semibold">SandboxAQ</div><p class="text-sm text-[#8A8F82] mt-3">CHIPS R&amp;D definitive $500M (Jun 17). Private.</p></article>
+            <article class="deco-card rounded-3xl p-6"><div class="text-xl font-semibold">I-Pulse</div><p class="text-sm text-[#8A8F82] mt-3">CHIPS R&amp;D $250M SiC (Jun 25). Private.</p></article>
+            <article class="deco-card rounded-3xl p-6"><div class="text-xl font-semibold">Bosch Semiconductor</div><p class="text-sm text-[#8A8F82] mt-3">CHIPS direct funding up to $225M SiC (Jul 13). Not a U.S.-listed ticker on this site.</p></article>
+            <article class="deco-card rounded-3xl p-6"><div class="text-xl font-semibold">Sila Nanotechnologies</div><p class="text-sm text-[#8A8F82] mt-3">OSC conditional loan up to $1.4B (Aug 7). Private.</p></article>
+            <article class="deco-card rounded-3xl p-6"><div class="text-xl font-semibold">Niron Magnetics</div><p class="text-sm text-[#8A8F82] mt-3">OSC $150M conditional loan (Aug 7). Private.</p></article>
+        </div>
+        <p class="mt-8 text-sm text-[#8A8F82]">Tickers we refused to guess: Aeluma on the Jul 29 LOI card; IonQ (not on the May 21 NIST quantum LOI list; that package is also pre-window); TSMC (private FDI, excluded).</p>
     </div>
+    </main>
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
-            <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
+            <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers.</p>
         </div>
     </footer>
     <script src="js/nav.js"></script>
