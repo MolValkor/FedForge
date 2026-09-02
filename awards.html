@@ -25,6 +25,8 @@
                 <a href="sectors.html" class="nav-link">Sectors</a>
                 <a href="awards.html" class="nav-link is-active" aria-current="page">Awards</a>
                 <a href="companies.html" class="nav-link">Companies</a>
+                <a href="top-companies.html" class="nav-link">Top companies</a>
+                <a href="glossary.html" class="nav-link">Glossary</a>
                 <a href="pipeline.html" class="nav-link">Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
@@ -36,6 +38,8 @@
             <a href="sectors.html">Sectors</a>
             <a href="awards.html" class="is-active" aria-current="page">Awards</a>
             <a href="companies.html">Companies</a>
+            <a href="top-companies.html">Top companies</a>
+            <a href="glossary.html">Glossary</a>
             <a href="pipeline.html">Pipeline</a>
             <a href="international.html">International</a>
             <a href="historical.html">Historical</a>
@@ -45,7 +49,7 @@
     <main id="main">
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-4xl font-semibold mb-2">Awards</h1>
-        <p class="text-[#8A8F82] mb-6 max-w-3xl">Two layers, both kept after a branch race. Flagship cards are 14 official notices (DoW, DOE, NIST, White House, OSC) with status tags. New primes are 46 USAspending university / SBIR / lab awards — not megadeals. A UCA or LOI is not the same as cash out the door.</p>
+        <p class="text-[#8A8F82] mb-6 max-w-3xl">Two layers, both kept after a branch race. Flagship cards are 14 official notices (Department of War (DoW), Department of Energy (DOE), National Institute of Standards and Technology (NIST), White House, Office of Strategic Capital (OSC)) with status tags. New primes are 46 USAspending university / Small Business Innovation Research (SBIR) / lab awards — not megadeals. An undefinitized contract action (UCA) or letter of intent (LOI) is not the same as cash out the door. Plain-English expansions: <a href="glossary.html" class="bronze-link">glossary</a>.</p>
         <div class="flex flex-wrap gap-2 mb-10 no-print" role="tablist" aria-label="Filter by sector">
             <button type="button" class="filter-btn is-on" data-filter-sector="all">All</button>
             <button type="button" class="filter-btn" data-filter-sector="nuclear">Nuclear</button>
@@ -56,7 +60,7 @@
 
         <section id="flagship" class="mb-16">
             <h2 class="text-3xl font-semibold section-header mb-2">Follow the money</h2>
-            <p class="text-sm text-[#8A8F82] mb-2">Flagship layer from <code>data/curated.json</code>. USAR mine-to-magnet, Centrus HALEU, CHIPS DFAs, Niron OSC, LMT/RTX with obligated vs face on UCAs.</p>
+            <p class="text-sm text-[#8A8F82] mb-2">Flagship layer from <code>data/curated.json</code>. USAR mine-to-magnet, Centrus high-assay low-enriched uranium (HALEU), Creating Helpful Incentives to Produce Semiconductors (CHIPS) definitive funding agreements (DFAs), Niron OSC, LMT/RTX with obligated vs face on <abbr title="undefinitized contract action">UCA</abbr>s.</p>
             <p id="flagship-meta" class="text-sm text-[#8A8F82] mb-8">Loading curated.json…</p>
             <div id="flagship-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <p class="text-sm text-[#8A8F82]">Loading 14 flagship deals…</p>
@@ -65,12 +69,12 @@
 
         <section id="new-primes">
             <h2 class="text-3xl font-semibold section-header mb-2">New primes</h2>
-            <p class="text-sm text-[#8A8F82] mb-2">USAspending snapshot in <code>data/awards.json</code> — university grants, SBIR/STTR, and other new primes in the 90-day window. Labeled new primes, not megadeals.</p>
+            <p class="text-sm text-[#8A8F82] mb-2">USAspending snapshot in <code>data/awards.json</code> — university grants, <abbr title="Small Business Innovation Research">SBIR</abbr>/<abbr title="Small Business Technology Transfer">STTR</abbr>, and other new primes in the 90-day window. Labeled new primes, not megadeals.</p>
             <p id="primes-meta" class="text-sm text-[#8A8F82] mb-8">Loading awards.json…</p>
             <div id="primes-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <p class="text-sm text-[#8A8F82]">Loading USAspending new primes…</p>
             </div>
-            <p class="text-xs text-[#8A8F82] mt-8">USAspending amounts are API Award Amount. That is not a FedForge judgment that funds have been fully disbursed. Centrus HALEU also appears in the flagship layer with the FFP / base+options write-up.</p>
+            <p class="text-xs text-[#8A8F82] mt-8">USAspending amounts are API Award Amount. That is not a FedForge judgment that funds have been fully disbursed. Centrus <abbr title="high-assay low-enriched uranium">HALEU</abbr> also appears in the flagship layer with the firm-fixed-price (<abbr title="firm-fixed-price">FFP</abbr>) / base+options write-up.</p>
         </section>
     </div>
     </main>
