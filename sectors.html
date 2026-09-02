@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sectors · FedForge</title>
     <meta name="description" content="Nuclear, magnets/rare earths, semiconductors/CHIPS, and defense when the money is federal.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/fedforge.css">
 </head>
@@ -15,74 +16,61 @@
             <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home"><span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span></a>
             <button type="button" id="nav-toggle" class="md:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
             <div class="hidden md:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
-                <a href="index.html" class="nav-link">Dashboard</a>
-                <a href="sectors.html" class="nav-link is-active" aria-current="page">Sectors</a>
-                <a href="awards.html" class="nav-link">Awards</a>
-                <a href="companies.html" class="nav-link">Companies</a>
-                <a href="pipeline.html" class="nav-link">Pipeline</a>
-                <a href="international.html" class="nav-link">International</a>
-                <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
+                <a href="index.html" class="nav-link">Dashboard</a><a href="sectors.html" class="nav-link is-active" aria-current="page">Sectors</a><a href="awards.html" class="nav-link">Awards</a><a href="companies.html" class="nav-link">Companies</a><a href="top-companies.html" class="nav-link">Top companies</a><a href="glossary.html" class="nav-link">Glossary</a><a href="pipeline.html" class="nav-link">Pipeline</a><a href="international.html" class="nav-link">International</a><a href="historical.html" class="nav-link">Historical</a><a href="watchlist.html" class="nav-link">Watchlist</a><a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
             </div>
         </div>
         <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
-            <a href="index.html">Dashboard</a>
-            <a href="sectors.html" class="is-active" aria-current="page">Sectors</a>
-            <a href="awards.html">Awards</a>
-            <a href="companies.html">Companies</a>
-            <a href="pipeline.html">Pipeline</a>
-            <a href="international.html">International</a>
-            <a href="historical.html">Historical</a>
-            <a href="free-report.html">Free briefing</a>
+            <a href="index.html">Dashboard</a><a href="sectors.html" class="is-active" aria-current="page">Sectors</a><a href="awards.html">Awards</a><a href="companies.html">Companies</a><a href="top-companies.html">Top companies</a><a href="glossary.html">Glossary</a><a href="pipeline.html">Pipeline</a><a href="international.html">International</a><a href="historical.html">Historical</a><a href="watchlist.html">Watchlist</a><a href="free-report.html">Free briefing</a>
         </div>
     </nav>
     <main id="main">
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-4xl font-semibold mb-2">Strategic sectors</h1>
-        <p class="text-[#8A8F82] mb-10 max-w-2xl">Lead lanes only. Each card links to the filtered awards feed — not a mood score.</p>
+        <p class="text-[#8A8F82] mb-10 max-w-2xl">Lead lanes. Each card is a sector index — public tickers first, then this window’s awards.</p>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <a href="awards.html?sector=nuclear" class="deco-card rounded-3xl p-6 block">
+            <a href="nuclear.html" class="deco-card rounded-3xl p-6 block">
                 <div class="text-xs bronze-text mb-2">NUCLEAR / SMRs</div>
                 <h2 class="text-xl font-semibold mb-3">Nuclear + fuel cycle</h2>
-                <p class="text-sm text-[#8A8F82] mb-4">$17.5B DOE EDF conditional AP1000 loans (private sponsor), Centrus HALEU $900M FFP, PG&amp;E $271M CNC paid. Oklo Groves criticality (Aug 6) is a DOE authorization, not a grant.</p>
-                <div class="text-xs"><span class="bronze-text">Verified tickers this window:</span> LEU, PCG</div>
+                <p class="text-sm text-[#8A8F82] mb-4">$17.5B DOE EDF conditional AP1000 loans (private), Centrus HALEU $900M FFP, PG&amp;E $271M CNC paid, BWXT HPDU $131.3M (12-month prime).</p>
+                <div class="text-xs"><span class="bronze-text">Public tickers:</span> LEU, PCG, BWXT</div>
             </a>
-            <a href="awards.html?sector=magnets" class="deco-card rounded-3xl p-6 block">
+            <a href="magnets.html" class="deco-card rounded-3xl p-6 block">
                 <div class="text-xs bronze-text mb-2">MAGNETS / RARE EARTHS</div>
                 <h2 class="text-xl font-semibold mb-3">Mine-to-magnet</h2>
-                <p class="text-sm text-[#8A8F82] mb-4">USA Rare Earth CHIPS (up to $277M + up to $1.3B loan). Niron OSC $150M conditional (private). DPA/BIS scrap rules are policy, not awards.</p>
-                <div class="text-xs"><span class="bronze-text">Verified ticker this window:</span> USAR</div>
+                <p class="text-sm text-[#8A8F82] mb-4">USA Rare Earth CHIPS (up to $277M + up to $1.3B loan). Niron OSC $150M conditional (private). ABB Mn-Bi new prime.</p>
+                <div class="text-xs"><span class="bronze-text">Public tickers:</span> USAR, ABB</div>
             </a>
-            <a href="awards.html?sector=chips" class="deco-card rounded-3xl p-6 block">
+            <a href="chips.html" class="deco-card rounded-3xl p-6 block">
                 <div class="text-xs bronze-text mb-2">SEMICONDUCTORS / CHIPS</div>
-                <h2 class="text-xl font-semibold mb-3">CHIPS R&amp;D and SiC</h2>
-                <p class="text-sm text-[#8A8F82] mb-4">Definitive: SandboxAQ $500M, I-Pulse $250M, Bosch up to $225M — private. LOI: $874M seven-company package; only GFS is a verified ticker. TSMC FDI excluded.</p>
-                <div class="text-xs"><span class="bronze-text">Verified ticker this window:</span> GFS (LOI only)</div>
+                <h2 class="text-xl font-semibold mb-3">CHIPS R&amp;D, SiC, Trusted Foundry</h2>
+                <p class="text-sm text-[#8A8F82] mb-4">Definitive private DFAs. LOI: $874M seven-company package; only GFS is a verified ticker. Plus DoD Trusted Foundry Access orders to GFS.</p>
+                <div class="text-xs"><span class="bronze-text">Public ticker:</span> GFS</div>
             </a>
             <a href="awards.html?sector=other" class="deco-card rounded-3xl p-6 block">
                 <div class="text-xs bronze-text mb-2">DEFENSE (FEDERAL DOLLARS)</div>
                 <h2 class="text-xl font-semibold mb-3">Munitions and interceptors</h2>
-                <p class="text-sm text-[#8A8F82] mb-4">THAAD UCA, PAC-3 MSE modification, Tomahawk $22.9B, AMRAAM UCA. Face value is not always obligated cash — read the status tag.</p>
+                <p class="text-sm text-[#8A8F82] mb-4">THAAD UCA, PAC-3 MSE modification, Tomahawk $22.9B, AMRAAM UCA. Face value is not always obligated cash.</p>
                 <div class="text-xs"><span class="bronze-text">Verified tickers:</span> LMT, RTX</div>
             </a>
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-[#8A8F82] mb-2">NOT A LEAD LANE HERE</div>
                 <h2 class="text-xl font-semibold mb-3">Quantum / AI compute</h2>
-                <p class="text-sm text-[#8A8F82] mb-4">May 21 $2.013B quantum CHIPS LOIs are pre-window. Genesis Mission (Jul 22) is negotiation, not a closed award. IonQ is not on that NIST LOI list.</p>
+                <p class="text-sm text-[#8A8F82] mb-4">May 21 $2.013B quantum CHIPS LOIs are pre-window. IonQ $500 SHIELD seed is not a program prime.</p>
             </div>
             <a href="pipeline.html" class="deco-card rounded-3xl p-6 block">
                 <div class="text-xs bronze-text mb-2">POLICY, NOT AWARDS</div>
                 <h2 class="text-xl font-semibold mb-3">DPA, BIS, EOs</h2>
-                <p class="text-sm text-[#8A8F82] mb-4">Recoverable-CMM determination and black-mass allocation, plus EO 14413, live on the pipeline page.</p>
+                <p class="text-sm text-[#8A8F82] mb-4">Recoverable-CMM determination and black-mass allocation live on the pipeline page.</p>
             </a>
         </div>
     </div>
+
     </main>
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
         <div class="max-w-7xl mx-auto px-6 space-y-2">
             <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
             <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
-            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers. Historical returns are close-to-close only and are not forecasts.</p>
         </div>
     </footer>
     <script src="js/nav.js"></script>
