@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awards · FedForge</title>
-    <meta name="description" content="Curated and USAspending federal awards, Jun 3–Sep 1 2026. Status tags FINAL / CONDITIONAL / LOI / UCA.">
+    <meta name="description" content="Two-layer awards feed: 14 flagship deals and 46 USAspending new primes, Jun 3–Sep 1 2026. Status tags FINAL / CONDITIONAL / LOI / UCA.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/fedforge.css">
 </head>
@@ -45,19 +45,33 @@
     <main id="main">
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-4xl font-semibold mb-2">Awards</h1>
-        <p class="text-[#8A8F82] mb-6 max-w-3xl">Official federal-money items from Jun 3 – Sep 1, 2026. Curated cards use DoW, DOE, NIST, White House, and OSC notices. Extra rows are USAspending primes that do not duplicate those 14. Status tags matter: a UCA or LOI is not the same as cash out the door.</p>
-        <div class="flex flex-wrap gap-2 mb-6 no-print" role="tablist" aria-label="Filter by sector">
+        <p class="text-[#8A8F82] mb-6 max-w-3xl">Two layers, both kept after a branch race. Flagship cards are 14 official notices (DoW, DOE, NIST, White House, OSC) with status tags. New primes are 46 USAspending university / SBIR / lab awards — not megadeals. A UCA or LOI is not the same as cash out the door.</p>
+        <div class="flex flex-wrap gap-2 mb-10 no-print" role="tablist" aria-label="Filter by sector">
             <button type="button" class="filter-btn is-on" data-filter-sector="all">All</button>
             <button type="button" class="filter-btn" data-filter-sector="nuclear">Nuclear</button>
             <button type="button" class="filter-btn" data-filter-sector="magnets">Magnets</button>
             <button type="button" class="filter-btn" data-filter-sector="chips">CHIPS</button>
             <button type="button" class="filter-btn" data-filter-sector="other">Defense / other</button>
         </div>
-        <p id="awards-meta" class="text-sm text-[#8A8F82] mb-8">Loading…</p>
-        <div id="awards-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <p class="text-sm text-[#8A8F82]">Loading awards.json…</p>
-        </div>
-        <p class="text-xs text-[#8A8F82] mt-8">USAspending supplements can include university grants and lab buys. They are labeled FINAL as the API Award Amount, not as a FedForge judgment that funds have been fully disbursed.</p>
+
+        <section id="flagship" class="mb-16">
+            <h2 class="text-3xl font-semibold section-header mb-2">Follow the money</h2>
+            <p class="text-sm text-[#8A8F82] mb-2">Flagship layer from <code>data/curated.json</code>. USAR mine-to-magnet, Centrus HALEU, CHIPS DFAs, Niron OSC, LMT/RTX with obligated vs face on UCAs.</p>
+            <p id="flagship-meta" class="text-sm text-[#8A8F82] mb-8">Loading curated.json…</p>
+            <div id="flagship-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-sm text-[#8A8F82]">Loading 14 flagship deals…</p>
+            </div>
+        </section>
+
+        <section id="new-primes">
+            <h2 class="text-3xl font-semibold section-header mb-2">New primes</h2>
+            <p class="text-sm text-[#8A8F82] mb-2">USAspending snapshot in <code>data/awards.json</code> — university grants, SBIR/STTR, and other new primes in the 90-day window. Labeled new primes, not megadeals.</p>
+            <p id="primes-meta" class="text-sm text-[#8A8F82] mb-8">Loading awards.json…</p>
+            <div id="primes-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-sm text-[#8A8F82]">Loading USAspending new primes…</p>
+            </div>
+            <p class="text-xs text-[#8A8F82] mt-8">USAspending amounts are API Award Amount. That is not a FedForge judgment that funds have been fully disbursed. Centrus HALEU also appears in the flagship layer with the FFP / base+options write-up.</p>
+        </section>
     </div>
     </main>
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
@@ -68,6 +82,7 @@
         </div>
     </footer>
     <script src="js/nav.js"></script>
+    <script src="js/awards-data.js"></script>
     <script src="js/awards-feed.js"></script>
 </body>
 </html>
