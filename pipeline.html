@@ -8,22 +8,43 @@
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
         .gold-text { color: #D4AF37; }
-        .deco-card { background: #121826; border: 1px solid #2A3142; }
+        .deco-card { background: #121826; border: 1px solid #2A3142; transition: all 0.3s; }
+        .deco-card:hover { border-color: #D4AF37; transform: translateY(-3px); }
+        .nav-link { transition: color 0.2s; }
+        .nav-link:hover { color: #D4AF37; }
+        .section-header::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(to right, #D4AF37, transparent); margin-top: 8px; }
     </style>
 </head>
 <body>
-    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
+    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
-            <div class="hidden md:flex gap-6 text-sm font-medium">
-                <a href="index.html">Dashboard</a>
-                <a href="sectors.html">Sectors</a>
-                <a href="companies.html">Companies</a>
-                <a href="movers.html">Biggest Movers</a>
+            <a href="index.html" class="font-bold text-2xl tracking-tight">
+                <span class="text-white">FED</span><span class="gold-text">FORGE</span>
+            </a>
+            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#D4AF37] border border-[#D4AF37] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="companies.html" class="nav-link">Companies</a>
+                <a href="movers.html" class="nav-link">Biggest Movers</a>
                 <a href="pipeline.html" class="gold-text">Policy Pipeline</a>
-                <a href="international.html">International</a>
-                <a href="historical.html">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37]">Free Report</a>
+                <a href="international.html" class="nav-link">International</a>
+                <a href="historical.html" class="nav-link">Historical</a>
+                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0F1A] transition">Free Report</a>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2A3142] bg-[#0B0F1A]">
+            <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="companies.html" class="nav-link">Companies</a>
+                <a href="movers.html" class="nav-link">Biggest Movers</a>
+                <a href="pipeline.html" class="gold-text">Policy Pipeline</a>
+                <a href="international.html" class="nav-link">International</a>
+                <a href="historical.html" class="nav-link">Historical</a>
+                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37] text-center">Free Report</a>
             </div>
         </div>
     </nav>
@@ -35,33 +56,46 @@
         <div class="space-y-6">
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="px-3 py-1 bg-blue-900/40 text-blue-400 text-xs rounded-full">EXECUTIVE ACTION</span>
-                    <span class="text-xs text-[#64748B]">June 22, 2026</span>
+                    <span class="px-3 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded-full">EXECUTIVE ACTION</span>
+                    <span class="text-xs text-[#64748B]">July 30, 2026 · effective Aug 27</span>
                 </div>
-                <h2 class="text-xl font-semibold mb-2">Quantum Innovation Executive Order</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">Directs development of a large-scale quantum computer for DOE scientific discovery. Private-sector partnership models to be explored within 180 days. Builds on National Quantum Initiative.</p>
-                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Quantum, Computing, Defense</div>
-                <a href="https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/" target="_blank" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official EO →</a>
+                <h2 class="text-xl font-semibold mb-2">DPA Determination + BIS Allocation on Recoverable CMMs</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">Presidential Determination under DPA §101 authorizes Commerce action on recoverable critical minerals and materials (black mass, end-of-life rare-earth magnets, swarf, scrap; copper scrap excluded). BIS temporary final rule requires 100% of monthly black-mass and tungsten scrap sales to U.S. persons from Aug. 27, 2026, unless BIS grants an exception. Comments invited on whether additional sales requirements are needed.</p>
+                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Critical Minerals, Defense, Battery recycling</div>
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/07/presidential-determination-pursuant-to-section-101-of-the-defense-production-act-of-1950-as-amended-on-recoverable-critical-minerals-and-materials/" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official determination →</a>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="px-3 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded-full">FUNDING OPPORTUNITY</span>
-                    <span class="text-xs text-[#64748B]">Open / Rolling</span>
+                    <span class="px-3 py-1 bg-orange-900/40 text-orange-400 text-xs rounded-full">FUNDING / NEGOTIATION</span>
+                    <span class="text-xs text-[#64748B]">July 22, 2026</span>
                 </div>
-                <h2 class="text-xl font-semibold mb-2">Critical Minerals & Materials Accelerator</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">DOE up to $69M for technologies advancing domestic production and refining of critical materials. Part of broader $30B+ critical minerals mobilization.</p>
-                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Critical Minerals, Energy Storage, Advanced Manufacturing</div>
+                <h2 class="text-xl font-semibold mb-2">Genesis Mission project selections</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">DOE selected 278 AI-for-science projects and announced $800M+ consortium partner commitments. Largest named federal amount: $60M over three years for nuclear energy AI. DOE states selection is not a commitment to issue an award. Remaining Phase II awards expected later in 2026.</p>
+                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Nuclear, AI Infrastructure, Critical Minerals, Semiconductors, Fusion</div>
+                <a href="https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 bg-blue-900/40 text-blue-400 text-xs rounded-full">EXECUTIVE ACTION</span>
+                    <span class="text-xs text-[#64748B]">June 22, 2026</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-2">Quantum Innovation Executive Order (EO 14413)</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">Directs development of a large-scale quantum computer (QC-ADDS) for a DOE facility. DOE to explore private-sector partnership models within 180 days (~mid-December 2026). No dollar figure in the order.</p>
+                <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Quantum, Computing, Defense</div>
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official EO →</a>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex items-center gap-3 mb-3">
                     <span class="px-3 py-1 bg-orange-900/40 text-orange-400 text-xs rounded-full">IMPLEMENTATION</span>
-                    <span class="text-xs text-[#64748B]">2026</span>
+                    <span class="text-xs text-[#64748B]">Updated Sept 2026</span>
                 </div>
                 <h2 class="text-xl font-semibold mb-2">Nuclear for AI Data Centers</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">DOE identifying 16 federal sites for AI data centers with nuclear co-location potential. Reactor pilot programs targeting criticality by July 4, 2026. Streamlined NRC processes and loan support.</p>
+                <p class="text-sm text-[#A0AEC0] mb-3">DOE identified 16 federal sites (April 2025 RFI) for AI infrastructure with nuclear generation option; later prioritized four sites for solicitations. Reactor Pilot Program has now recorded multiple 2026 criticalities (including Oklo Groves, Aug. 6). June 23 EDF $17.5B AP1000 long-lead loans remain a conditional commitment.</p>
                 <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Nuclear, AI Infrastructure, Utilities</div>
+                <a href="https://www.energy.gov/articles/doe-identifies-16-federal-sites-across-country-data-center-and-ai-infrastructure" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">DOE 16-site RFI →</a>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
@@ -69,21 +103,42 @@
                     <span class="px-3 py-1 bg-purple-900/40 text-purple-400 text-xs rounded-full">ONGOING</span>
                     <span class="text-xs text-[#64748B]">CHIPS Act</span>
                 </div>
-                <h2 class="text-xl font-semibold mb-2">CHIPS Act Award Flow & Expansion</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">Continued disbursements and new LOIs. Focus expanding beyond leading-edge logic into packaging, SiC, materials, and secure microelectronics for defense.</p>
+                <h2 class="text-xl font-semibold mb-2">CHIPS Act Award Flow &amp; R&amp;D LOIs</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">July 29: $874M CHIPS R&amp;D LOIs for 7 compute-supply-chain companies (not final awards). May 21 quantum LOIs ($2.013B, 9 companies) still pending definitive documents. GAO (as of April 2026): 49 projects / 24 companies; $13.1B disbursed of $31.5B awards.</p>
                 <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Semiconductors, Defense Tech, Quantum</div>
+                <a href="https://www.nist.gov/news-events/news/2026/07/department-commerce-announces-letters-intent-7-companies-874-million" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">July 29 NIST release →</a>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex items-center gap-3 mb-3">
                     <span class="px-3 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded-full">STRATEGIC RESERVE</span>
-                    <span class="text-xs text-[#64748B]">Project Vault</span>
+                    <span class="text-xs text-[#64748B]">Project Vault · Feb 2026</span>
                 </div>
                 <h2 class="text-xl font-semibold mb-2">Project Vault – Critical Minerals Stockpile</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">$10B EXIM direct loan to establish domestic strategic reserve of refined critical minerals. Multiplier effect expected via private capital.</p>
+                <p class="text-sm text-[#A0AEC0] mb-3">EXIM: $10B loan plus nearly $2B private capital for a domestic strategic reserve of critical minerals. No official superseding amount found after July 13.</p>
                 <div class="text-xs"><span class="gold-text">Sectors impacted:</span> Critical Minerals, Defense, Energy</div>
+                <a href="https://www.exim.gov/news/week-review-project-vault-and-strategic-critical-mineral-reserve" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">EXIM release →</a>
             </div>
         </div>
     </div>
+
+    <footer class="border-t border-[#2A3142] py-10 text-center text-sm text-[#64748B]">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
+            <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            var btn = document.getElementById('mobile-menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', function () {
+                var open = menu.classList.toggle('hidden') === false;
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+        })();
+    </script>
 </body>
 </html>
