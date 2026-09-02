@@ -5,27 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>International Deals • FedForge</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #12150F; color: #E8E4D9; }
-        .bronze-text { color: #C4A574; }
-        .deco-card { background: #1A2118; border: 1px solid #2C382E; transition: all 0.3s; }
-        .deco-card:hover { border-color: #C4A574; transform: translateY(-3px); }
-        .nav-link { transition: color 0.2s; }
-        .nav-link:hover { color: #C4A574; }
-        .section-header::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(to right, #C4A574, transparent); margin-top: 8px; }
-        .amount-text { color: #6B9B7A; }
-        .badge-green { background: rgba(61,107,79,0.35); color: #6B9B7A; }
-        .badge-bronze { background: rgba(140,106,63,0.35); color: #C4A574; }
-    </style>
+    <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
     <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="font-bold text-2xl tracking-tight">
-                <span class="text-white">FED</span><span class="bronze-text">FORGE</span>
+                <span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span>
             </a>
-            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#C4A574] border border-[#C4A574] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <button id="nav-toggle" class="md:hidden p-2 border border-[#2C382E] rounded-lg bronze-text" aria-label="Open menu" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
+                </svg>
             </button>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="index.html" class="nav-link">Dashboard</a>
@@ -35,82 +26,62 @@
                 <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
                 <a href="international.html" class="bronze-text">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] hover:bg-[#C4A574] hover:text-[#12150F] transition">Free Report</a>
+                <a href="free-report.html" class="px-4 py-2 rounded-xl cta-outline transition">Free Report</a>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2C382E] bg-[#12150F]">
-            <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
-                <a href="index.html" class="nav-link">Dashboard</a>
-                <a href="sectors.html" class="nav-link">Sectors</a>
-                <a href="companies.html" class="nav-link">Companies</a>
-                <a href="movers.html" class="nav-link">Biggest Movers</a>
-                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
-                <a href="international.html" class="bronze-text">International</a>
-                <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] text-center">Free Report</a>
-            </div>
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-4 space-y-1 text-sm">
+            <a href="index.html">Dashboard</a>
+            <a href="sectors.html">Sectors</a>
+            <a href="companies.html">Companies</a>
+            <a href="movers.html">Biggest Movers</a>
+            <a href="pipeline.html">Policy Pipeline</a>
+            <a href="international.html">International</a>
+            <a href="historical.html">Historical</a>
+            <a href="free-report.html" class="bronze-text">Free Report</a>
         </div>
     </nav>
-
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-4xl font-semibold mb-2">International Deals</h1>
-        <p class="text-[#8A8F82] mb-10">U.S. government (DFC, EXIM, DoD, State) investments and structured deals abroad — and the companies that benefit.</p>
-
+        <p class="text-[#8A8F82] mb-10">U.S. government (DFC, EXIM, DoD, State) investments and structured deals abroad. This page is context; the live USAspending feed is domestic prime awards.</p>
         <div class="grid md:grid-cols-2 gap-6">
             <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs amount-text mb-2">CRITICAL MINERALS / AFRICA</div>
+                <div class="text-xs amount-pos mb-2">CRITICAL MINERALS / AFRICA</div>
                 <h2 class="text-xl font-semibold mb-2">Lobito Corridor &amp; Related</h2>
-                <p class="text-sm text-[#8A8F82] mb-3">DFC and EXIM support for rail, port, and mining projects in Angola/Zambia corridor to secure cobalt, copper, and other critical minerals and counter Chinese influence.</p>
+                <p class="text-sm text-[#8A8F82] mb-3">DFC and EXIM support for rail, port, and mining projects in the Angola/Zambia corridor to secure cobalt, copper, and other critical minerals.</p>
                 <div class="text-xs"><span class="bronze-text">Beneficiaries:</span> U.S. mining, logistics, and equipment firms</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-blue-400 mb-2">UKRAINE</div>
+                <div class="text-xs text-[#C4A574] mb-2">UKRAINE</div>
                 <h2 class="text-xl font-semibold mb-2">U.S.-Ukraine Reconstruction Investment Fund</h2>
                 <p class="text-sm text-[#8A8F82] mb-3">DFC-led fund focused on critical minerals, energy, and infrastructure reconstruction. Seed capital mobilizing additional private and partner funding.</p>
                 <div class="text-xs"><span class="bronze-text">Focus:</span> Critical minerals, energy, maritime infrastructure</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-orange-400 mb-2">VENEZUELA / ENERGY</div>
+                <div class="text-xs text-[#C4A574] mb-2">VENEZUELA / ENERGY</div>
                 <h2 class="text-xl font-semibold mb-2">Post-2026 Energy Arrangements</h2>
                 <p class="text-sm text-[#8A8F82] mb-3">U.S. involvement in marketing Venezuelan oil and related energy deals following 2026 political changes. Chevron, Exxon, BP, and GE among companies engaging.</p>
                 <div class="text-xs"><span class="bronze-text">Key companies:</span> CVX, XOM, BP, GE</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-purple-400 mb-2">ALLIED SUPPLY CHAINS</div>
+                <div class="text-xs text-[#C4A574] mb-2">ALLIED SUPPLY CHAINS</div>
                 <h2 class="text-xl font-semibold mb-2">Pax Silica + Australia / Japan Frameworks</h2>
-                <p class="text-sm text-[#8A8F82] mb-3">Critical minerals frameworks with Australia, Japan, and broader Pax Silica network. Stockpile provisions, price supports, and co-investment in processing. EO 14413 (June 22) directs State to align existing bilateral/multilateral engagements, including Pax Silica, with the quantum agenda (report due within 120 days of the order).</p>
-                <div class="text-xs"><span class="bronze-text">Focus:</span> Rare earths, lithium, quantum-enabling supply chains</div>
+                <p class="text-sm text-[#8A8F82] mb-3">Critical minerals frameworks with Australia, Japan, and broader Pax Silica network. Stockpile provisions, price supports, and co-investment in processing.</p>
+                <div class="text-xs"><span class="bronze-text">Focus:</span> Rare earths, lithium, full AI technology stack</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-cyan-400 mb-2">EXIM / DFC GLOBAL</div>
+                <div class="text-xs text-[#C4A574] mb-2">EXIM / DFC GLOBAL</div>
                 <h2 class="text-xl font-semibold mb-2">Project Vault &amp; Broader Financing</h2>
-                <p class="text-sm text-[#8A8F82] mb-3">$10B EXIM Project Vault for a domestic reserve (Feb. 2026), plus EXIM/DFC tools used on allied minerals projects. No new official Vault dollar amount found after July 13, 2026.</p>
+                <p class="text-sm text-[#8A8F82] mb-3">Previously reported EXIM financing for a domestic strategic reserve, plus LOIs for allied critical-minerals projects. Not re-stated as a new USAspending prime award in this snapshot.</p>
                 <div class="text-xs"><span class="bronze-text">Tools:</span> Loans, equity, political risk insurance, offtakes</div>
             </div>
         </div>
     </div>
-
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
         <div class="max-w-7xl mx-auto px-6">
             <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
             <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
         </div>
     </footer>
-    <script>
-        (function () {
-            var btn = document.getElementById('mobile-menu-btn');
-            var menu = document.getElementById('mobile-menu');
-            if (!btn || !menu) return;
-            btn.addEventListener('click', function () {
-                var open = menu.classList.toggle('hidden') === false;
-                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-            });
-        })();
-    </script>
+    <script src="js/nav.js"></script>
 </body>
 </html>
