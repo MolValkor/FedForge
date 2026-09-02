@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-02",
+  "layer": "public-primes-widened",
+  "lookback": {"start": "2025-09-02", "end": "2026-09-02", "date_type": "new_awards_only"},
+  "source": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "queries": ["recipient_search_text for 42 known public names, contracts A-D and grants 02-05 separately", "NAICS 334413, 333242, 334412, 221113, 212290, 331410, 325180 contracts", "keyword nuclear/HALEU/semiconductor/CHIPS/rare earth/magnet contracts (noise-filtered)"],
+  "count": 4,
+  "public_ticker_count_after": 8,
+  "hit_twenty": false,
+  "note": "New primes whose recipient is a verified public company in nuclear / magnets-rare-earths / CHIPS-semiconductors. Lab equipment buys (IPG Photonics, MKS, Qualcomm, Wolfspeed, CAMECA-class NIST buys) are refused, matching CAMECA public:false. Circuit-card spares (Teradyne, Mercury, Northrop) are defense electronics. MP, IBM, OKLO, IONQ had no qualifying prime. Generic Lockheed/Raytheon munitions are not added here. Orano and General Matter $900M fuel-cycle task orders are private. Not investment advice.",
+  "awards": [
+    {"id": "89233125CNA000429", "date": "2025-10-01", "agency": "Department of Energy", "recipient_name": "BWXT ORDNANCE TENNESSEE, INC.", "amount": 131300000.0, "amount_display": "$131.3M Award Amount", "description": "High Purity Depleted Uranium (HPDU) production services. Named recipient is a BWX Technologies (NYSE: BWXT) subsidiary. New 12-month public prime — not in the Jun 3–Sep 1 flagship window.", "source_url": "https://www.usaspending.gov/award/CONT_AWD_89233125CNA000429_8900_-NONE-_-NONE-", "sector": "nuclear", "status": "FINAL", "ticker": "BWXT", "public": true, "title": "HPDU production services", "lookback": "12-month"},
+    {"id": "HQ072726FE051", "date": "2026-04-01", "agency": "Department of Defense", "recipient_name": "GLOBALFOUNDRIES U.S. 2 LLC", "amount": 26477200.0, "amount_display": "$26,477,200 Award Amount", "description": "Trusted Foundry Access (TFA) delivery order for application-specific integrated circuits (ASICs). Semiconductor foundry work for a verified public ticker (GFS). Outside the Jun 3–Sep 1 flagship window; included in the 12-month public-prime lookback.", "source_url": "https://www.usaspending.gov/award/CONT_AWD_HQ072726FE051_9700_HQ072723D0003_9700", "sector": "chips", "status": "FINAL", "ticker": "GFS", "public": true, "title": "Trusted Foundry Access (ASICs)", "lookback": "12-month"},
+    {"id": "HQ072726FE006", "date": "2025-11-06", "agency": "Department of Defense", "recipient_name": "GLOBALFOUNDRIES U.S. 2 LLC", "amount": 10413422.0, "amount_display": "$10,413,422 Award Amount", "description": "Trusted Foundry Access delivery order (SOW 25-5G1) to GlobalFoundries U.S. 2 LLC. Same TFA vehicle as HQ072726FE051.", "source_url": "https://www.usaspending.gov/award/CONT_AWD_HQ072726FE006_9700_HQ072723D0003_9700", "sector": "chips", "status": "FINAL", "ticker": "GFS", "public": true, "title": "Trusted Foundry Access (SOW 25-5G1)", "lookback": "12-month"},
+    {"id": "HQ072726FE058", "date": "2026-04-15", "agency": "Department of Defense", "recipient_name": "GLOBALFOUNDRIES U.S. 2 LLC", "amount": 353248.0, "amount_display": "$353,248 Award Amount", "description": "Trusted Foundry Access delivery order for application-specific integrated circuits (ASICs).", "source_url": "https://www.usaspending.gov/award/CONT_AWD_HQ072726FE058_9700_HQ072723D0003_9700", "sector": "chips", "status": "FINAL", "ticker": "GFS", "public": true, "title": "Trusted Foundry Access (ASICs, Apr 15)", "lookback": "12-month"}
+  ],
+  "refused": [
+    {"name": "IPG Photonics", "ticker": "IPGP", "why": "NIST CHIPS lab buy (optical frequency comb / fiber amplifier) — equipment purchase, same rule as CAMECA public:false."},
+    {"name": "MKS / Newport", "ticker": "MKSI", "why": "NIST CHIPS beamline RGAS and optical tables — lab equipment, not ranked."},
+    {"name": "Qualcomm", "ticker": "QCOM", "why": "NIST/DoD software licenses and a mobile test platform — not a semiconductor production prime."},
+    {"name": "Wolfspeed", "ticker": "WOLF", "why": "DoD purchase of semiconductor material wafers — supply buy, not a program award."},
+    {"name": "Teradyne / Mercury / Northrop", "ticker": null, "why": "Circuit-card and radar-processor spares under electronics NAICS — defense spares, not a CHIPS/nuclear/magnet program award."},
+    {"name": "IonQ", "ticker": "IONQ", "why": "$500 SHIELD IDIQ seed order — not a sourced program prime in nuclear/magnets/CHIPS."},
+    {"name": "MP Materials / IBM / Oklo", "ticker": null, "why": "No new_awards_only hit in the 12-month recipient search."},
+    {"name": "BWXT NOG Technologies SNF storage", "ticker": "BWXT", "why": "Award start 2025-09-01 is one day before the 2025-09-02 lookback start; not stretched."},
+    {"name": "Orano Federal Services / General Matter", "ticker": null, "why": "Private recipients of $900M fuel-cycle task orders."},
+    {"name": "Pacific Gas and Electric USAspending rows", "ticker": "PCG", "why": "Prison/mint utility bills, not the Civil Nuclear Credit payment (that stays on the DOE flagship notice)."}
+  ]
+}
