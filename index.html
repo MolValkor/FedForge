@@ -3,118 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FedForge • Track Federal Investments | Nuclear • Magnets • Semiconductors</title>
-    <meta name="description" content="Tracker of U.S. federal prime awards in nuclear/SMRs, magnets and rare earths, and semiconductors (CHIPS). Live USAspending feed. Not investment advice.">
+    <title>FedForge · Federal-money radar</title>
+    <meta name="description" content="Track U.S. government investments into nuclear, magnets, and CHIPS. Awards feed with official sources. Not investment advice.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
-    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl tracking-tight">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur" aria-label="Primary">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home">
                 <span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span>
             </a>
-            <button id="nav-toggle" class="md:hidden p-2 border border-[#2C382E] rounded-lg bronze-text" aria-label="Open menu" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <button type="button" id="nav-toggle" class="md:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
                 </svg>
             </button>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="index.html" class="bronze-text">Dashboard</a>
+            <div class="hidden md:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
+                <a href="index.html" class="nav-link is-active" aria-current="page">Dashboard</a>
                 <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="awards.html" class="nav-link">Awards</a>
                 <a href="companies.html" class="nav-link">Companies</a>
-                <a href="movers.html" class="nav-link">Biggest Movers</a>
-                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
+                <a href="pipeline.html" class="nav-link">Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 rounded-xl cta-outline transition">Free Report</a>
+                <a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
             </div>
         </div>
-        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-4 space-y-1 text-sm">
-            <a href="index.html">Dashboard</a>
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
+            <a href="index.html" class="is-active" aria-current="page">Dashboard</a>
             <a href="sectors.html">Sectors</a>
+            <a href="awards.html">Awards</a>
             <a href="companies.html">Companies</a>
-            <a href="movers.html">Biggest Movers</a>
-            <a href="pipeline.html">Policy Pipeline</a>
+            <a href="pipeline.html">Pipeline</a>
             <a href="international.html">International</a>
             <a href="historical.html">Historical</a>
-            <a href="free-report.html" class="bronze-text">Free Report</a>
+            <a href="free-report.html">Free briefing</a>
         </div>
     </nav>
-
-    <section class="max-w-7xl mx-auto px-6 py-16 text-center">
-        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
-            Track where the U.S. government is investing<br>
-            <span class="bronze-text">into companies and sectors — follow the money</span>
-        </h1>
-        <p class="text-[#8A8F82] max-w-2xl mx-auto text-lg">
-            Prime federal awards in nuclear and SMRs, magnets and rare earths, and semiconductors / CHIPS. Defense tech only when the dollars are clearly federal. This is not investment advice.
-        </p>
+    <main id="main">
+    <section class="max-w-7xl mx-auto px-6 pt-14 pb-10 text-center">
+        <p class="text-sm bronze-text mb-3 tracking-wide uppercase">Federal-money radar · updated Sep 1, 2026</p>
+        <h1 class="text-3xl md:text-5xl font-semibold tracking-tight mb-4 leading-tight">Track U.S. government investments so you can follow contracts into companies and sectors.</h1>
+        <p class="text-[#8A8F82] max-w-2xl mx-auto text-lg">Lead lanes: nuclear / SMRs, magnets and rare earths, semiconductors / CHIPS. Defense tech only when the dollars are clearly federal. Not investment advice.</p>
         <div class="mt-8 flex justify-center gap-4 flex-wrap">
-            <a href="free-report.html" class="px-8 py-3 bg-[#E8E4D9] text-[#12150F] font-semibold rounded-2xl hover:bg-[#C4A574] transition">Get Free 2026 Themes Report</a>
-            <a href="#live-tracker" class="px-8 py-3 border border-[#2C382E] rounded-2xl hover:border-[#C4A574] transition">View Live Awards</a>
+            <a href="#developments" class="px-8 py-3 rounded-2xl cta-solid font-semibold">Latest developments</a>
+            <a href="#awards" class="px-8 py-3 rounded-2xl cta-outline font-semibold">Live awards</a>
+            <a href="free-report.html" class="px-8 py-3 rounded-2xl border border-[#2C382E] font-semibold hover:border-[#C4A574] transition tap">Read the briefing</a>
         </div>
     </section>
-
-    <section class="max-w-7xl mx-auto px-6 mb-12">
-        <div class="deco-card rounded-3xl p-6 border-l-4" style="border-left-color:#C4A574">
-            <div class="flex items-center gap-3 mb-2 flex-wrap">
-                <span class="px-3 py-1 badge-green text-xs rounded-full">UPDATED 1 Sep 2026</span>
-                <span class="text-sm text-[#8A8F82]">Sourced from USAspending prime awards in this snapshot</span>
-            </div>
-            <h2 class="text-xl font-semibold mb-3">Latest Developments</h2>
-            <ul class="space-y-2 text-sm text-[#8A8F82]">
-                <li>• <strong class="text-[#E8E4D9]">Nuclear</strong>: DOE task order <strong class="text-[#E8E4D9]">$900M</strong> to American Centrifuge Operating (start 6 Jul 2026) to stand up commercial HALEU capacity. Separate DOE cooperative agreement <strong class="text-[#E8E4D9]">$28.4M</strong> to Global Laser Enrichment (29 Jun) for front-end nuclear fuel-cycle technology.</li>
-                <li>• <strong class="text-[#E8E4D9]">Magnets / rare earths</strong>: 1 Sep NSF awards for critical-mineral recovery (University of Alaska Anchorage <strong class="text-[#E8E4D9]">$3.82M</strong>, Montana Tech <strong class="text-[#E8E4D9]">$1.26M</strong>, Rareterra SBIR). NSF Alaska Critical Mineral Accelerator <strong class="text-[#E8E4D9]">$7.5M</strong> (1 Aug). DOE RAPID-REE at South Dakota Mines <strong class="text-[#E8E4D9]">$3.1M</strong> (15 Jul).</li>
-                <li>• <strong class="text-[#E8E4D9]">Semiconductors</strong>: NSF FAST Engine in Oregon <strong class="text-[#E8E4D9]">$7.5M</strong> (1 Aug). DoD silicon-carbide CMOS work at University of Arkansas <strong class="text-[#E8E4D9]">$6.43M</strong> (1 Jul). NIST CHIPS R&amp;D buys include CAMECA atom-probe tools (<strong class="text-[#E8E4D9]">$3.87M</strong>, 31 Jul) and Mosaic Microsystems wafer fabrication.</li>
+    <section id="developments" class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="deco-card rounded-3xl p-6 md:p-8 border-l-4" style="border-left-color:#C4A574">
+            <span class="px-3 py-1 badge-green text-xs rounded-full">SOURCED · window Jun 3 – Sep 1, 2026</span>
+            <h2 class="text-2xl font-semibold mt-4 mb-4">Latest sourced developments</h2>
+            <ul class="space-y-3 text-sm text-[#8A8F82]">
+                <li>• <strong class="text-[#E8E4D9]">Nuclear</strong>: DOE EDF <strong class="text-[#E8E4D9]">$17.5B conditional</strong> AP1000 long-lead loans (ANDP HOLDCO / Westinghouse sponsor). Centrus HALEU <strong class="text-[#E8E4D9]">$900M FFP / ~$1.07B base+options</strong> (Jul 1). PG&amp;E Diablo Canyon CNC <strong class="text-[#E8E4D9]">$271M paid</strong> (Aug 14). Oklo Groves criticality Aug 6 is a DOE-authorized zero-power test, not a cash grant.</li>
+                <li>• <strong class="text-[#E8E4D9]">Magnets / rare earths</strong>: USA Rare Earth CHIPS mine-to-magnet (Jun 3) — up to <strong class="text-[#E8E4D9]">$277M</strong> plus up to <strong class="text-[#E8E4D9]">$1.3B loan</strong> (USAR). Niron Magnetics OSC <strong class="text-[#E8E4D9]">$150M conditional</strong> (Aug 7). DPA (Jul 30) and BIS allocation (Aug 27) are policy, not grants.</li>
+                <li>• <strong class="text-[#E8E4D9]">Semiconductors / CHIPS</strong>: SandboxAQ <strong class="text-[#E8E4D9]">$500M</strong> (Jun 17, private). I-Pulse <strong class="text-[#E8E4D9]">$250M</strong> SiC (Jun 25, private). Bosch up to <strong class="text-[#E8E4D9]">$225M</strong> SiC (Jul 13, private). Seven-company LOIs <strong class="text-[#E8E4D9]">$874M</strong> (Jul 29) — GFS up to $300M verified; Aeluma ticker not verified.</li>
+                <li>• <strong class="text-[#E8E4D9]">Defense</strong>: LMT THAAD UCA <strong class="text-[#E8E4D9]">$35.33B / $842.9M obligated</strong> (Jun 24). PAC-3 MSE mod <strong class="text-[#E8E4D9]">$53.86B</strong> face, $0 obligated at the mod (Jul 29). RTX Tomahawk <strong class="text-[#E8E4D9]">$22.9B</strong> (Aug 17). AMRAAM UCA <strong class="text-[#E8E4D9]">$398.7M / $104.1M FMS obligated</strong> (Jun 23).</li>
             </ul>
+            <p class="text-xs text-[#8A8F82] mt-4">TSMC private FDI is excluded. Pre-window items (May 21 quantum LOIs, 2025 MP Materials, Feb Vault) are not mixed into this strip.</p>
         </div>
     </section>
-
-    <section id="live-tracker" class="max-w-7xl mx-auto px-6 mb-16">
-        <h2 class="text-3xl font-semibold section-header mb-3">Live Deal Tracker</h2>
-        <p id="awards-meta" class="text-sm text-[#8A8F82] mb-8">Loading USAspending snapshot…</p>
-        <div id="awards-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-[#8A8F82]">NUCLEAR</div>
-                <div class="text-xl font-semibold">American Centrifuge Operating, LLC</div>
-                <div class="text-lg font-semibold amount-pos mt-2 mb-2">$900M</div>
-                <p class="text-sm text-[#8A8F82] mb-4">DOE task order to establish domestic commercial HALEU capacity and begin production of HALEU UF6 for purchase by DOE. 6 Jul 2026.</p>
-                <div class="text-xs"><span class="bronze-text">Ticker:</span> LEU</div>
-                <a href="https://www.usaspending.gov/award/CONT_AWD_89243226FNE400212_8900_89243225DNE000022_8900" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-link">USAspending source →</a>
+    <section id="awards" class="max-w-7xl mx-auto px-6 mb-16">
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-4">
+            <div>
+                <h2 class="text-3xl font-semibold section-header mb-2">Awards feed</h2>
+                <p id="awards-meta" class="text-sm text-[#8A8F82]">Loading awards snapshot…</p>
             </div>
+            <a href="awards.html" class="cta-outline px-5 py-2 rounded-xl text-sm">Open full awards page →</a>
+        </div>
+        <p class="text-sm text-[#8A8F82] mb-4">Fourteen curated official deals. Filter more on the awards page. Status tags: FINAL / CONDITIONAL / LOI / UCA.</p>
+        <div id="awards-feed" data-curated="true" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p class="text-sm text-[#8A8F82]">Loading curated awards…</p>
         </div>
     </section>
-
-    <section class="max-w-7xl mx-auto px-6 mb-16">
-        <div class="grid md:grid-cols-4 gap-4">
-            <a href="companies.html" class="deco-card rounded-2xl p-6 text-center">
-                <div class="text-2xl font-semibold mb-1">Companies</div>
-                <div class="text-xs text-[#8A8F82]">Who is receiving the money</div>
+    <section id="doors" class="max-w-7xl mx-auto px-6 mb-16">
+        <h2 class="text-3xl font-semibold section-header mb-6">Three doors</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <a href="awards.html?sector=nuclear" class="deco-card rounded-3xl p-8 block">
+                <div class="text-xs bronze-text mb-2">LANE 1</div>
+                <h3 class="text-2xl font-semibold mb-2">Nuclear / SMRs</h3>
+                <p class="text-sm text-[#8A8F82]">EDF loans, HALEU, Civil Nuclear Credit. Opens the nuclear awards filter.</p>
             </a>
-            <a href="historical.html" class="deco-card rounded-2xl p-6 text-center">
-                <div class="text-2xl font-semibold mb-1">Historical</div>
-                <div class="text-xs text-[#8A8F82]">Why it has paid off before</div>
+            <a href="awards.html?sector=magnets" class="deco-card rounded-3xl p-8 block">
+                <div class="text-xs bronze-text mb-2">LANE 2</div>
+                <h3 class="text-2xl font-semibold mb-2">Magnets / rare earths</h3>
+                <p class="text-sm text-[#8A8F82]">USA Rare Earth CHIPS deal and Niron OSC loan.</p>
             </a>
-            <a href="pipeline.html" class="deco-card rounded-2xl p-6 text-center">
-                <div class="text-2xl font-semibold mb-1">Pipeline</div>
-                <div class="text-xs text-[#8A8F82]">Bills &amp; future deals</div>
-            </a>
-            <a href="free-report.html" class="deco-card rounded-2xl p-6 text-center">
-                <div class="text-2xl font-semibold mb-1">Free Report</div>
-                <div class="text-xs text-[#8A8F82]">2026 Themes PDF</div>
+            <a href="awards.html?sector=chips" class="deco-card rounded-3xl p-8 block">
+                <div class="text-xs bronze-text mb-2">LANE 3</div>
+                <h3 class="text-2xl font-semibold mb-2">Semiconductors / CHIPS</h3>
+                <p class="text-sm text-[#8A8F82]">Definitive CHIPS agreements and the July 29 $874M LOI package. GFS is the verified ticker on that LOI card.</p>
             </a>
         </div>
+        <p class="text-sm text-[#8A8F82] mt-4"><a href="sectors.html" class="bronze-link">Or browse sector context →</a></p>
     </section>
-
+    <section id="companies" class="max-w-7xl mx-auto px-6 mb-16">
+        <h2 class="text-3xl font-semibold section-header mb-6">Companies with verified tickers in this window</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+            <a href="companies.html#lmt" class="deco-card rounded-2xl p-6 block"><div class="font-semibold">Lockheed Martin</div><div class="text-xs text-[#8A8F82] mt-1">LMT · THAAD UCA + PAC-3 MSE</div></a>
+            <a href="companies.html#rtx" class="deco-card rounded-2xl p-6 block"><div class="font-semibold">RTX / Raytheon</div><div class="text-xs text-[#8A8F82] mt-1">RTX · Tomahawk $22.9B + AMRAAM UCA</div></a>
+            <a href="companies.html#leu" class="deco-card rounded-2xl p-6 block"><div class="font-semibold">Centrus Energy</div><div class="text-xs text-[#8A8F82] mt-1">LEU · HALEU $900M FFP</div></a>
+            <a href="companies.html#usar" class="deco-card rounded-2xl p-6 block"><div class="font-semibold">USA Rare Earth</div><div class="text-xs text-[#8A8F82] mt-1">USAR · CHIPS mine-to-magnet</div></a>
+            <a href="companies.html#pcg" class="deco-card rounded-2xl p-6 block"><div class="font-semibold">PG&amp;E</div><div class="text-xs text-[#8A8F82] mt-1">PCG · $271M CNC paid</div></a>
+            <a href="companies.html#gfs" class="deco-card rounded-2xl p-6 block"><div class="font-semibold">GlobalFoundries</div><div class="text-xs text-[#8A8F82] mt-1">GFS · up to $300M in $874M LOIs</div></a>
+        </div>
+        <p class="text-sm text-[#8A8F82] mt-4">Private recipients (SandboxAQ, I-Pulse, Bosch, Sila, Niron, ANDP/Westinghouse) have no ticker. <a href="companies.html" class="bronze-link">Full companies page →</a></p>
+    </section>
+    <section id="briefing" class="max-w-7xl mx-auto px-6 mb-16">
+        <div class="deco-card rounded-3xl p-8 md:p-10 text-center">
+            <h2 class="text-2xl font-semibold mb-3">Free 2026 briefing</h2>
+            <p class="text-[#8A8F82] max-w-xl mx-auto mb-6">A readable page — nuclear, magnets, CHIPS, and how to use this awards feed. No email gate. No fake PDF download.</p>
+            <a href="free-report.html" class="cta-solid px-8 py-3 rounded-2xl font-semibold">Read the briefing</a>
+        </div>
+    </section>
+    </main>
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
-            <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
+            <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers.</p>
         </div>
     </footer>
     <script src="js/nav.js"></script>
-    <script src="js/awards-data.js"></script>
     <script src="js/awards-feed.js"></script>
 </body>
 </html>
