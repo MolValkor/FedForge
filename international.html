@@ -8,22 +8,43 @@
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
         .gold-text { color: #D4AF37; }
-        .deco-card { background: #121826; border: 1px solid #2A3142; }
+        .deco-card { background: #121826; border: 1px solid #2A3142; transition: all 0.3s; }
+        .deco-card:hover { border-color: #D4AF37; transform: translateY(-3px); }
+        .nav-link { transition: color 0.2s; }
+        .nav-link:hover { color: #D4AF37; }
+        .section-header::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(to right, #D4AF37, transparent); margin-top: 8px; }
     </style>
 </head>
 <body>
-    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
+    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
-            <div class="hidden md:flex gap-6 text-sm font-medium">
-                <a href="index.html">Dashboard</a>
-                <a href="sectors.html">Sectors</a>
-                <a href="companies.html">Companies</a>
-                <a href="movers.html">Biggest Movers</a>
-                <a href="pipeline.html">Policy Pipeline</a>
+            <a href="index.html" class="font-bold text-2xl tracking-tight">
+                <span class="text-white">FED</span><span class="gold-text">FORGE</span>
+            </a>
+            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#D4AF37] border border-[#D4AF37] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="companies.html" class="nav-link">Companies</a>
+                <a href="movers.html" class="nav-link">Biggest Movers</a>
+                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
                 <a href="international.html" class="gold-text">International</a>
-                <a href="historical.html">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37]">Free Report</a>
+                <a href="historical.html" class="nav-link">Historical</a>
+                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0F1A] transition">Free Report</a>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2A3142] bg-[#0B0F1A]">
+            <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="companies.html" class="nav-link">Companies</a>
+                <a href="movers.html" class="nav-link">Biggest Movers</a>
+                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
+                <a href="international.html" class="gold-text">International</a>
+                <a href="historical.html" class="nav-link">Historical</a>
+                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37] text-center">Free Report</a>
             </div>
         </div>
     </nav>
@@ -35,7 +56,7 @@
         <div class="grid md:grid-cols-2 gap-6">
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-emerald-400 mb-2">CRITICAL MINERALS / AFRICA</div>
-                <h2 class="text-xl font-semibold mb-2">Lobito Corridor & Related</h2>
+                <h2 class="text-xl font-semibold mb-2">Lobito Corridor &amp; Related</h2>
                 <p class="text-sm text-[#A0AEC0] mb-3">DFC and EXIM support for rail, port, and mining projects in Angola/Zambia corridor to secure cobalt, copper, and other critical minerals and counter Chinese influence.</p>
                 <div class="text-xs"><span class="gold-text">Beneficiaries:</span> U.S. mining, logistics, and equipment firms</div>
             </div>
@@ -57,17 +78,36 @@
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-purple-400 mb-2">ALLIED SUPPLY CHAINS</div>
                 <h2 class="text-xl font-semibold mb-2">Pax Silica + Australia / Japan Frameworks</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">Critical minerals frameworks with Australia, Japan, and broader Pax Silica network. Stockpile provisions, price supports, and co-investment in processing.</p>
-                <div class="text-xs"><span class="gold-text">Focus:</span> Rare earths, lithium, full AI technology stack</div>
+                <p class="text-sm text-[#A0AEC0] mb-3">Critical minerals frameworks with Australia, Japan, and broader Pax Silica network. Stockpile provisions, price supports, and co-investment in processing. EO 14413 (June 22) directs State to align existing bilateral/multilateral engagements, including Pax Silica, with the quantum agenda (report due within 120 days of the order).</p>
+                <div class="text-xs"><span class="gold-text">Focus:</span> Rare earths, lithium, quantum-enabling supply chains</div>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-cyan-400 mb-2">EXIM / DFC GLOBAL</div>
-                <h2 class="text-xl font-semibold mb-2">Project Vault & Broader Financing</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">$10B Project Vault for domestic reserve, plus billions in LOIs for critical minerals projects in Australia, UK, and other allies. DFC expanded authorities for larger equity and strategic deals.</p>
+                <h2 class="text-xl font-semibold mb-2">Project Vault &amp; Broader Financing</h2>
+                <p class="text-sm text-[#A0AEC0] mb-3">$10B EXIM Project Vault for a domestic reserve (Feb. 2026), plus EXIM/DFC tools used on allied minerals projects. No new official Vault dollar amount found after July 13, 2026.</p>
                 <div class="text-xs"><span class="gold-text">Tools:</span> Loans, equity, political risk insurance, offtakes</div>
             </div>
         </div>
     </div>
+
+    <footer class="border-t border-[#2A3142] py-10 text-center text-sm text-[#64748B]">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
+            <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            var btn = document.getElementById('mobile-menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', function () {
+                var open = menu.classList.toggle('hidden') === false;
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+        })();
+    </script>
 </body>
 </html>
