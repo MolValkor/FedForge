@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-09-02",
+  "count": 32,
+  "groups": [
+    {"name": "Status tags", "items": [
+      {"abbr": "FINAL", "full": "Final / paid or signed", "what": "The agreement exists or the cash was paid. Still read the amount: a ceiling is not always disbursed.", "why": "FedForge uses FINAL when a notice says the deal is signed, awarded, or paid — the strongest status weight on the ranked screen."},
+      {"abbr": "CONDITIONAL", "full": "Conditional commitment", "what": "A loan or award that still depends on conditions, milestones, or closing documents.", "why": "Large Energy Dominance Financing (EDF) and Office of Strategic Capital (OSC) rows are CONDITIONAL — they are not cash out the door."},
+      {"abbr": "LOI", "full": "Letter of intent", "what": "A non-binding or pre-definitive signal that an agency intends to fund something.", "why": "The Jul 29 CHIPS R&D package is tagged LOI. GlobalFoundries (GFS) is the only verified ticker in that package."},
+      {"abbr": "UCA", "full": "Undefinitized contract action", "what": "A DoD/DoW contract vehicle that lets work start before all terms are negotiated. The ceiling (face) is not the same as obligated cash.", "why": "THAAD, PAC-3, and AMRAAM cards show obligated vs face. Rank weights obligated cash far above the UCA ceiling."}
+    ]},
+    {"name": "Agencies", "items": [
+      {"abbr": "DOE", "full": "Department of Energy", "what": "The cabinet department that runs nuclear energy, loans, and many science programs.", "why": "HALEU, Civil Nuclear Credit, and EDF loans are DOE notices."},
+      {"abbr": "DoD / DoW", "full": "Department of Defense / Department of War", "what": "The U.S. military department. 2026 notices on war.gov use Department of War; older sources say DoD.", "why": "Lockheed and RTX interceptor and munitions notices are DoW/DoD contract announcements."},
+      {"abbr": "NIST", "full": "National Institute of Standards and Technology", "what": "Commerce Department lab that also houses the CHIPS program office.", "why": "CHIPS definitive agreements and letters of intent are NIST/Commerce notices."},
+      {"abbr": "MDA", "full": "Missile Defense Agency", "what": "The DoD/DoW agency that buys missile-defense systems.", "why": "The THAAD undefinitized contract action is an MDA notice."},
+      {"abbr": "OSC", "full": "Office of Strategic Capital", "what": "A DoD/DoW office that uses credit tools (loans, not just grants) for dual-use supply chains.", "why": "Niron and Sila rows are OSC conditional loan commitments — private recipients."},
+      {"abbr": "NNSA", "full": "National Nuclear Security Administration", "what": "The DOE semi-autonomous agency for the nuclear weapons enterprise and nonproliferation.", "why": "Some university nuclear primes and lab work sit under NNSA even when the public card says DOE."},
+      {"abbr": "BIS", "full": "Bureau of Industry and Security", "what": "Commerce bureau that runs export controls and some Defense Production Act allocation rules.", "why": "Black-mass / tungsten scrap rules on the pipeline page are BIS, not a company grant."},
+      {"abbr": "EXIM", "full": "Export-Import Bank of the United States", "what": "The U.S. export credit agency. It finances U.S. exports, not a typical procurement award.", "why": "Named when export-credit tools show up next to industrial policy; FedForge still requires a sourced dollar to list a company."}
+    ]},
+    {"name": "Programs and statutes", "items": [
+      {"abbr": "CHIPS", "full": "Creating Helpful Incentives to Produce Semiconductors", "what": "The 2022 statute (and follow-on program) that funds U.S. semiconductor manufacturing and R&D.", "why": "USA Rare Earth, SandboxAQ, I-Pulse, Bosch, and the GFS letter of intent are CHIPS notices."},
+      {"abbr": "CNC", "full": "Civil Nuclear Credit", "what": "A DOE program that pays to keep at-risk U.S. nuclear plants operating.", "why": "PG&E's $271M Diablo Canyon payment is the first CNC disbursement in this window."},
+      {"abbr": "EDF", "full": "Energy Dominance Financing", "what": "The DOE loan/financing label used on the $17.5B AP1000 conditional package in this window.", "why": "That row is CONDITIONAL and the named recipient is private (Westinghouse sponsor)."},
+      {"abbr": "DFA", "full": "Definitive funding agreement / direct funding agreement", "what": "The closed CHIPS award document — stronger than a letter of intent.", "why": "USAR, SandboxAQ, I-Pulse, and Bosch cards are DFAs. GFS is still an LOI, not a DFA."},
+      {"abbr": "DPA", "full": "Defense Production Act", "what": "The statute that lets the President prioritize domestic production of critical items.", "why": "The recoverable-minerals determination on the pipeline page is DPA policy, not an award to a ticker."},
+      {"abbr": "SBIR", "full": "Small Business Innovation Research", "what": "A set-aside program for small U.S. businesses to do federal R&D.", "why": "Many new-prime rows are SBIR Phase I/II — not megadeals, and usually no public ticker."},
+      {"abbr": "STTR", "full": "Small Business Technology Transfer", "what": "Like SBIR, but requires a research-institution partner.", "why": "DOE ROCKS and NSF rows tagged SBIR/STTR on the new-primes strip."},
+      {"abbr": "FMS", "full": "Foreign Military Sales", "what": "U.S. government-facilitated sales of U.S. defense articles to partner nations.", "why": "The AMRAAM UCA obligated figure is FMS money — still federal, still not a stock forecast."}
+    ]},
+    {"name": "Nuclear and materials", "items": [
+      {"abbr": "SMR", "full": "Small modular reactor", "what": "A nuclear reactor design meant to be factory-built in smaller units than a conventional plant.", "why": "FedForge's nuclear lane includes SMRs, fuel, and existing plants — Oklo on the roster is previously reported, not an in-window prime."},
+      {"abbr": "HALEU", "full": "High-assay low-enriched uranium", "what": "Uranium enriched above typical power-reactor levels but below weapons-grade, used by many advanced reactors.", "why": "Centrus / American Centrifuge Operating holds the DOE HALEU commercial-capacity task order (ticker LEU)."},
+      {"abbr": "AP1000", "full": "Westinghouse AP1000", "what": "A Generation III+ large pressurized-water reactor design.", "why": "The $17.5B DOE EDF conditional loans are for AP1000 long-lead items. Private sponsor — not on the ranked public list."},
+      {"abbr": "REE", "full": "Rare earth elements", "what": "Seventeen metallic elements used in magnets, electronics, and defense systems.", "why": "USA Rare Earth and several university/SBIR new primes are REE or magnet-material work."},
+      {"abbr": "SiC", "full": "Silicon carbide", "what": "A wide-bandgap semiconductor material used in power electronics.", "why": "I-Pulse and Bosch CHIPS DFAs, plus an Arkansas university SiC CMOS prime, sit in this lane."}
+    ]},
+    {"name": "Defense systems", "items": [
+      {"abbr": "THAAD", "full": "Terminal High Altitude Area Defense", "what": "A Lockheed Martin missile-defense interceptor system.", "why": "The Jun 24 MDA undefinitized contract action is THAAD — read $842.9M obligated vs $35.33B face."},
+      {"abbr": "PAC-3", "full": "Patriot Advanced Capability-3", "what": "A Lockheed Martin hit-to-kill interceptor for the Patriot air-defense system. MSE means Missile Segment Enhancement.", "why": "The Jul 30 Army modification is PAC-3 MSE. $0 was obligated on that mod. Face is not cash."},
+      {"abbr": "AMRAAM", "full": "Advanced Medium-Range Air-to-Air Missile", "what": "A Raytheon (RTX) air-to-air missile family.", "why": "The Jun 24 UCA is AMRAAM D4/C9. Obligated cash is the Foreign Military Sales slice, not the full ceiling."}
+    ]},
+    {"name": "Contract and data terms", "items": [
+      {"abbr": "FFP", "full": "Firm-fixed-price", "what": "A contract type where the price is set; the contractor bears cost overrun risk.", "why": "The Centrus HALEU task order is FFP at $900M ($1.07B with options)."},
+      {"abbr": "NAICS", "full": "North American Industry Classification System", "what": "The industry codes used to classify federal awards (for example semiconductor manufacturing 334413).", "why": "The USAspending snapshot was queried with nuclear, magnet, and semiconductor NAICS plus keywords."},
+      {"abbr": "USAspending", "full": "USAspending.gov", "what": "The official public database of federal spending. Award Amount is what the API returned, not a FedForge judgment that funds are fully disbursed.", "why": "The 46 new primes are a static USAspending snapshot. The API does not send CORS headers, so the browser cannot refresh it."},
+      {"abbr": "SAM.gov", "full": "System for Award Management", "what": "The government-wide registry for entities that want to do business with the U.S. government.", "why": "Prime recipients on USAspending are SAM-registered entities. Registration is not a stock listing."}
+    ]}
+  ]
+}

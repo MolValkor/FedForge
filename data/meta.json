@@ -1,0 +1,18 @@
+{
+  "window": {
+    "start": "2026-06-03",
+    "end": "2026-09-01"
+  },
+  "public_primes_lookback": {
+    "start": "2025-09-02",
+    "end": "2026-09-02"
+  },
+  "last_usaspending_pull": "2026-09-02T15:22:02Z",
+  "last_price_as_of": "2026-09-01",
+  "as_of_requested": "2026-09-02",
+  "flagship_count": 14,
+  "primes_count": 46,
+  "public_ticker_count": 8,
+  "hit_twenty": false,
+  "note": "Flagship window remains Jun 3\u2013Sep 1 2026. Public-prime widening used a ~12-month USAspending new_awards_only lookback (2025-09-02 to 2026-09-02) in nuclear / magnets / semiconductors. Last completed US cash session for prices is 2026-09-01; the 2026-09-02 Yahoo bar was still an open session at pull. Not investment advice."
+}

@@ -1,0 +1,55 @@
+# Pretty paths on Netlify. Static files remain the .html sources.
+[[redirects]]
+  from = "/ticker/:code"
+  to = "/ticker/:code.html"
+  status = 200
+
+[[redirects]]
+  from = "/award/:id"
+  to = "/award/:id.html"
+  status = 200
+
+[[redirects]]
+  from = "/nuclear"
+  to = "/nuclear.html"
+  status = 200
+
+[[redirects]]
+  from = "/magnets"
+  to = "/magnets.html"
+  status = 200
+
+[[redirects]]
+  from = "/chips"
+  to = "/chips.html"
+  status = 200
+
+[[redirects]]
+  from = "/watchlist"
+  to = "/watchlist.html"
+  status = 200
+
+[[redirects]]
+  from = "/finding"
+  to = "/finding.html"
+  status = 200
+
+[[redirects]]
+  from = "/glossary"
+  to = "/glossary.html"
+  status = 200
+
+[[redirects]]
+  from = "/top-companies"
+  to = "/top-companies.html"
+  status = 200
+
+[[redirects]]
+  from = "/awards"
+  to = "/awards.html"
+  status = 200
+
+[[redirects]]
+  from = "/sectors"
+  to = "/sectors.html"
+  status = 200

@@ -3,42 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Report • FedForge</title>
+    <title>2026 briefing · FedForge</title>
+    <meta name="description" content="This window’s public awards from JSON, plus nuclear/magnets/CHIPS themes. Printable. No email gate. Not investment advice.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
-        .gold-text { color: #D4AF37; }
-        .deco-card { background: #121826; border: 1px solid #2A3142; }
-    </style>
+    <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
-    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
-            <div class="hidden md:flex gap-6 text-sm">
-                <a href="index.html">Dashboard</a>
-                <a href="companies.html">Companies</a>
-                <a href="free-report.html" class="gold-text">Free Report</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur" aria-label="Primary">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home"><span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span></a>
+            <button type="button" id="nav-toggle" class="md:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <div class="hidden md:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
+                <a href="index.html" class="nav-link">Dashboard</a><a href="sectors.html" class="nav-link">Sectors</a><a href="awards.html" class="nav-link">Awards</a><a href="companies.html" class="nav-link">Companies</a><a href="top-companies.html" class="nav-link">Top companies</a><a href="glossary.html" class="nav-link">Glossary</a><a href="pipeline.html" class="nav-link">Pipeline</a><a href="international.html" class="nav-link">International</a><a href="historical.html" class="nav-link">Historical</a><a href="watchlist.html" class="nav-link">Watchlist</a><a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm is-active" aria-current="page">Free briefing</a>
             </div>
+        </div>
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
+            <a href="index.html">Dashboard</a><a href="sectors.html">Sectors</a><a href="awards.html">Awards</a><a href="companies.html">Companies</a><a href="top-companies.html">Top companies</a><a href="glossary.html">Glossary</a><a href="pipeline.html">Pipeline</a><a href="international.html">International</a><a href="historical.html">Historical</a><a href="watchlist.html">Watchlist</a><a href="free-report.html" class="is-active" aria-current="page">Free briefing</a>
         </div>
     </nav>
-
-    <div class="max-w-xl mx-auto px-6 py-20 text-center">
-        <h1 class="text-4xl font-semibold mb-4">2026 Federal Investment Themes Report</h1>
-        <p class="text-[#A0AEC0] mb-8">Free investor briefing covering the biggest federal capital flows into nuclear, quantum, AI power, semiconductors, critical minerals, and defense tech — plus the public companies best positioned to benefit.</p>
-
-        <div class="deco-card rounded-3xl p-8">
-            <form onsubmit="event.preventDefault(); document.getElementById('success').classList.remove('hidden'); this.classList.add('hidden');">
-                <input type="email" required placeholder="Enter your best email" class="w-full bg-[#0B0F1A] border border-[#2A3142] focus:border-[#D4AF37] rounded-2xl px-5 py-3.5 text-sm mb-4 outline-none">
-                <button type="submit" class="w-full py-4 bg-white text-[#0B0F1A] font-semibold rounded-2xl hover:bg-[#D4AF37] transition">Download Free Report</button>
-            </form>
-            <div id="success" class="hidden">
-                <div class="text-emerald-400 font-semibold mb-2">Thank you — you're subscribed!</div>
-                <p class="text-sm text-[#A0AEC0] mb-4">The 2026 Themes Report is ready. We've also added you to the weekly digest.</p>
-                <a href="#" class="inline-block px-6 py-3 bg-white text-[#0B0F1A] font-semibold rounded-2xl">View / Download Report Now</a>
-            </div>
+    <main id="main">
+    <div class="max-w-3xl mx-auto px-6 py-12">
+        <p class="text-sm bronze-text mb-2">FedForge briefing · this window</p>
+        <h1 class="text-4xl font-semibold mb-4">2026 federal investment themes</h1>
+        <p class="text-[#8A8F82] mb-3 text-lg">A readable briefing — not a PDF, not an email capture. Print this page if you want a hard copy. We do not subscribe you to anything.</p>
+        <p class="meta-stamp mb-6" data-meta-stamp>Loading last USAspending pull…</p>
+        <div class="flex flex-wrap gap-3 mb-10 no-print">
+            <button type="button" onclick="window.print()" class="cta-solid px-6 py-3 rounded-2xl font-semibold">Print / save as PDF</button>
+            <a href="awards.html" class="cta-outline px-6 py-3 rounded-2xl font-semibold">Open the awards feed</a>
         </div>
-        <p class="mt-6 text-xs text-[#64748B]">No spam. Unsubscribe anytime. Data from official sources only.</p>
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-3">This window’s public awards</h2>
+            <p class="text-sm text-[#8A8F82] mb-4">Loaded from JSON — not a stale essay. Announcement-to-now is close-to-close when we have prices; em dash if not. We still do not invent growth forecasts.</p>
+            <div id="public-window" class="deco-card rounded-3xl p-4"><p class="text-sm text-[#8A8F82]">Loading public awards…</p></div>
+        </section>
+        <section class="deco-card rounded-3xl p-6 md:p-8 mb-6">
+            <h2 class="text-2xl font-semibold mb-3">How to use this site</h2>
+            <ol class="list-decimal pl-5 space-y-2 text-sm text-[#8A8F82]">
+                <li>Start on the dashboard public table, then the finding card.</li>
+                <li>Open <a href="awards.html" class="bronze-link">Awards</a>. Two strips: Follow the money (14 flagship) and New primes (46). Filter nuclear / magnets / chips / defense. Watchlist filter is local-only.</li>
+                <li>Read the status tag before the dollar: FINAL, CONDITIONAL, LOI, UCA. On LMT/RTX UCAs, read obligated vs face.</li>
+                <li>Ticker pages and award permalinks are static. Historical returns are close-to-close, not forecasts.</li>
+            </ol>
+        </section>
+        <section class="deco-card rounded-3xl p-6 md:p-8 mb-6">
+            <h2 class="text-2xl font-semibold mb-3">Nuclear / SMRs</h2>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-[#8A8F82]">
+                <li><strong class="text-[#E8E4D9]">$17.5B DOE EDF</strong> — conditional loans, private Westinghouse sponsor.</li>
+                <li><strong class="text-[#E8E4D9]">Centrus / ACO $900M FFP</strong> — HALEU task order, ticker LEU.</li>
+                <li><strong class="text-[#E8E4D9]">PG&amp;E $271M paid</strong> — first Civil Nuclear Credit payment, ticker PCG.</li>
+                <li><strong class="text-[#E8E4D9]">BWXT $131.3M</strong> — HPDU production services, 12-month public prime.</li>
+            </ul>
+        </section>
+        <section class="deco-card rounded-3xl p-6 md:p-8 mb-6">
+            <h2 class="text-2xl font-semibold mb-3">Magnets / rare earths</h2>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-[#8A8F82]">
+                <li><strong class="text-[#E8E4D9]">USA Rare Earth</strong> CHIPS mine-to-magnet: up to $277M + up to $1.3B loan. Ticker USAR.</li>
+                <li><strong class="text-[#E8E4D9]">Niron Magnetics</strong> OSC $150M conditional. Private.</li>
+                <li><strong class="text-[#E8E4D9]">ABB</strong> Mn-Bi bonded-magnet motors, $1.26M Award Amount. New prime.</li>
+            </ul>
+        </section>
+        <section class="deco-card rounded-3xl p-6 md:p-8 mb-6">
+            <h2 class="text-2xl font-semibold mb-3">Semiconductors / CHIPS</h2>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-[#8A8F82]">
+                <li>Definitive, private: SandboxAQ $500M, I-Pulse $250M SiC, Bosch up to $225M SiC.</li>
+                <li>LOI: $874M seven-company R&amp;D package (Jul 29). Verified ticker: GFS up to $300M.</li>
+                <li>GFS Trusted Foundry Access delivery orders in the 12-month lookback ($37.2M Award Amount combined).</li>
+            </ul>
+        </section>
+        <section class="deco-card rounded-3xl p-6 md:p-8 mb-6">
+            <h2 class="text-2xl font-semibold mb-3">What we will not do</h2>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-[#8A8F82]">
+                <li>Invent dollars, tickers, prices, or return percentages.</li>
+                <li>Invent growth forecasts or price targets. We <strong class="text-[#E8E4D9]">do</strong> show historical close-to-close returns when we have prices.</li>
+                <li>Pretend an email form sent you a PDF.</li>
+                <li>Pad Top companies to 20 with unverified names. We have 8.</li>
+                <li>Wire live email alerts. Watchlist is localStorage; RSS is pollable; the notification button is a demo.</li>
+            </ul>
+        </section>
+        <p class="text-sm text-[#8A8F82]">Questions about a row? Open the official source. <a href="index.html" class="bronze-link">Back to dashboard →</a></p>
     </div>
+
+    </main>
+    <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
+            <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers. Historical returns are close-to-close only and are not forecasts.</p>
+        </div>
+    </footer>
+    <script src="js/nav.js"></script>
+    <script src="js/watchlist.js"></script>
+    <script src="js/meta-stamp.js"></script>
+    <script src="js/homepage.js"></script>
 </body>
 </html>

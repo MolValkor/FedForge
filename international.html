@@ -3,71 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International Deals • FedForge</title>
+    <title>International · FedForge</title>
+    <meta name="description" content="U.S. government overseas tools. No invented dollars. Pre-window items labeled.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
-        .gold-text { color: #D4AF37; }
-        .deco-card { background: #121826; border: 1px solid #2A3142; }
-    </style>
+    <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
-    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl"><span class="text-white">FED</span><span class="gold-text">FORGE</span></a>
-            <div class="hidden md:flex gap-6 text-sm font-medium">
-                <a href="index.html">Dashboard</a>
-                <a href="sectors.html">Sectors</a>
-                <a href="companies.html">Companies</a>
-                <a href="movers.html">Biggest Movers</a>
-                <a href="pipeline.html">Policy Pipeline</a>
-                <a href="international.html" class="gold-text">International</a>
-                <a href="historical.html">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37]">Free Report</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur" aria-label="Primary">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home"><span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span></a>
+            <button type="button" id="nav-toggle" class="md:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <div class="hidden md:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="awards.html" class="nav-link">Awards</a>
+                <a href="companies.html" class="nav-link">Companies</a>
+                <a href="pipeline.html" class="nav-link">Pipeline</a>
+                <a href="international.html" class="nav-link is-active" aria-current="page">International</a>
+                <a href="historical.html" class="nav-link">Historical</a>
+                <a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
             </div>
+        </div>
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
+            <a href="index.html">Dashboard</a>
+            <a href="sectors.html">Sectors</a>
+            <a href="awards.html">Awards</a>
+            <a href="companies.html">Companies</a>
+            <a href="pipeline.html">Pipeline</a>
+            <a href="international.html" class="is-active" aria-current="page">International</a>
+            <a href="historical.html">Historical</a>
+            <a href="free-report.html">Free briefing</a>
         </div>
     </nav>
-
+    <main id="main">
     <div class="max-w-7xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-semibold mb-2">International Deals</h1>
-        <p class="text-[#A0AEC0] mb-10">U.S. government (DFC, EXIM, DoD, State) investments and structured deals abroad — and the companies that benefit.</p>
-
+        <h1 class="text-4xl font-semibold mb-2">International</h1>
+        <p class="text-[#8A8F82] mb-4 max-w-3xl">Honest scope: U.S. government tools (DFC, EXIM, State, DoW) that point overseas. Thinner than the domestic awards feed because we will not invent deal sizes.</p>
+        <p class="text-sm text-[#8A8F82] mb-10">None of the 14 curated in-window awards are foreign FDI. TSMC private FDI is excluded on purpose.</p>
         <div class="grid md:grid-cols-2 gap-6">
-            <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-emerald-400 mb-2">CRITICAL MINERALS / AFRICA</div>
-                <h2 class="text-xl font-semibold mb-2">Lobito Corridor & Related</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">DFC and EXIM support for rail, port, and mining projects in Angola/Zambia corridor to secure cobalt, copper, and other critical minerals and counter Chinese influence.</p>
-                <div class="text-xs"><span class="gold-text">Beneficiaries:</span> U.S. mining, logistics, and equipment firms</div>
-            </div>
-
-            <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-blue-400 mb-2">UKRAINE</div>
-                <h2 class="text-xl font-semibold mb-2">U.S.-Ukraine Reconstruction Investment Fund</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">DFC-led fund focused on critical minerals, energy, and infrastructure reconstruction. Seed capital mobilizing additional private and partner funding.</p>
-                <div class="text-xs"><span class="gold-text">Focus:</span> Critical minerals, energy, maritime infrastructure</div>
-            </div>
-
-            <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-orange-400 mb-2">VENEZUELA / ENERGY</div>
-                <h2 class="text-xl font-semibold mb-2">Post-2026 Energy Arrangements</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">U.S. involvement in marketing Venezuelan oil and related energy deals following 2026 political changes. Chevron, Exxon, BP, and GE among companies engaging.</p>
-                <div class="text-xs"><span class="gold-text">Key companies:</span> CVX, XOM, BP, GE</div>
-            </div>
-
-            <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-purple-400 mb-2">ALLIED SUPPLY CHAINS</div>
-                <h2 class="text-xl font-semibold mb-2">Pax Silica + Australia / Japan Frameworks</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">Critical minerals frameworks with Australia, Japan, and broader Pax Silica network. Stockpile provisions, price supports, and co-investment in processing.</p>
-                <div class="text-xs"><span class="gold-text">Focus:</span> Rare earths, lithium, full AI technology stack</div>
-            </div>
-
-            <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-cyan-400 mb-2">EXIM / DFC GLOBAL</div>
-                <h2 class="text-xl font-semibold mb-2">Project Vault & Broader Financing</h2>
-                <p class="text-sm text-[#A0AEC0] mb-3">$10B Project Vault for domestic reserve, plus billions in LOIs for critical minerals projects in Australia, UK, and other allies. DFC expanded authorities for larger equity and strategic deals.</p>
-                <div class="text-xs"><span class="gold-text">Tools:</span> Loans, equity, political risk insurance, offtakes</div>
-            </div>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="text-xs bronze-text mb-2">IN WINDOW · POLICY ALIGNMENT</div>
+                <h2 class="text-xl font-semibold mb-2">Pax Silica language in EO 14413</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">Jun 22 EO directs State to align existing engagements, including Pax Silica, with the quantum agenda (report due within 120 days). No dollar figure.</p>
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/" target="_blank" rel="noopener" class="bronze-link text-xs">EO 14413 →</a>
+            </article>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="text-xs text-[#8A8F82] mb-2">PRE-WINDOW (context, not in awards.json)</div>
+                <h2 class="text-xl font-semibold mb-2">Project Vault — $10B EXIM</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">Feb 2, 2026 EXIM loan plus nearly $2B private capital. No official superseding amount found after July 13.</p>
+                <a href="https://www.exim.gov/news/week-review-project-vault-and-strategic-critical-mineral-reserve" target="_blank" rel="noopener" class="bronze-link text-xs">EXIM release →</a>
+            </article>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="text-xs text-[#8A8F82] mb-2">ONGOING · NO NEW IN-WINDOW DOLLAR HERE</div>
+                <h2 class="text-xl font-semibold mb-2">Lobito Corridor</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">DFC/EXIM Angola–Zambia rail and minerals logistics. This pass did not add a new official dollar figure inside Jun 3–Sep 1.</p>
+            </article>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="text-xs text-[#8A8F82] mb-2">ONGOING · NO NEW IN-WINDOW DOLLAR HERE</div>
+                <h2 class="text-xl font-semibold mb-2">U.S.–Ukraine reconstruction fund</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">DFC-led vehicle for minerals, energy, and infrastructure. No invented seed-capital number.</p>
+            </article>
         </div>
+        <p class="text-sm text-[#8A8F82] mt-8">FMS dollars on domestic awards (e.g. AMRAAM UCA $104.1M FMS obligated) are on <a href="awards.html?sector=other" class="bronze-link">defense awards</a>.</p>
     </div>
+    </main>
+    <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
+            <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers.</p>
+        </div>
+    </footer>
+    <script src="js/nav.js"></script>
 </body>
 </html>
