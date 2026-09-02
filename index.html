@@ -17,12 +17,14 @@
     </style>
 </head>
 <body>
-    <!-- Nav -->
     <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="font-bold text-2xl tracking-tight">
                 <span class="text-white">FED</span><span class="gold-text">FORGE</span>
             </a>
+            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#D4AF37] border border-[#D4AF37] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="index.html" class="gold-text">Dashboard</a>
                 <a href="sectors.html" class="nav-link">Sectors</a>
@@ -34,16 +36,27 @@
                 <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0F1A] transition">Free Report</a>
             </div>
         </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2A3142] bg-[#0B0F1A]">
+            <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+                <a href="index.html" class="gold-text">Dashboard</a>
+                <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="companies.html" class="nav-link">Companies</a>
+                <a href="movers.html" class="nav-link">Biggest Movers</a>
+                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
+                <a href="international.html" class="nav-link">International</a>
+                <a href="historical.html" class="nav-link">Historical</a>
+                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37] text-center">Free Report</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero -->
     <section class="max-w-7xl mx-auto px-6 py-16 text-center">
         <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
             Track where the U.S. government is investing<br>
             <span class="gold-text">and which public companies stand to benefit</span>
         </h1>
         <p class="text-[#A0AEC0] max-w-2xl mx-auto text-lg">
-            Federal funding in nuclear, quantum, AI infrastructure, semiconductors, critical minerals & defense tech — translated into clear stock implications for investors.
+            Federal funding in nuclear, quantum, AI infrastructure, semiconductors, critical minerals &amp; defense tech — translated into clear stock implications for investors.
         </p>
         <div class="mt-8 flex justify-center gap-4">
             <a href="free-report.html" class="px-8 py-3 bg-white text-[#0B0F1A] font-semibold rounded-2xl hover:bg-[#D4AF37] transition">Get Free 2026 Themes Report</a>
@@ -51,102 +64,101 @@
         </div>
     </section>
 
-    <!-- Fresh Update Banner -->
     <section class="max-w-7xl mx-auto px-6 mb-12">
         <div class="deco-card rounded-3xl p-6 border-l-4 border-[#D4AF37]">
             <div class="flex items-center gap-3 mb-2">
-                <span class="px-3 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded-full">UPDATED July 13, 2026</span>
+                <span class="px-3 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded-full">UPDATED September 1, 2026</span>
                 <span class="text-sm text-[#64748B]">Fresh federal investment news</span>
             </div>
             <h2 class="text-xl font-semibold mb-3">Latest Developments</h2>
             <ul class="space-y-2 text-sm text-[#A0AEC0]">
-                <li>• <strong class="text-white">Quantum</strong>: $2.013B CHIPS Act LOIs (May 2026) for 9 quantum companies + new June 2026 Executive Order targeting a utility-scale quantum computer for DOE.</li>
-                <li>• <strong class="text-white">Critical Minerals</strong>: Project Vault ($10B EXIM loan for strategic reserve) + multi-billion DoD partnership with MP Materials ($400M equity + offtake + price floor).</li>
-                <li>• <strong class="text-white">Nuclear + AI Power</strong>: Strong push for SMRs and advanced reactors to power AI data centers. Oklo selected for DOE pilot programs targeting criticality mid-2026; Meta offtake deal for 1.2 GW.</li>
-                <li>• <strong class="text-white">Semiconductors</strong>: CHIPS Act continues to catalyze >$645B in private investment announcements; additional awards rolling out.</li>
+                <li>• <strong class="text-white">Nuclear</strong>: Oklo’s Groves Isotope Test Reactor reached criticality (DOE, Aug. 6, 2026) — the fifth DOE-authorized advanced reactor this summer under the Reactor Pilot Program. This is a zero-power test unit in Lockhart, TX, not the Aurora commercial plant.</li>
+                <li>• <strong class="text-white">AI + Nuclear R&amp;D</strong>: DOE Genesis Mission (July 22) selected 278 projects; the largest is a 3-year, $60M nuclear-AI award. DOE also announced more than $800M in consortium partner commitments. Selections are for award negotiations, not final funding.</li>
+                <li>• <strong class="text-white">Semiconductors</strong>: Commerce signed 7 CHIPS R&amp;D letters of intent on July 29 for $874M (photonics, memory, packaging, substrates). LOIs are not final awards; Commerce takes a minority, non-controlling equity stake if funded.</li>
+                <li>• <strong class="text-white">Critical Minerals</strong>: July 30 Presidential Determination under DPA §101 on recoverable CMMs (black mass, end-of-life REE magnets, scrap). BIS temporary final rule (Aug. 6) requires, as of Aug. 27, 100% of monthly black-mass and tungsten scrap sales to U.S. persons unless BIS grants an exception.</li>
+                <li>• <strong class="text-white">Quantum</strong>: $2.013B CHIPS Act LOIs (May 21, 2026) for 9 companies remain letters of intent, not closed awards. June 22 EO 14413 still directs a utility-scale QC-ADDS machine for a DOE facility; DOE partnership-model report is due within 180 days of the order.</li>
+                <li>• <strong class="text-white">Large nuclear</strong>: DOE EDF issued a $17.5B conditional loan commitment (June 23) for long-lead items on up to 10 Westinghouse AP1000 units. Separate Oct. 2025 partnership targets at least $80B of Westinghouse reactor construction — that figure is project value, not a cash grant.</li>
             </ul>
         </div>
     </section>
 
-    <!-- Live Tracker -->
     <section id="live-tracker" class="max-w-7xl mx-auto px-6 mb-16">
         <h2 class="text-3xl font-semibold section-header mb-8">Live Deal Tracker</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Quantum -->
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="text-xs text-[#64748B]">NUCLEAR + AI POWER</div>
+                        <div class="text-xl font-semibold">Oklo Groves Criticality</div>
+                    </div>
+                    <span class="px-2 py-1 bg-orange-900/40 text-orange-400 text-xs rounded">Aug 6, 2026</span>
+                </div>
+                <p class="text-sm text-[#A0AEC0] mb-4">DOE: Groves Isotope Test Reactor achieved criticality at Oklo’s Lockhart, TX site — fifth DOE-authorized advanced reactor this summer. Zero-power test assembly (max 100 W) to inform a future isotope-production design. Separate Meta agreement remains for a 1.2 GW Aurora campus in Pike County, OH (pre-construction 2026–27; first phase targeted 2030).</p>
+                <div class="text-xs">
+                    <span class="text-[#D4AF37]">Key ticker:</span> OKLO
+                </div>
+                <a href="https://www.energy.gov/ne/articles/office-nuclear-energy-celebrates-fifth-advanced-reactor-criticality" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="text-xs text-[#64748B]">AI + NUCLEAR R&amp;D</div>
+                        <div class="text-xl font-semibold">Genesis Mission Selections</div>
+                    </div>
+                    <span class="px-2 py-1 bg-orange-900/40 text-orange-400 text-xs rounded">Jul 22, 2026</span>
+                </div>
+                <p class="text-sm text-[#A0AEC0] mb-4">DOE selected 278 Genesis Mission projects (87 lab-led, 168 university-led, 19 company-led). Largest: a 3-year, $60M nuclear-energy AI award. Same-day announcement: more than $800M in consortium partner commitments (compute, models, cloud, funding). Award negotiation is not a funding commitment.</p>
+                <div class="text-xs">
+                    <span class="text-[#D4AF37]">Context tickers:</span> OKLO, SMR, BWXT (industry partners on related nuclear-AI work; not named as award recipients in the DOE release)
+                </div>
+                <a href="https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="text-xs text-[#64748B]">SEMICONDUCTORS</div>
+                        <div class="text-xl font-semibold">$874M CHIPS R&amp;D LOIs</div>
+                    </div>
+                    <span class="px-2 py-1 bg-purple-900/40 text-purple-400 text-xs rounded">Jul 29, 2026</span>
+                </div>
+                <p class="text-sm text-[#A0AEC0] mb-4">Commerce signed 7 letters of intent for $874M CHIPS R&amp;D incentives: GlobalFoundries (up to $300M, co-packaged optics), Kepler ($245M), Multibeam ($140M), Extropic ($75M), Thintronics ($50M), OBSIDIA ($34M), Aeluma ($30M). Further diligence required; minority non-controlling equity if funded.</p>
+                <div class="text-xs">
+                    <span class="text-[#D4AF37]">Key ticker:</span> GFS
+                </div>
+                <a href="https://www.nist.gov/news-events/news/2026/07/department-commerce-announces-letters-intent-7-companies-874-million" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="text-xs text-[#64748B]">CRITICAL MINERALS</div>
+                        <div class="text-xl font-semibold">DPA Recoverable CMMs</div>
+                    </div>
+                    <span class="px-2 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded">Jul 30 / Aug 27</span>
+                </div>
+                <p class="text-sm text-[#A0AEC0] mb-4">Presidential Determination (July 30) finds recoverable critical minerals and materials essential to national defense and directs Commerce to act under DPA §101. BIS temporary final rule implements a Directive Allocation Order: from Aug. 27, 2026, U.S. persons must allocate 100% of monthly black-mass and tungsten waste/scrap sales to U.S. persons unless BIS authorizes an exception.</p>
+                <div class="text-xs text-[#64748B]">Policy / allocation — not a company grant</div>
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/07/presidential-determination-pursuant-to-section-101-of-the-defense-production-act-of-1950-as-amended-on-recoverable-critical-minerals-and-materials/" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
+            </div>
+
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex justify-between items-start mb-4">
                     <div>
                         <div class="text-xs text-[#64748B]">QUANTUM COMPUTING</div>
                         <div class="text-xl font-semibold">$2.013B CHIPS LOIs</div>
                     </div>
-                    <span class="px-2 py-1 bg-blue-900/40 text-blue-400 text-xs rounded">May 2026</span>
+                    <span class="px-2 py-1 bg-blue-900/40 text-blue-400 text-xs rounded">May 21, 2026</span>
                 </div>
-                <p class="text-sm text-[#A0AEC0] mb-4">9 companies including foundries (IBM, GlobalFoundries) and quantum hardware players receive incentives under CHIPS for fault-tolerant systems and domestic manufacturing.</p>
+                <p class="text-sm text-[#A0AEC0] mb-4">9 LOIs under CHIPS: IBM ($1B planned, quantum foundry subsidiary), GlobalFoundries ($375M planned), plus Atom Computing, Diraq (up to $38M), D-Wave, Infleqtion, PsiQuantum, Quantinuum, and Rigetti (up to $100M). Commerce takes a minority, non-controlling equity stake if funded. Not final awards.</p>
                 <div class="text-xs">
-                    <span class="text-[#D4AF37]">Key tickers:</span> IBM, IONQ, RGTI, QBTS, GlobalFoundries (GFS)
+                    <span class="text-[#D4AF37]">Key tickers:</span> IBM, GFS, RGTI, QBTS
                 </div>
-                <a href="https://www.nist.gov/news-events/news/2026/05/department-commerce-announces-letters-intent-9-companies-2-billion" target="_blank" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
+                <a href="https://www.nist.gov/news-events/news/2026/05/department-commerce-announces-letters-intent-9-companies-2-billion" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
             </div>
 
-            <!-- Critical Minerals / MP -->
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <div class="text-xs text-[#64748B]">CRITICAL MINERALS</div>
-                        <div class="text-xl font-semibold">MP Materials DoD Deal</div>
-                    </div>
-                    <span class="px-2 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded">2025–2026</span>
-                </div>
-                <p class="text-sm text-[#A0AEC0] mb-4">$400M equity stake + $150M loan + 10-year offtake + price floor. DoD becomes largest shareholder. Supports 10X magnet facility for defense & commercial magnets.</p>
-                <div class="text-xs">
-                    <span class="text-[#D4AF37]">Key ticker:</span> MP
-                </div>
-            </div>
-
-            <!-- Project Vault -->
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <div class="text-xs text-[#64748B]">CRITICAL MINERALS</div>
-                        <div class="text-xl font-semibold">Project Vault – $10B</div>
-                    </div>
-                    <span class="px-2 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded">2026</span>
-                </div>
-                <p class="text-sm text-[#A0AEC0] mb-4">EXIM Bank direct loan for domestic strategic rare earth / critical minerals reserve. Largest EXIM financing of its kind. Aims to stockpile refined materials and reduce China dependence.</p>
-                <div class="text-xs text-[#64748B]">EXIM + private capital crowding-in</div>
-            </div>
-
-            <!-- Nuclear AI -->
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <div class="text-xs text-[#64748B]">NUCLEAR + AI POWER</div>
-                        <div class="text-xl font-semibold">SMR / Advanced Nuclear Push</div>
-                    </div>
-                    <span class="px-2 py-1 bg-orange-900/40 text-orange-400 text-xs rounded">Ongoing 2026</span>
-                </div>
-                <p class="text-sm text-[#A0AEC0] mb-4">Admin goal to quadruple nuclear capacity. Oklo selected for multiple DOE reactor pilot programs (target criticality mid-2026). Meta offtake for 1.2 GW in Ohio. Westinghouse $80B+ support package. DOE identifying 16 sites for AI data centers + nuclear.</p>
-                <div class="text-xs">
-                    <span class="text-[#D4AF37]">Key tickers:</span> OKLO, SMR, BWXT, CEG, VST
-                </div>
-            </div>
-
-            <!-- CHIPS Continuity -->
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <div class="text-xs text-[#64748B]">SEMICONDUCTORS</div>
-                        <div class="text-xl font-semibold">CHIPS Act Momentum</div>
-                    </div>
-                    <span class="px-2 py-1 bg-purple-900/40 text-purple-400 text-xs rounded">Ongoing</span>
-                </div>
-                <p class="text-sm text-[#A0AEC0] mb-4">$33B+ in grants + loans announced. Catalyzed >$645B private investment across 140+ projects in 30 states. Focus expanding to advanced packaging, SiC, and secure supply chains.</p>
-                <div class="text-xs">
-                    <span class="text-[#D4AF37]">Key tickers:</span> INTC, TSM, AMAT, KLAC, ASML, LRCX
-                </div>
-            </div>
-
-            <!-- Quantum EO -->
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex justify-between items-start mb-4">
                     <div>
@@ -155,13 +167,55 @@
                     </div>
                     <span class="px-2 py-1 bg-blue-900/40 text-blue-400 text-xs rounded">Jun 22, 2026</span>
                 </div>
-                <p class="text-sm text-[#A0AEC0] mb-4">Presidential Executive Order directing development of a large-scale quantum computer for DOE scientific discovery. Private partnership models to be explored within 180 days.</p>
-                <a href="https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/" target="_blank" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official EO →</a>
+                <p class="text-sm text-[#A0AEC0] mb-4">EO 14413 establishes the QC-ADDS effort to deliver at least one large-scale quantum computer to a DOE facility. DOE must explore private-sector partnership models within 180 days. No dollar amount is in the order.</p>
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official EO →</a>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="text-xs text-[#64748B]">CRITICAL MINERALS</div>
+                        <div class="text-xl font-semibold">MP Materials DoD Deal</div>
+                    </div>
+                    <span class="px-2 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded">Jul 2025</span>
+                </div>
+                <p class="text-sm text-[#A0AEC0] mb-4">Company/SEC: $400M DoD preferred-equity purchase, $150M loan for heavy-REE separation, 10-year NdPr price floor, and 10-year magnet offtake for the 10X facility. DoD positioned as largest shareholder on an as-converted basis. Closed 2025; still the live federal magnet partnership. No official dollar change found after July 13, 2026.</p>
+                <div class="text-xs">
+                    <span class="text-[#D4AF37]">Key ticker:</span> MP
+                </div>
+                <a href="https://investors.mpmaterials.com/investor-news/news-details/2025/MP-Materials-Announces-Transformational-Public-Private-Partnership-with-the-Department-of-Defense-to-Accelerate-U-S--Rare-Earth-Magnet-Independence/default.aspx" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="text-xs text-[#64748B]">CRITICAL MINERALS</div>
+                        <div class="text-xl font-semibold">Project Vault – $10B EXIM</div>
+                    </div>
+                    <span class="px-2 py-1 bg-emerald-900/40 text-emerald-400 text-xs rounded">Feb 2, 2026</span>
+                </div>
+                <p class="text-sm text-[#A0AEC0] mb-4">EXIM: $10B loan plus nearly $2B private capital for the U.S. Strategic Critical Minerals Reserve, an independently governed public-private stockpile. No official superseding amount found since the February launch.</p>
+                <div class="text-xs text-[#64748B]">EXIM + private capital</div>
+                <a href="https://www.exim.gov/news/week-review-project-vault-and-strategic-critical-mineral-reserve" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
+            </div>
+
+            <div class="deco-card rounded-3xl p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="text-xs text-[#64748B]">NUCLEAR</div>
+                        <div class="text-xl font-semibold">Westinghouse EDF Loans</div>
+                    </div>
+                    <span class="px-2 py-1 bg-orange-900/40 text-orange-400 text-xs rounded">Jun 23, 2026</span>
+                </div>
+                <p class="text-sm text-[#A0AEC0] mb-4">DOE EDF: $17.5B conditional commitment to finance long-lead items for up to 10 AP1000 reactors (five two-unit projects). Conditional — not funded until conditions are met. Separate Oct. 28, 2025 partnership with Brookfield/Cameco targets construction of at least $80B of Westinghouse reactors (project value, not a federal grant).</p>
+                <div class="text-xs">
+                    <span class="text-[#D4AF37]">Related:</span> CCJ (Cameco); Westinghouse is private
+                </div>
+                <a href="https://www.energy.gov/articles/department-energy-announces-american-nuclear-supply-chain-loans" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-[#D4AF37] hover:underline">Official announcement →</a>
             </div>
         </div>
     </section>
 
-    <!-- Quick Links to Sections -->
     <section class="max-w-7xl mx-auto px-6 mb-16">
         <div class="grid md:grid-cols-4 gap-4">
             <a href="companies.html" class="deco-card rounded-2xl p-6 text-center hover:border-[#D4AF37]">
@@ -174,7 +228,7 @@
             </a>
             <a href="pipeline.html" class="deco-card rounded-2xl p-6 text-center hover:border-[#D4AF37]">
                 <div class="text-2xl font-semibold mb-1">Pipeline</div>
-                <div class="text-xs text-[#64748B]">Bills & future deals</div>
+                <div class="text-xs text-[#64748B]">Bills &amp; future deals</div>
             </a>
             <a href="free-report.html" class="deco-card rounded-2xl p-6 text-center hover:border-[#D4AF37]">
                 <div class="text-2xl font-semibold mb-1">Free Report</div>
@@ -183,12 +237,23 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="border-t border-[#2A3142] py-10 text-center text-sm text-[#64748B]">
         <div class="max-w-7xl mx-auto px-6">
             <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
             <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
         </div>
     </footer>
+    <script>
+        (function () {
+            var btn = document.getElementById('mobile-menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', function () {
+                var open = menu.classList.toggle('hidden') === false;
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+        })();
+    </script>
 </body>
 </html>
