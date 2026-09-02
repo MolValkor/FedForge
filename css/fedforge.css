@@ -102,6 +102,23 @@ a.bronze-link:hover { color: var(--green-bright); }
   border-color: var(--bronze);
   color: var(--bronze);
 }
+abbr[title] {
+  text-decoration: underline dotted var(--bronze);
+  text-underline-offset: 3px;
+  cursor: help;
+  font-variant: none;
+}
+.disclaimer-banner {
+  background: rgba(140, 106, 63, 0.18);
+  border: 1px solid var(--bronze-deep);
+  color: var(--text);
+}
+.rank-num {
+  font-variant-numeric: tabular-nums;
+  color: var(--bronze);
+  font-weight: 700;
+  min-width: 2rem;
+}
 @media print {
   nav, footer, .no-print { display: none !important; }
   body { background: #fff; color: #111; }
