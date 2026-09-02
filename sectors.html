@@ -6,121 +6,124 @@
     <title>Sectors • FedForge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0B0F1A; color: #E8E8E8; }
-        .gold-text { color: #D4AF37; }
-        .deco-card { background: #121826; border: 1px solid #2A3142; transition: all 0.3s; }
-        .deco-card:hover { border-color: #D4AF37; transform: translateY(-3px); }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #12150F; color: #E8E4D9; }
+        .bronze-text { color: #C4A574; }
+        .deco-card { background: #1A2118; border: 1px solid #2C382E; transition: all 0.3s; }
+        .deco-card:hover { border-color: #C4A574; transform: translateY(-3px); }
         .nav-link { transition: color 0.2s; }
-        .nav-link:hover { color: #D4AF37; }
-        .section-header::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(to right, #D4AF37, transparent); margin-top: 8px; }
+        .nav-link:hover { color: #C4A574; }
+        .section-header::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(to right, #C4A574, transparent); margin-top: 8px; }
+        .amount-text { color: #6B9B7A; }
+        .badge-green { background: rgba(61,107,79,0.35); color: #6B9B7A; }
+        .badge-bronze { background: rgba(140,106,63,0.35); color: #C4A574; }
     </style>
 </head>
 <body>
-    <nav class="bg-[#0B0F1A]/95 border-b border-[#2A3142] sticky top-0 z-50 backdrop-blur">
+    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="font-bold text-2xl tracking-tight">
-                <span class="text-white">FED</span><span class="gold-text">FORGE</span>
+                <span class="text-white">FED</span><span class="bronze-text">FORGE</span>
             </a>
-            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#D4AF37] border border-[#D4AF37] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#C4A574] border border-[#C4A574] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="index.html" class="nav-link">Dashboard</a>
-                <a href="sectors.html" class="gold-text">Sectors</a>
+                <a href="sectors.html" class="bronze-text">Sectors</a>
                 <a href="companies.html" class="nav-link">Companies</a>
                 <a href="movers.html" class="nav-link">Biggest Movers</a>
                 <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0F1A] transition">Free Report</a>
+                <a href="free-report.html" class="px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] hover:bg-[#C4A574] hover:text-[#12150F] transition">Free Report</a>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2A3142] bg-[#0B0F1A]">
+        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2C382E] bg-[#12150F]">
             <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
                 <a href="index.html" class="nav-link">Dashboard</a>
-                <a href="sectors.html" class="gold-text">Sectors</a>
+                <a href="sectors.html" class="bronze-text">Sectors</a>
                 <a href="companies.html" class="nav-link">Companies</a>
                 <a href="movers.html" class="nav-link">Biggest Movers</a>
                 <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#D4AF37] rounded-xl text-[#D4AF37] text-center">Free Report</a>
+                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] text-center">Free Report</a>
             </div>
         </div>
     </nav>
 
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-4xl font-semibold mb-2">Strategic Sectors</h1>
-        <p class="text-[#A0AEC0] mb-10 max-w-2xl">Where federal capital is flowing across the technologies that will define the next decade. Click any sector for company exposure and funding context.</p>
+        <p class="text-[#8A8F82] mb-10 max-w-2xl">Where federal capital is flowing across the technologies that will define the next decade. Click any sector for company exposure and funding context.</p>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-orange-400 mb-2">NUCLEAR ENERGY &amp; FUSION</div>
                 <h2 class="text-xl font-semibold mb-3">Nuclear + AI Power</h2>
-                <p class="text-sm text-[#A0AEC0] mb-4">DOE Reactor Pilot Program: five advanced reactors reached criticality this summer, including Oklo Groves (Aug. 6). Genesis Mission added a 3-year, $60M nuclear-AI selection (July 22). DOE EDF: $17.5B conditional AP1000 long-lead loans (June 23). DOE identified 16 federal sites (April 2025) for AI infrastructure with nuclear generation option.</p>
-                <div class="text-xs mb-3"><span class="gold-text">Key Tickers:</span> OKLO, SMR, BWXT, CEG, VST, LEU</div>
-                <div class="text-xs text-[#64748B]">Momentum: Very High (AI demand + policy support)</div>
+                <p class="text-sm text-[#8A8F82] mb-4">DOE Reactor Pilot Program: five advanced reactors reached criticality this summer, including Oklo Groves (Aug. 6). Genesis Mission added a 3-year, $60M nuclear-AI selection (July 22). DOE EDF: $17.5B conditional AP1000 long-lead loans (June 23). DOE identified 16 federal sites (April 2025) for AI infrastructure with nuclear generation option.</p>
+                <div class="text-xs mb-3"><span class="bronze-text">Key Tickers:</span> OKLO, SMR, BWXT, CEG, VST, LEU</div>
+                <div class="text-xs text-[#8A8F82]">Momentum: Very High (AI demand + policy support)</div>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-blue-400 mb-2">QUANTUM COMPUTING</div>
                 <h2 class="text-xl font-semibold mb-3">Quantum Computing &amp; QIS</h2>
-                <p class="text-sm text-[#A0AEC0] mb-4">$2.013B CHIPS LOIs (May 21, 2026; 9 companies, not closed awards) + EO 14413 (June 22) for a DOE-hosted large-scale quantum computer (QC-ADDS). Recipients on the NIST list: IBM, GFS, Atom, Diraq, D-Wave, Infleqtion, PsiQuantum, Quantinuum, Rigetti — not IonQ.</p>
-                <div class="text-xs mb-3"><span class="gold-text">Key Tickers:</span> IBM, GFS, RGTI, QBTS</div>
-                <div class="text-xs text-[#64748B]">Momentum: Extremely High</div>
+                <p class="text-sm text-[#8A8F82] mb-4">$2.013B CHIPS LOIs (May 21, 2026; 9 companies, not closed awards) + EO 14413 (June 22) for a DOE-hosted large-scale quantum computer (QC-ADDS). Recipients on the NIST list: IBM, GFS, Atom, Diraq, D-Wave, Infleqtion, PsiQuantum, Quantinuum, Rigetti — not IonQ.</p>
+                <div class="text-xs mb-3"><span class="bronze-text">Key Tickers:</span> IBM, GFS, RGTI, QBTS</div>
+                <div class="text-xs text-[#8A8F82]">Momentum: Extremely High</div>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-cyan-400 mb-2">AI INFRASTRUCTURE</div>
                 <h2 class="text-xl font-semibold mb-3">AI Compute &amp; Data Centers</h2>
-                <p class="text-sm text-[#A0AEC0] mb-4">DOE Genesis Mission (July 22): 278 AI-for-science selections and $800M+ partner commitments. April 2025 DOE RFI listed 16 federal sites for data-center / energy co-location. Power remains the bottleneck; nuclear offtakes (e.g., Oklo–Meta 1.2 GW Ohio) are private demand, not federal grants.</p>
-                <div class="text-xs mb-3"><span class="gold-text">Key Tickers:</span> VST, CEG, NVDA, AVGO, power utilities</div>
-                <div class="text-xs text-[#64748B]">Momentum: Extremely High</div>
+                <p class="text-sm text-[#8A8F82] mb-4">DOE Genesis Mission (July 22): 278 AI-for-science selections and $800M+ partner commitments. April 2025 DOE RFI listed 16 federal sites for data-center / energy co-location. Power remains the bottleneck; nuclear offtakes (e.g., Oklo–Meta 1.2 GW Ohio) are private demand, not federal grants.</p>
+                <div class="text-xs mb-3"><span class="bronze-text">Key Tickers:</span> VST, CEG, NVDA, AVGO, power utilities</div>
+                <div class="text-xs text-[#8A8F82]">Momentum: Extremely High</div>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-purple-400 mb-2">SEMICONDUCTORS</div>
                 <h2 class="text-xl font-semibold mb-3">Semiconductors &amp; CHIPS Act</h2>
-                <p class="text-sm text-[#A0AEC0] mb-4">Newest official package: $874M CHIPS R&amp;D LOIs (July 29) for compute-supply-chain R&amp;D. GAO (report GAO-26-109121) said as of April 2026 Commerce had 49 projects across 24 companies and had disbursed $13.1B of $31.5B in awards. Prior site claim of &gt;$645B private investment could not be confirmed on an official page this pass.</p>
-                <div class="text-xs mb-3"><span class="gold-text">Key Tickers:</span> INTC, TSM, AMAT, KLAC, LRCX, ASML, GFS</div>
-                <div class="text-xs text-[#64748B]">Momentum: High</div>
+                <p class="text-sm text-[#8A8F82] mb-4">Newest official package: $874M CHIPS R&amp;D LOIs (July 29) for compute-supply-chain R&amp;D. GAO (report GAO-26-109121) said as of April 2026 Commerce had 49 projects across 24 companies and had disbursed $13.1B of $31.5B in awards. Prior site claim of &gt;$645B private investment could not be confirmed on an official page this pass.</p>
+                <div class="text-xs mb-3"><span class="bronze-text">Key Tickers:</span> INTC, TSM, AMAT, KLAC, LRCX, ASML, GFS</div>
+                <div class="text-xs text-[#8A8F82]">Momentum: High</div>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
-                <div class="text-xs text-emerald-400 mb-2">CRITICAL MINERALS</div>
+                <div class="text-xs amount-text mb-2">CRITICAL MINERALS</div>
                 <h2 class="text-xl font-semibold mb-3">Critical Minerals &amp; Magnets</h2>
-                <p class="text-sm text-[#A0AEC0] mb-4">Project Vault ($10B EXIM loan, Feb. 2026) + MP Materials DoD package ($400M equity + $150M loan + offtake + price floor, 2025). New since July 13: DPA determination (July 30) and BIS allocation order (effective Aug. 27) on black mass and tungsten scrap.</p>
-                <div class="text-xs mb-3"><span class="gold-text">Key Tickers:</span> MP, LAC, rare earth plays</div>
-                <div class="text-xs text-[#64748B]">Momentum: Extremely High</div>
+                <p class="text-sm text-[#8A8F82] mb-4">Project Vault ($10B EXIM loan, Feb. 2026) + MP Materials DoD package ($400M equity + $150M loan + offtake + price floor, 2025). New since July 13: DPA determination (July 30) and BIS allocation order (effective Aug. 27) on black mass and tungsten scrap.</p>
+                <div class="text-xs mb-3"><span class="bronze-text">Key Tickers:</span> MP, LAC, rare earth plays</div>
+                <div class="text-xs text-[#8A8F82]">Momentum: Extremely High</div>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-red-400 mb-2">DEFENSE TECH</div>
                 <h2 class="text-xl font-semibold mb-3">Defense Tech &amp; Dual-Use</h2>
-                <p class="text-sm text-[#A0AEC0] mb-4">Trusted AI, quantum for national security, hypersonics, secure microelectronics, and dual-use tech. DPA recoverable-minerals action is a defense-industrial supply tool. Strong DoD + Commerce overlap.</p>
-                <div class="text-xs mb-3"><span class="gold-text">Key Tickers:</span> LMT, RTX, NOC, PLTR, quantum names</div>
-                <div class="text-xs text-[#64748B]">Momentum: High</div>
+                <p class="text-sm text-[#8A8F82] mb-4">Trusted AI, quantum for national security, hypersonics, secure microelectronics, and dual-use tech. DPA recoverable-minerals action is a defense-industrial supply tool. Strong DoD + Commerce overlap.</p>
+                <div class="text-xs mb-3"><span class="bronze-text">Key Tickers:</span> LMT, RTX, NOC, PLTR, quantum names</div>
+                <div class="text-xs text-[#8A8F82]">Momentum: High</div>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-yellow-400 mb-2">ADVANCED MANUFACTURING</div>
                 <h2 class="text-xl font-semibold mb-3">Advanced Manufacturing &amp; Onshoring</h2>
-                <p class="text-sm text-[#A0AEC0] mb-4">Domestic production of critical components, robotics, and supply-chain resilience. Tied to CHIPS R&amp;D LOIs, critical minerals, and defense.</p>
-                <div class="text-xs mb-3"><span class="gold-text">Key Tickers:</span> Various industrial &amp; automation names</div>
-                <div class="text-xs text-[#64748B]">Momentum: Medium-High</div>
+                <p class="text-sm text-[#8A8F82] mb-4">Domestic production of critical components, robotics, and supply-chain resilience. Tied to CHIPS R&amp;D LOIs, critical minerals, and defense.</p>
+                <div class="text-xs mb-3"><span class="bronze-text">Key Tickers:</span> Various industrial &amp; automation names</div>
+                <div class="text-xs text-[#8A8F82]">Momentum: Medium-High</div>
             </div>
 
             <div class="deco-card rounded-3xl p-6">
                 <div class="text-xs text-teal-400 mb-2">GRID &amp; STORAGE</div>
                 <h2 class="text-xl font-semibold mb-3">Energy Storage &amp; Grid Modernization</h2>
-                <p class="text-sm text-[#A0AEC0] mb-4">Grid upgrades and storage to support hyperscale data centers and nuclear integration. Critical enabler for AI power demand.</p>
-                <div class="text-xs mb-3"><span class="gold-text">Key Tickers:</span> Utilities, battery materials, grid tech</div>
-                <div class="text-xs text-[#64748B]">Momentum: High</div>
+                <p class="text-sm text-[#8A8F82] mb-4">Grid upgrades and storage to support hyperscale data centers and nuclear integration. Critical enabler for AI power demand.</p>
+                <div class="text-xs mb-3"><span class="bronze-text">Key Tickers:</span> Utilities, battery materials, grid tech</div>
+                <div class="text-xs text-[#8A8F82]">Momentum: High</div>
             </div>
         </div>
     </div>
 
-    <footer class="border-t border-[#2A3142] py-10 text-center text-sm text-[#64748B]">
+    <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
         <div class="max-w-7xl mx-auto px-6">
             <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
             <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
