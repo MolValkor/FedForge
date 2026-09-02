@@ -5,27 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Companies • FedForge</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #12150F; color: #E8E4D9; }
-        .bronze-text { color: #C4A574; }
-        .deco-card { background: #1A2118; border: 1px solid #2C382E; transition: all 0.3s; }
-        .deco-card:hover { border-color: #C4A574; transform: translateY(-3px); }
-        .nav-link { transition: color 0.2s; }
-        .nav-link:hover { color: #C4A574; }
-        .section-header::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(to right, #C4A574, transparent); margin-top: 8px; }
-        .amount-text { color: #6B9B7A; }
-        .badge-green { background: rgba(61,107,79,0.35); color: #6B9B7A; }
-        .badge-bronze { background: rgba(140,106,63,0.35); color: #C4A574; }
-    </style>
+    <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
     <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="font-bold text-2xl tracking-tight">
-                <span class="text-white">FED</span><span class="bronze-text">FORGE</span>
+                <span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span>
             </a>
-            <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-[#C4A574] border border-[#C4A574] rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <button id="nav-toggle" class="md:hidden p-2 border border-[#2C382E] rounded-lg bronze-text" aria-label="Open menu" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
+                </svg>
             </button>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="index.html" class="nav-link">Dashboard</a>
@@ -35,27 +26,24 @@
                 <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] hover:bg-[#C4A574] hover:text-[#12150F] transition">Free Report</a>
+                <a href="free-report.html" class="px-4 py-2 rounded-xl cta-outline transition">Free Report</a>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-[#2C382E] bg-[#12150F]">
-            <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
-                <a href="index.html" class="nav-link">Dashboard</a>
-                <a href="sectors.html" class="nav-link">Sectors</a>
-                <a href="companies.html" class="bronze-text">Companies</a>
-                <a href="movers.html" class="nav-link">Biggest Movers</a>
-                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
-                <a href="international.html" class="nav-link">International</a>
-                <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="nav-link px-4 py-2 border border-[#C4A574] rounded-xl text-[#C4A574] text-center">Free Report</a>
-            </div>
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-4 space-y-1 text-sm">
+            <a href="index.html">Dashboard</a>
+            <a href="sectors.html">Sectors</a>
+            <a href="companies.html">Companies</a>
+            <a href="movers.html">Biggest Movers</a>
+            <a href="pipeline.html">Policy Pipeline</a>
+            <a href="international.html">International</a>
+            <a href="historical.html">Historical</a>
+            <a href="free-report.html" class="bronze-text">Free Report</a>
         </div>
     </nav>
-
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-4xl font-semibold mb-2">Companies Receiving Federal Funding</h1>
-        <p class="text-[#8A8F82] mb-10">Public companies with direct federal equity, grants, loans, offtakes or major contracts in strategic sectors (updated July 2026).</p>
-
+        <p class="text-[#8A8F82] mb-4">Public names that remain useful context for nuclear, magnets/rare earths, and semiconductors. Dollar figures on this page are from prior public announcements — we are not adding new amounts here.</p>
+        <p class="text-sm text-[#8A8F82] mb-10">The live list of recent prime awards (with sourced dollars) is the <a href="index.html#live-tracker" class="bronze-link">awards feed on the dashboard</a>, backed by <code>data/awards.json</code>.</p>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex justify-between">
@@ -64,29 +52,27 @@
                         <div class="text-xs text-[#8A8F82]">Critical Minerals / Rare Earth Magnets</div>
                     </div>
                     <div class="text-right text-sm">
-                        <div class="amount-text">$550M+</div>
-                        <div class="text-xs text-[#8A8F82]">DoD equity + loan</div>
+                        <div class="amount-pos">DoD partnership</div>
+                        <div class="text-xs text-[#8A8F82]">previously reported</div>
                     </div>
                 </div>
-                <p class="text-sm text-[#8A8F82] mt-4">$400M preferred equity (DoD positioned as largest shareholder) + $150M loan + 10-yr offtake + NdPr price floor (company/SEC, July 2025). Building 10X magnet facility. No official dollar revision found after July 13, 2026.</p>
+                <p class="text-sm text-[#8A8F82] mt-4">U.S. rare earth miner/magnet maker previously reported as receiving DoD equity, loan, offtake, and price-floor support for a domestic magnet facility. Not in this 90-day USAspending new-award snapshot.</p>
                 <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> MP</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex justify-between">
                     <div>
                         <div class="text-xl font-semibold">IBM</div>
-                        <div class="text-xs text-[#8A8F82]">Quantum Foundry</div>
+                        <div class="text-xs text-[#8A8F82]">Quantum / advanced manufacturing</div>
                     </div>
                     <div class="text-right text-sm">
-                        <div class="amount-text">~$1B planned</div>
-                        <div class="text-xs text-[#8A8F82]">CHIPS quantum LOI</div>
+                        <div class="amount-pos">CHIPS LOI (prior)</div>
+                        <div class="text-xs text-[#8A8F82]">previously reported</div>
                     </div>
                 </div>
-                <p class="text-sm text-[#8A8F82] mt-4">Largest planned amount in the $2.013B quantum CHIPS LOIs (NIST, May 21, 2026). Dedicated quantum wafer foundry subsidiary. LOI, not a closed award. Minority non-controlling equity if funded.</p>
+                <p class="text-sm text-[#8A8F82] mt-4">Previously named in Commerce quantum CHIPS letters of intent. No new IBM prime award in this USAspending window — see the live feed for current dollars.</p>
                 <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> IBM</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex justify-between">
                     <div>
@@ -94,44 +80,41 @@
                         <div class="text-xs text-[#8A8F82]">Advanced Nuclear / SMRs</div>
                     </div>
                     <div class="text-right text-sm">
-                        <div class="amount-text">Pilot criticality</div>
-                        <div class="text-xs text-[#8A8F82]">DOE + Meta</div>
+                        <div class="amount-pos">DOE pilots (prior)</div>
+                        <div class="text-xs text-[#8A8F82]">previously reported</div>
                     </div>
                 </div>
-                <p class="text-sm text-[#8A8F82] mt-4">DOE (Aug. 6, 2026): Groves Isotope Test Reactor achieved criticality in Lockhart, TX (zero-power test; fifth DOE-authorized reactor this summer). Separate Meta agreement for a 1.2 GW Ohio campus. Aurora at INL remains a later commercial project.</p>
+                <p class="text-sm text-[#8A8F82] mt-4">Advanced fission developer previously reported as selected for DOE reactor pilots. No Oklo prime award appeared in this 90-day USAspending pull.</p>
                 <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> OKLO</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex justify-between">
                     <div>
-                        <div class="text-xl font-semibold">Rigetti Computing</div>
-                        <div class="text-xs text-[#8A8F82]">Superconducting Quantum</div>
+                        <div class="text-xl font-semibold">IonQ</div>
+                        <div class="text-xs text-[#8A8F82]">Trapped-Ion Quantum</div>
                     </div>
                     <div class="text-right text-sm">
-                        <div class="amount-text">Up to $100M planned</div>
-                        <div class="text-xs text-[#8A8F82]">CHIPS LOI</div>
+                        <div class="amount-pos">CHIPS LOI (prior)</div>
+                        <div class="text-xs text-[#8A8F82]">previously reported</div>
                     </div>
                 </div>
-                <p class="text-sm text-[#8A8F82] mt-4">Named on the NIST May 21, 2026 list (up to $100M planned) for next-generation superconducting systems, readout electronics, and cryostat architectures. Replaces a prior card that incorrectly listed IonQ as a $2.013B LOI recipient — IonQ is not on the Commerce list.</p>
-                <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> RGTI</div>
+                <p class="text-sm text-[#8A8F82] mt-4">Previously included in Commerce quantum incentive announcements. Not sourced as a new prime award in this snapshot.</p>
+                <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> IONQ</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex justify-between">
                     <div>
                         <div class="text-xl font-semibold">GlobalFoundries</div>
-                        <div class="text-xs text-[#8A8F82]">Quantum + Compute R&amp;D</div>
+                        <div class="text-xs text-[#8A8F82]">Semiconductor manufacturing</div>
                     </div>
                     <div class="text-right text-sm">
-                        <div class="amount-text">$375M + $300M planned</div>
-                        <div class="text-xs text-[#8A8F82]">Two CHIPS LOIs</div>
+                        <div class="amount-pos">CHIPS (prior)</div>
+                        <div class="text-xs text-[#8A8F82]">previously reported</div>
                     </div>
                 </div>
-                <p class="text-sm text-[#8A8F82] mt-4">$375M planned quantum foundry LOI (May 21) plus up to $300M planned compute-supply-chain LOI for co-packaged optics (July 29). Both are letters of intent.</p>
+                <p class="text-sm text-[#8A8F82] mt-4">U.S. foundry previously named in CHIPS-related quantum manufacturing support. No new GlobalFoundries prime award in this window.</p>
                 <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> GFS</div>
             </div>
-
             <div class="deco-card rounded-3xl p-6">
                 <div class="flex justify-between">
                     <div>
@@ -139,35 +122,22 @@
                         <div class="text-xs text-[#8A8F82]">Nuclear Components</div>
                     </div>
                     <div class="text-right text-sm">
-                        <div class="amount-text">Ongoing DoD/DOE</div>
-                        <div class="text-xs text-[#8A8F82]">Naval + SMR</div>
+                        <div class="amount-pos">DoD / DOE (ongoing)</div>
+                        <div class="text-xs text-[#8A8F82]">previously reported</div>
                     </div>
                 </div>
-                <p class="text-sm text-[#8A8F82] mt-4">Key supplier for naval nuclear and advanced reactor components. Positioned for SMR and AI-power nuclear buildout. No new dollar figure sourced this pass.</p>
+                <p class="text-sm text-[#8A8F82] mt-4">Naval nuclear and advanced-reactor component supplier. No new-award hit under the BWX name in this 90-day USAspending query.</p>
                 <div class="mt-3 text-xs"><span class="bronze-text">Ticker:</span> BWXT</div>
             </div>
         </div>
-
-        <p class="mt-10 text-center text-sm text-[#8A8F82]">More companies being added. Funding figures are approximate from public announcements and LOIs. This page is not a complete dataset.</p>
+        <p class="mt-10 text-center text-sm text-[#8A8F82]">For verified dollars and dates, use the dashboard awards feed. Tickers on this page are the companies’ listed symbols, not a claim that they won an award in the current snapshot.</p>
     </div>
-
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
         <div class="max-w-7xl mx-auto px-6">
             <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
             <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
         </div>
     </footer>
-    <script>
-        (function () {
-            var btn = document.getElementById('mobile-menu-btn');
-            var menu = document.getElementById('mobile-menu');
-            if (!btn || !menu) return;
-            btn.addEventListener('click', function () {
-                var open = menu.classList.toggle('hidden') === false;
-                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-            });
-        })();
-    </script>
+    <script src="js/nav.js"></script>
 </body>
 </html>
