@@ -1,4 +1,4 @@
-/* FedForge — foundry bronze + forest */
+/* FedForge -- foundry bronze + forest */
 :root {
   --bg: #12150F;
   --card: #1A2118;
@@ -118,6 +118,45 @@ abbr[title] {
   color: var(--bronze);
   font-weight: 700;
   min-width: 2rem;
+}
+.pub-table { width: 100%; border-collapse: collapse; }
+.pub-table th, .pub-table td {
+  text-align: left;
+  padding: 0.75rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.pub-table th { color: var(--bronze); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+.pub-table a { color: var(--text); }
+.pub-table a:hover { color: var(--bronze); }
+.ret-pos { color: var(--green-bright); font-variant-numeric: tabular-nums; }
+.ret-neg { color: #C47B6A; font-variant-numeric: tabular-nums; }
+.ret-na { color: var(--muted); }
+.watch-btn {
+  min-height: 44px;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--bronze);
+  border-radius: 999px;
+  color: var(--bronze);
+  background: transparent;
+  cursor: pointer;
+}
+.watch-btn.is-on { background: var(--bronze); color: var(--bg); }
+.watch-btn:hover { border-color: var(--green-bright); }
+.meta-stamp { color: var(--muted); font-size: 0.8rem; }
+.finding-share {
+  white-space: pre-wrap;
+  background: rgba(18,21,15,0.5);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.return-block { border-left: 3px solid var(--bronze); padding-left: 1rem; }
+@media (max-width: 768px) {
+  .pub-scroll { overflow-x: auto; }
+  .pub-table { min-width: 720px; }
 }
 @media print {
   nav, footer, .no-print { display: none !important; }
