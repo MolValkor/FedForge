@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Companies · FedForge</title>
-    <meta name="description" content="Verified flagship tickers this window — LMT, RTX, LEU, USAR, PCG, GFS — plus honest context names. Not investment advice.">
+    <meta name="description" content="Verified flagship tickers this window — LMT, RTX, LEU, USAR, PCG, GFS — plus BWXT and ABB on the ranked public screen. Not investment advice.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/fedforge.css">
 </head>
@@ -15,56 +16,37 @@
             <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home"><span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span></a>
             <button type="button" id="nav-toggle" class="md:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
             <div class="hidden md:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
-                <a href="index.html" class="nav-link">Dashboard</a>
-                <a href="sectors.html" class="nav-link">Sectors</a>
-                <a href="awards.html" class="nav-link">Awards</a>
-                <a href="companies.html" class="nav-link is-active" aria-current="page">Companies</a>
-                <a href="top-companies.html" class="nav-link">Top companies</a>
-                <a href="glossary.html" class="nav-link">Glossary</a>
-                <a href="pipeline.html" class="nav-link">Pipeline</a>
-                <a href="international.html" class="nav-link">International</a>
-                <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
+                <a href="index.html" class="nav-link">Dashboard</a><a href="sectors.html" class="nav-link">Sectors</a><a href="awards.html" class="nav-link">Awards</a><a href="companies.html" class="nav-link is-active" aria-current="page">Companies</a><a href="top-companies.html" class="nav-link">Top companies</a><a href="glossary.html" class="nav-link">Glossary</a><a href="pipeline.html" class="nav-link">Pipeline</a><a href="international.html" class="nav-link">International</a><a href="historical.html" class="nav-link">Historical</a><a href="watchlist.html" class="nav-link">Watchlist</a><a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
             </div>
         </div>
         <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
-            <a href="index.html">Dashboard</a>
-            <a href="sectors.html">Sectors</a>
-            <a href="awards.html">Awards</a>
-            <a href="companies.html" class="is-active" aria-current="page">Companies</a>
-            <a href="top-companies.html">Top companies</a>
-            <a href="glossary.html">Glossary</a>
-            <a href="pipeline.html">Pipeline</a>
-            <a href="international.html">International</a>
-            <a href="historical.html">Historical</a>
-            <a href="free-report.html">Free briefing</a>
+            <a href="index.html">Dashboard</a><a href="sectors.html">Sectors</a><a href="awards.html">Awards</a><a href="companies.html" class="is-active" aria-current="page">Companies</a><a href="top-companies.html">Top companies</a><a href="glossary.html">Glossary</a><a href="pipeline.html">Pipeline</a><a href="international.html">International</a><a href="historical.html">Historical</a><a href="watchlist.html">Watchlist</a><a href="free-report.html">Free briefing</a>
         </div>
     </nav>
     <main id="main">
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-4xl font-semibold mb-2">Companies</h1>
-        <p class="text-[#8A8F82] mb-4 max-w-3xl">Flagship tickers this window — LMT, RTX, LEU, USAR, PCG, GFS — link to official notices already in <code>data/curated.json</code>. Amounts are as cited there. Context cards below stay honest: previously reported or USAspending new-prime only. For a ranked federal-money screen (not a buy list), see <a href="top-companies.html" class="bronze-link">Top companies</a>. Acronyms: <a href="glossary.html" class="bronze-link">glossary</a>. Not investment advice.</p>
-        <p class="text-sm text-[#8A8F82] mb-10">Sourced dollars and status tags live on the <a href="awards.html#flagship" class="bronze-link">flagship awards strip</a> and the <a href="awards.html#new-primes" class="bronze-link">new primes strip</a>.</p>
-
+        <p class="text-[#8A8F82] mb-4 max-w-3xl">Flagship tickers this window — LMT, RTX, LEU, USAR, PCG, GFS — link to ticker permalinks. BWXT joined the ranked public list from a 12-month HPDU prime. ABB remains a new-prime ticker. Context cards (MP, IBM, Oklo, IonQ) stay off the ranked list. For the ranked federal-money screen see <a href="top-companies.html" class="bronze-link">Top companies</a>. Not investment advice.</p>
         <h2 class="text-2xl font-semibold section-header mb-4">Verified flagship this window</h2>
-        <div id="flagship-companies" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <p class="text-sm text-[#8A8F82]">Loading flagship tickers from curated.json…</p>
-        </div>
-
+        <div id="flagship-companies" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"><p class="text-sm text-[#8A8F82]">Loading flagship tickers from curated.json…</p></div>
+        <h2 class="text-2xl font-semibold section-header mb-4">Also ranked (not flagship notices)</h2>
+        <p class="text-sm text-[#8A8F82] mb-6">12-month public prime and 90-day new prime. On the ranked screen, not in <code>curated.json</code>.</p>
+        <div id="widened-companies" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"></div>
         <h2 class="text-2xl font-semibold section-header mb-4">Context names</h2>
-        <p class="text-sm text-[#8A8F82] mb-6">Previously reported or USAspending new-prime only. Not flagship tickers except as noted.</p>
+        <p class="text-sm text-[#8A8F82] mb-6">Previously reported. Not flagship tickers. Not on the ranked list.</p>
         <div id="context-companies" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        <p class="mt-10 text-center text-sm text-[#8A8F82]">Tickers on context cards are listed symbols, not a claim they won a new flagship award unless marked flagship. We do not invent dollars.</p>
     </div>
+
     </main>
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
         <div class="max-w-7xl mx-auto px-6 space-y-2">
             <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
             <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
-            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers. Historical returns are close-to-close only and are not forecasts.</p>
         </div>
     </footer>
     <script src="js/nav.js"></script>
+    <script src="js/watchlist.js"></script>
     <script src="js/companies.js"></script>
 </body>
 </html>
