@@ -3,108 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biggest Movers • FedForge</title>
+    <title>Movers · FedForge</title>
+    <meta name="description" content="In-window federal notices with verified public recipients. No fabricated price percentages.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
-    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl tracking-tight">
-                <span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span>
-            </a>
-            <button id="nav-toggle" class="md:hidden p-2 border border-[#2C382E] rounded-lg bronze-text" aria-label="Open menu" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
-                </svg>
-            </button>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur" aria-label="Primary">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home"><span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span></a>
+            <button type="button" id="nav-toggle" class="md:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <div class="hidden md:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
                 <a href="index.html" class="nav-link">Dashboard</a>
                 <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="awards.html" class="nav-link">Awards</a>
                 <a href="companies.html" class="nav-link">Companies</a>
-                <a href="movers.html" class="bronze-text">Biggest Movers</a>
-                <a href="pipeline.html" class="nav-link">Policy Pipeline</a>
+                <a href="pipeline.html" class="nav-link">Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 rounded-xl cta-outline transition">Free Report</a>
+                <a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
             </div>
         </div>
-        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-4 space-y-1 text-sm">
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
             <a href="index.html">Dashboard</a>
             <a href="sectors.html">Sectors</a>
+            <a href="awards.html">Awards</a>
             <a href="companies.html">Companies</a>
-            <a href="movers.html">Biggest Movers</a>
-            <a href="pipeline.html">Policy Pipeline</a>
+            <a href="pipeline.html">Pipeline</a>
             <a href="international.html">International</a>
             <a href="historical.html">Historical</a>
-            <a href="free-report.html" class="bronze-text">Free Report</a>
+            <a href="free-report.html">Free briefing</a>
         </div>
     </nav>
+    <main id="main">
     <div class="max-w-7xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-semibold mb-2">Biggest Movers</h1>
-        <p class="text-[#8A8F82] mb-10">Ranked by sourced prime-award size in the 3 Jun–1 Sep 2026 USAspending snapshot — not by stock-price moves.</p>
+        <h1 class="text-4xl font-semibold mb-2">Federal-money movers</h1>
+        <p class="text-[#8A8F82] mb-4 max-w-3xl">This is not a stock-price board. We do not have a market-data feed and we will not fabricate percentages. “Mover” here means: in-window federal notice with a verified public recipient, ranked by official face value — with status tags so a UCA ceiling is not mistaken for cash.</p>
+        <p class="text-sm text-[#8A8F82] mb-10">Primary navigation now uses <a href="awards.html" class="bronze-link">Awards</a>. This page remains so older bookmarks still work.</p>
         <div class="space-y-4">
-            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <div class="text-xs amount-pos mb-1">NUCLEAR</div>
-                    <div class="text-xl font-semibold">American Centrifuge Operating (Centrus / LEU)</div>
-                    <p class="text-sm text-[#8A8F82] mt-1">DOE $900M HALEU commercial-capacity task order (start 6 Jul 2026). Largest prime award in this snapshot.</p>
-                </div>
-                <div class="text-right">
-                    <div class="amount-pos font-semibold">$900M</div>
-                    <div class="text-xs text-[#8A8F82]">USAspending</div>
-                </div>
-            </div>
-            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <div class="text-xs amount-pos mb-1">NUCLEAR</div>
-                    <div class="text-xl font-semibold">Global Laser Enrichment LLC</div>
-                    <p class="text-sm text-[#8A8F82] mt-1">DOE $28.4M cooperative agreement (29 Jun) on front-end nuclear fuel-cycle technology. Private JV — no ticker attached.</p>
-                </div>
-                <div class="text-right">
-                    <div class="amount-pos font-semibold">$28.4M</div>
-                    <div class="text-xs text-[#8A8F82]">USAspending</div>
-                </div>
-            </div>
-            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <div class="text-xs amount-pos mb-1">SEMICONDUCTORS</div>
-                    <div class="text-xl font-semibold">Oregon State — NSF FAST Engine</div>
-                    <p class="text-sm text-[#8A8F82] mt-1">$7.5M NSF award (1 Aug) to rebuild regional semiconductor design/manufacturing capacity in Oregon.</p>
-                </div>
-                <div class="text-right">
-                    <div class="amount-pos font-semibold">$7.5M</div>
-                    <div class="text-xs text-[#8A8F82]">USAspending</div>
-                </div>
-            </div>
-            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <div class="text-xs amount-pos mb-1">MAGNETS / RARE EARTHS</div>
-                    <div class="text-xl font-semibold">University of Alaska Fairbanks — Critical Mineral Accelerator</div>
-                    <p class="text-sm text-[#8A8F82] mt-1">$7.5M NSF engine (1 Aug) for Alaskan critical-mineral discovery and recovery.</p>
-                </div>
-                <div class="text-right">
-                    <div class="amount-pos font-semibold">$7.5M</div>
-                    <div class="text-xs text-[#8A8F82]">USAspending</div>
-                </div>
-            </div>
-            <div class="deco-card rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <div class="text-xs amount-pos mb-1">SEMICONDUCTORS</div>
-                    <div class="text-xl font-semibold">University of Arkansas — SiC CMOS</div>
-                    <p class="text-sm text-[#8A8F82] mt-1">$6.43M DoD award (1 Jul) toward a silicon-carbide CMOS process for advanced integration.</p>
-                </div>
-                <div class="text-right">
-                    <div class="amount-pos font-semibold">$6.43M</div>
-                    <div class="text-xs text-[#8A8F82]">USAspending</div>
-                </div>
-            </div>
+            <article class="deco-card rounded-2xl p-6"><div class="text-xs bronze-text">LMT · UCA</div><h2 class="text-xl font-semibold">Lockheed Martin — THAAD</h2><p class="text-sm text-[#8A8F82] mt-2">$35.33B UCA total / $842.9M obligated (Jun 24). Obligated cash is the smaller number.</p></article>
+            <article class="deco-card rounded-2xl p-6"><div class="text-xs bronze-text">LMT · FINAL (mod, $0 obligated)</div><h2 class="text-xl font-semibold">Lockheed Martin — PAC-3 MSE</h2><p class="text-sm text-[#8A8F82] mt-2">$53.86B modification; $58.62B cumulative face; no funds obligated at the mod (Jul 29).</p></article>
+            <article class="deco-card rounded-2xl p-6"><div class="text-xs bronze-text">RTX · FINAL</div><h2 class="text-xl font-semibold">RTX — Tomahawk / munitions</h2><p class="text-sm text-[#8A8F82] mt-2">$22.9B (Aug 17) DoW/Navy production acceleration.</p></article>
+            <article class="deco-card rounded-2xl p-6"><div class="text-xs bronze-text">LEU · FINAL</div><h2 class="text-xl font-semibold">Centrus — HALEU</h2><p class="text-sm text-[#8A8F82] mt-2">$900M FFP / $1.07B base+options (Jul 1).</p></article>
+            <article class="deco-card rounded-2xl p-6"><div class="text-xs bronze-text">USAR · FINAL (ceilings)</div><h2 class="text-xl font-semibold">USA Rare Earth — CHIPS mine-to-magnet</h2><p class="text-sm text-[#8A8F82] mt-2">Up to $277M + up to $1.3B loan (Jun 3).</p></article>
+            <article class="deco-card rounded-2xl p-6"><div class="text-xs bronze-text">PCG · FINAL paid</div><h2 class="text-xl font-semibold">PG&amp;E — Civil Nuclear Credit</h2><p class="text-sm text-[#8A8F82] mt-2">$271M paid (Aug 14).</p></article>
+            <article class="deco-card rounded-2xl p-6"><div class="text-xs bronze-text">GFS · LOI</div><h2 class="text-xl font-semibold">GlobalFoundries — CHIPS R&amp;D LOI</h2><p class="text-sm text-[#8A8F82] mt-2">Up to $300M inside the $874M seven-company LOI package (Jul 29). Not closed.</p></article>
         </div>
+        <p class="text-sm text-[#8A8F82] mt-8"><a href="awards.html" class="bronze-link">See every tagged award →</a></p>
     </div>
+    </main>
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
-            <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
+            <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers.</p>
         </div>
     </footer>
     <script src="js/nav.js"></script>

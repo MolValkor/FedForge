@@ -3,90 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Policy Pipeline • FedForge</title>
+    <title>Pipeline · FedForge</title>
+    <meta name="description" content="Policy and conditional items that can move capital: DPA, Genesis Mission, CHIPS LOIs, OSC loans.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/fedforge.css">
 </head>
 <body>
-    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl tracking-tight">
-                <span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span>
-            </a>
-            <button id="nav-toggle" class="md:hidden p-2 border border-[#2C382E] rounded-lg bronze-text" aria-label="Open menu" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
-                </svg>
-            </button>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur" aria-label="Primary">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home"><span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span></a>
+            <button type="button" id="nav-toggle" class="md:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <div class="hidden md:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
                 <a href="index.html" class="nav-link">Dashboard</a>
                 <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="awards.html" class="nav-link">Awards</a>
                 <a href="companies.html" class="nav-link">Companies</a>
-                <a href="movers.html" class="nav-link">Biggest Movers</a>
-                <a href="pipeline.html" class="bronze-text">Policy Pipeline</a>
+                <a href="pipeline.html" class="nav-link is-active" aria-current="page">Pipeline</a>
                 <a href="international.html" class="nav-link">International</a>
                 <a href="historical.html" class="nav-link">Historical</a>
-                <a href="free-report.html" class="px-4 py-2 rounded-xl cta-outline transition">Free Report</a>
+                <a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
             </div>
         </div>
-        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-4 space-y-1 text-sm">
+        <div id="nav-mobile" class="hidden md:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
             <a href="index.html">Dashboard</a>
             <a href="sectors.html">Sectors</a>
+            <a href="awards.html">Awards</a>
             <a href="companies.html">Companies</a>
-            <a href="movers.html">Biggest Movers</a>
-            <a href="pipeline.html">Policy Pipeline</a>
+            <a href="pipeline.html" class="is-active" aria-current="page">Pipeline</a>
             <a href="international.html">International</a>
             <a href="historical.html">Historical</a>
-            <a href="free-report.html" class="bronze-text">Free Report</a>
+            <a href="free-report.html">Free briefing</a>
         </div>
     </nav>
+    <main id="main">
     <div class="max-w-7xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-semibold mb-2">Policy Pipeline</h1>
-        <p class="text-[#8A8F82] mb-10">Upcoming legislation, executive actions, and funding opportunities. Award dollars belong on the dashboard feed, not here.</p>
+        <h1 class="text-4xl font-semibold mb-2">Policy pipeline</h1>
+        <p class="text-[#8A8F82] mb-10 max-w-3xl">Items that can move capital later. These are not awards.json rows unless a dollar notice exists.</p>
         <div class="space-y-6">
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="px-3 py-1 badge-green text-xs rounded-full">IMPLEMENTATION</span>
-                    <span class="text-xs text-[#8A8F82]">2026</span>
-                </div>
-                <h2 class="text-xl font-semibold mb-2">Domestic HALEU &amp; nuclear fuel cycle</h2>
-                <p class="text-sm text-[#8A8F82] mb-3">DOE continues to place HALEU capacity and front-end fuel-cycle awards. The live feed currently shows the ACO $900M task order and Global Laser Enrichment cooperative agreement as the sourced examples.</p>
-                <div class="text-xs"><span class="bronze-text">Sectors impacted:</span> Nuclear, SMRs, fuel</div>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="px-3 py-1 badge-green text-xs rounded-full">FUNDING OPPORTUNITY</span>
-                    <span class="text-xs text-[#8A8F82]">DOE / NSF</span>
-                </div>
-                <h2 class="text-xl font-semibold mb-2">Critical minerals, REE sensing, magnet materials</h2>
-                <p class="text-sm text-[#8A8F82] mb-3">DOE ROCKS / critical-materials FOAs and NSF engines are producing new primes in this window (Alaska accelerator, RAPID-REE, rare-earth-free magnet design, PMT Critical Metals).</p>
-                <div class="text-xs"><span class="bronze-text">Sectors impacted:</span> Magnets, rare earths, advanced manufacturing</div>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="px-3 py-1 badge-green text-xs rounded-full">ONGOING</span>
-                    <span class="text-xs text-[#8A8F82]">CHIPS Act / NIST R&amp;D</span>
-                </div>
-                <h2 class="text-xl font-semibold mb-2">CHIPS metrology and regional semiconductor capacity</h2>
-                <p class="text-sm text-[#8A8F82] mb-3">This snapshot’s CHIPS-tagged dollars are mostly NIST R&amp;D tool buys and NSF/DoD capacity awards — not the large Commerce manufacturing grants from earlier years.</p>
-                <div class="text-xs"><span class="bronze-text">Sectors impacted:</span> Semiconductors, microelectronics</div>
-            </div>
-            <div class="deco-card rounded-3xl p-6">
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="px-3 py-1 bg-[#1A2118] border border-[#2C382E] text-[#C4A574] text-xs rounded-full">EXECUTIVE ACTION</span>
-                    <span class="text-xs text-[#8A8F82]">June 22, 2026</span>
-                </div>
-                <h2 class="text-xl font-semibold mb-2">Quantum Innovation Executive Order</h2>
-                <p class="text-sm text-[#8A8F82] mb-3">Directs development of a large-scale quantum computer for DOE scientific discovery. Private-sector partnership models to be explored within 180 days. Builds on National Quantum Initiative.</p>
-                <div class="text-xs"><span class="bronze-text">Sectors impacted:</span> Quantum, Computing, Defense</div>
-                <a href="https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-link">Official EO →</a>
-            </div>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3 flex-wrap"><span class="badge-status badge-FINAL">IN FORCE</span><span class="text-xs text-[#8A8F82]">Jul 30 determination · BIS effective Aug 27, 2026</span></div>
+                <h2 class="text-xl font-semibold mb-2">DPA recoverable CMMs + BIS allocation</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">Presidential Determination under DPA §101. BIS temporary final rule: from Aug 27, 100% of monthly black-mass and tungsten scrap sales to U.S. persons unless BIS grants an exception. Policy, not a company grant.</p>
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/07/presidential-determination-pursuant-to-section-101-of-the-defense-production-act-of-1950-as-amended-on-recoverable-critical-minerals-and-materials/" target="_blank" rel="noopener" class="bronze-link text-xs">White House determination →</a>
+            </article>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3 flex-wrap"><span class="badge-status badge-CONDITIONAL">NEGOTIATION</span><span class="text-xs text-[#8A8F82]">Jul 22, 2026</span></div>
+                <h2 class="text-xl font-semibold mb-2">Genesis Mission selections</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">DOE selected 278 AI-for-science projects and announced $800M+ consortium partner commitments. Largest named federal amount: $60M over three years for nuclear-energy AI. Selection is not a funding commitment.</p>
+                <a href="https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate" target="_blank" rel="noopener" class="bronze-link text-xs">DOE announcement →</a>
+            </article>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3 flex-wrap"><span class="badge-status badge-LOI">WATCH</span><span class="text-xs text-[#8A8F82]">Jun 22, 2026 · EO 14413</span></div>
+                <h2 class="text-xl font-semibold mb-2">Quantum EO (QC-ADDS)</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">Directs a large-scale quantum computer for a DOE facility. Partnership-model report due ~180 days. No dollar figure in the order.</p>
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/" target="_blank" rel="noopener" class="bronze-link text-xs">Official EO →</a>
+            </article>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3 flex-wrap"><span class="badge-status badge-LOI">LOI</span><span class="text-xs text-[#8A8F82]">Jul 29, 2026</span></div>
+                <h2 class="text-xl font-semibold mb-2">$874M CHIPS R&amp;D LOIs still open</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">Seven companies. Only GFS has a verified ticker on our card. Stays tagged LOI until definitive documents.</p>
+                <a href="awards.html?sector=chips" class="bronze-link text-xs">Open CHIPS awards filter →</a>
+            </article>
+            <article class="deco-card rounded-3xl p-6">
+                <div class="flex items-center gap-3 mb-3 flex-wrap"><span class="badge-status badge-CONDITIONAL">CONDITIONAL</span><span class="text-xs text-[#8A8F82]">Jun 23 / Aug 7, 2026</span></div>
+                <h2 class="text-xl font-semibold mb-2">Conditional loans still conditions-dependent</h2>
+                <p class="text-sm text-[#8A8F82] mb-3">DOE EDF $17.5B (Westinghouse sponsor), OSC Sila up to $1.4B, OSC Niron $150M. Commitments, not disbursements.</p>
+                <a href="awards.html" class="bronze-link text-xs">See tagged cards →</a>
+            </article>
         </div>
     </div>
+    </main>
     <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="mb-2">FedForge — Federal funding intelligence for investors.</p>
-            <p class="text-xs">Data drawn from official sources (Commerce, DOE, DoD, White House, USAspending.gov). Not investment advice.</p>
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
+            <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers.</p>
         </div>
     </footer>
     <script src="js/nav.js"></script>
