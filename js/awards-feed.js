@@ -15,7 +15,7 @@
     return months[parseInt(p[1], 10) - 1] + " " + parseInt(p[2], 10) + ", " + p[0];
   }
   function sectorLabel(s) {
-    return { nuclear: "NUCLEAR", magnets: "MAGNETS / RARE EARTHS", chips: "SEMICONDUCTORS", other: "OTHER" }[s] || s.toUpperCase();
+    return { nuclear: "NUCLEAR", magnets: "MAGNETS / RARE EARTHS", chips: "SEMICONDUCTORS", other: "OTHER" }[s] || (s || "").toUpperCase();
   }
 
   function card(a) {
@@ -57,11 +57,11 @@
     }
   }
 
+  if (window.FEDFORGE_AWARDS) render(window.FEDFORGE_AWARDS);
   fetch("data/awards.json")
     .then(function (r) { if (!r.ok) throw new Error("awards.json " + r.status); return r.json(); })
-    .then(render)
-    .catch(function () {
-      root.innerHTML =
-        '<p class="text-sm text-[#8A8F82]">Could not load <code>data/awards.json</code>. Open this site via a local or static host so the snapshot file is reachable.</p>';
-    });
+    .then(function (data) {
+      if (data && data.awards && data.awards.length) render(data);
+    })
+    .catch(function () {});
 })();
