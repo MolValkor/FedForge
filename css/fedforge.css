@@ -163,3 +163,11 @@ abbr[title] {
   body { background: #fff; color: #111; }
   .deco-card { border-color: #ccc; background: #fff; }
 }
+.cta-row { display:flex; flex-wrap:wrap; gap:0.5rem; }
+details.hist-returns { margin-top:0.75rem; border:1px solid var(--border,#2C382E); border-radius:1rem; padding:0.75rem 1rem; background:var(--card,#1A2118); }
+details.hist-returns summary { cursor:pointer; color:var(--bronze,#C4A574); font-size:0.875rem; }
+.faq-block details { border:1px solid #2C382E; border-radius:0.75rem; padding:0.75rem 1rem; margin-bottom:0.5rem; background:#1A2118; }
+.faq-block summary { cursor:pointer; color:#E8E4D9; font-weight:600; }
+.faq-block details p { color:#8A8F82; font-size:0.875rem; margin-top:0.5rem; }
+.share-blurb { background:#12150F; border:1px solid #2C382E; border-radius:1rem; padding:1rem; margin-bottom:1rem; }
+.share-blurb pre { white-space:pre-wrap; font-size:0.8rem; color:#E8E4D9; }
