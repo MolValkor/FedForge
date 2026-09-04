@@ -9,6 +9,10 @@
   <url><loc>https://thefedforge.com/glossary.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/watchlist.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/finding.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/findings.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/finding-red.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/finding-loi.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/share.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/free-report.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/nuclear.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/magnets.html</loc><changefreq>weekly</changefreq></url>
@@ -18,6 +22,18 @@
   <url><loc>https://thefedforge.com/nuclear</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/magnets</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/chips</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/guides/how-to-read-a-federal-award.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/chips-usar-2026-06-03.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/doe-haleu-centrus.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/war-pac3-mse-2026-07-29.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/chips-loi-7co-2026-07-29.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/chips-sandboxaq-2026-06-17.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/chips-ipulse-2026-06-25.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/chips-bosch-2026-07-13.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/doe-cnc-pge-2026-08-14.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/war-rtx-tomahawk-2026-08-17.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/war-amraam-uca-2026-06-23.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/award/war-thaad-uca-2026-06-24.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/ticker/LMT.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/ticker/LMT</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/ticker/RTX.html</loc><changefreq>weekly</changefreq></url>
@@ -30,36 +46,8 @@
   <url><loc>https://thefedforge.com/ticker/PCG</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/ticker/GFS.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/ticker/GFS</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/ticker/ABB.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/ticker/ABB</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/ticker/BWXT.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://thefedforge.com/ticker/BWXT</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/war-thaad-uca-2026-06-24.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/war-thaad-uca-2026-06-24</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/war-pac3-mse-2026-07-29.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/war-pac3-mse-2026-07-29</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/war-rtx-tomahawk-2026-08-17.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/war-rtx-tomahawk-2026-08-17</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/doe-edf-andp-westinghouse.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/doe-edf-andp-westinghouse</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/doe-haleu-centrus.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/doe-haleu-centrus</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-usar-2026-06-03.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-usar-2026-06-03</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-sandboxaq-2026-06-17.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-sandboxaq-2026-06-17</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/osc-sila-2026-08-07.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/osc-sila-2026-08-07</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/doe-cnc-pge-2026-08-14.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/doe-cnc-pge-2026-08-14</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-ipulse-2026-06-25.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-ipulse-2026-06-25</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-bosch-2026-07-13.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-bosch-2026-07-13</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-loi-7co-2026-07-29.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/chips-loi-7co-2026-07-29</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/osc-niron-2026-08-07.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/osc-niron-2026-08-07</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/war-amraam-uca-2026-06-23.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://thefedforge.com/award/war-amraam-uca-2026-06-23</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/ticker/ABB.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://thefedforge.com/ticker/ABB</loc><changefreq>weekly</changefreq></url>
 </urlset>
