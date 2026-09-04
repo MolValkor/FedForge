@@ -18,6 +18,7 @@
   var root = document.getElementById("public-window");
   if (!root) return;
   var watchOnly = false;
+  var showHist = false;
   Promise.all([
     fetch("data/curated.json").then(function (r) { return r.json(); }),
     fetch("data/awards.json").then(function (r) { return r.json(); }).catch(function () { return { awards: [] }; }),
@@ -47,7 +48,9 @@
         shown = rows.filter(function (r) { return w.indexOf(r.a.ticker) !== -1; });
       }
       var html = '<div class="pub-scroll"><table class="pub-table"><thead><tr>' +
-        "<th>Ticker</th><th>Deal</th><th>Status</th><th>Sourced $</th><th>Announcement-to-now</th></tr></thead><tbody>";
+        "<th>Ticker</th><th>Deal</th><th>Status</th><th>Sourced $</th><th>Official source</th>";
+      if (showHist) html += '<th>Historical close-to-close (not a buy signal)</th>';
+      html += "</tr></thead><tbody>";
       shown.forEach(function (r) {
         var a = r.a;
         var rec = RET[a.ticker + "|" + a.id];
@@ -59,15 +62,20 @@
           retCell = '<span class="ret-na">no reliable close</span>';
         }
         var st = a.status_label || a.status || (r.layer === "new prime" ? "NEW PRIME" : "");
+        var src = a.source_url
+          ? '<a href="' + esc(a.source_url) + '" target="_blank" rel="noopener">Source</a>'
+          : "—";
         html += "<tr data-ticker=\"" + esc(a.ticker) + "\">" +
           '<td><a href="ticker/' + esc(a.ticker) + '.html"><strong>' + esc(a.ticker) + "</strong></a></td>" +
           '<td><a href="' + esc(awardHref(a, r.flagship)) + '">' + esc(a.title || a.recipient_name) + "</a>" +
             '<div class="text-xs text-[#8A8F82]">' + esc(a.recipient_name || "") + " · " + esc(a.date || "") + " · " + esc(r.layer) + "</div></td>" +
           '<td><span class="badge-status badge-' + esc(String(a.status || "FINAL").split("/")[0]) + '">' + esc(st) + "</span></td>" +
           "<td class=\"amount-pos\">" + esc(a.amount_display || fmtMoney(a.amount)) + "</td>" +
-          "<td>" + retCell + "</td></tr>";
+          "<td>" + src + "</td>";
+        if (showHist) html += "<td>" + retCell + "</td>";
+        html += "</tr>";
       });
-      if (!shown.length) html += '<tr><td colspan="5" class="text-[#8A8F82]">No watched public awards. Watch a ticker first.</td></tr>';
+      if (!shown.length) html += '<tr><td colspan="' + (showHist ? 6 : 5) + '" class="text-[#8A8F82]">No watched public awards. Watch a ticker first.</td></tr>';
       html += "</tbody></table></div>";
       root.innerHTML = html;
     }
@@ -78,6 +86,16 @@
         watchOnly = !watchOnly;
         btn.classList.toggle("is-on", watchOnly);
         btn.setAttribute("aria-pressed", watchOnly ? "true" : "false");
+        render();
+      });
+    }
+    var histBtn = document.getElementById("toggle-hist-returns");
+    if (histBtn) {
+      histBtn.addEventListener("click", function () {
+        showHist = !showHist;
+        histBtn.classList.toggle("is-on", showHist);
+        histBtn.setAttribute("aria-pressed", showHist ? "true" : "false");
+        histBtn.textContent = showHist ? "Hide historical closes" : "Show historical close-to-close (not a buy signal)";
         render();
       });
     }
