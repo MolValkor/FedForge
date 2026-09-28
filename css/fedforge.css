@@ -171,3 +171,71 @@ details.hist-returns summary { cursor:pointer; color:var(--bronze,#C4A574); font
 .faq-block details p { color:#8A8F82; font-size:0.875rem; margin-top:0.5rem; }
 .share-blurb { background:#12150F; border:1px solid #2C382E; border-radius:1rem; padding:1rem; margin-bottom:1rem; }
 .share-blurb pre { white-space:pre-wrap; font-size:0.8rem; color:#E8E4D9; }
+
+/* ---- Navigation (growth pass 1) ---- */
+.nav-desktop { flex-wrap: nowrap; gap: 1.1rem; white-space: nowrap; }
+.nav-more { position: relative; }
+.nav-more-btn { background: transparent; border: 0; cursor: pointer; gap: 0.25rem; font: inherit; }
+.nav-more-btn.is-active { color: var(--bronze); }
+.nav-more-menu {
+  position: absolute; right: 0; top: calc(100% + 0.25rem); min-width: 13rem;
+  background: var(--card); border: 1px solid var(--border); border-radius: 0.9rem;
+  padding: 0.4rem; box-shadow: 0 12px 30px rgba(0,0,0,0.45); z-index: 60;
+}
+.nav-more-menu[hidden] { display: none; }
+.nav-more-menu a { display: flex; align-items: center; min-height: 44px; padding: 0 0.75rem; border-radius: 0.6rem; color: var(--text); }
+.nav-more-menu a:hover, .nav-more-menu a.is-active { color: var(--bronze); background: rgba(196,165,116,0.08); }
+.nav-mobile-heading { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+#nav-mobile a.nav-mobile-cta { color: var(--bronze); font-weight: 600; }
+a.tap { display: inline-flex; align-items: center; }
+
+/* ---- Growth pass 1: hero, CTAs, follow, sharing, accessibility ---- */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.hero-lede { color: #C9CBBF; }
+.cta-primary {
+  background: var(--bronze); color: #12150F; min-height: 44px;
+  display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--bronze);
+  transition: background 0.2s, border-color 0.2s;
+}
+.cta-primary:hover { background: #D6BA8C; border-color: #D6BA8C; }
+.follow-band { border-color: var(--green); background: linear-gradient(135deg, rgba(61,107,79,0.22), rgba(26,33,24,1) 60%); }
+.follow-band:hover { transform: none; }
+.how-steps { list-style: none; padding: 0; }
+.how-steps li:hover { transform: none; }
+.scroll-mt-24 { scroll-margin-top: 6rem; }
+/* Keyboard focus: visible bronze ring everywhere (mouse clicks unaffected). */
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--bronze); outline-offset: 3px; border-radius: 6px;
+}
+/* Sharing: per-award actions */
+.award-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 0.9rem; }
+.share-btn {
+  min-height: 32px; padding: 0.2rem 0.75rem; font-size: 0.75rem; border-radius: 999px;
+  border: 1px solid var(--border); color: #A3A89A; background: transparent; cursor: pointer;
+}
+.share-btn:hover, .share-btn.is-on { border-color: var(--bronze); color: var(--bronze); }
+.share-anchor { color: #A3A89A; font-size: 0.8rem; padding: 0.2rem 0.4rem; }
+.share-anchor:hover { color: var(--bronze); }
+.award-card.is-target, tr.is-target { border-color: var(--bronze); box-shadow: 0 0 0 2px rgba(196,165,116,0.45); }
+.pub-table .share-btn { margin-left: 0.4rem; }
+/* Follow page */
+.feed-url { display: block; background: #12150F; border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.6rem 0.9rem; color: var(--text); font-size: 0.95rem; overflow-wrap: anywhere; }
+.email-input { background: #12150F; border: 1px solid var(--border); color: var(--text); min-height: 44px; flex: 1; }
+/* Mobile: stack the dashboard table into cards instead of a sideways-scrolling grid. */
+@media (max-width: 640px) {
+  .pub-table { min-width: 0; }
+  .pub-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .pub-table, .pub-table tbody, .pub-table tr, .pub-table td { display: block; width: 100%; }
+  .pub-table tr { border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+  .pub-table td { border: 0; padding: 0.2rem 0; }
+  .pub-table td[data-label]::before {
+    content: attr(data-label); display: block; color: var(--bronze); font-size: 0.68rem;
+    letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;
+  }
+  .pub-table td[data-label="Ticker"]::before { display: none; }
+  .pub-table td[data-label="Ticker"] { font-size: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .deco-card, .deco-card:hover { transition: none; transform: none; }
+}

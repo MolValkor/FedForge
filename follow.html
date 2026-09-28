@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow new federal awards (free RSS feed) · FedForge</title>
+    <meta name="description" content="Follow new U.S. federal awards to public companies for free: add the FedForge RSS feed to any reader. No account, no email, no tracking. Not investment advice.">
+    
+    <link rel="stylesheet" href="css/fedforge.css"><link rel="stylesheet" href="css/tailwind.css">
+<link rel="canonical" href="https://thefedforge.com/follow.html"><meta property="og:title" content="Follow new federal awards (free RSS feed) · FedForge"><meta property="og:description" content="Follow new U.S. federal awards to public companies for free: add the FedForge RSS feed to any reader. No account, no email, no tracking. Not investment advice."><meta property="og:url" content="https://thefedforge.com/follow.html"><meta property="og:type" content="website"><meta property="og:site_name" content="FedForge"><meta property="og:image" content="https://thefedforge.com/img/og-fedforge.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="FedForge: federal awards to public companies, with the official source."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Follow new federal awards (free RSS feed) · FedForge"><meta name="twitter:description" content="Follow new U.S. federal awards to public companies for free: add the FedForge RSS feed to any reader. No account, no email, no tracking. Not investment advice."><meta name="twitter:image" content="https://thefedforge.com/img/og-fedforge.png"><meta name="twitter:image:alt" content="FedForge: federal awards to public companies, with the official source."><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#12150F"><link rel="alternate" type="application/rss+xml" title="FedForge: new federal awards" href="https://thefedforge.com/feed.xml"></head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="bg-[#12150F]/95 border-b border-[#2C382E] sticky top-0 z-50 backdrop-blur" aria-label="Primary">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <a href="index.html" class="font-bold text-2xl tracking-tight tap" aria-label="FedForge home"><span class="text-[#E8E4D9]">FED</span><span class="bronze-text">FORGE</span></a>
+            <button type="button" id="nav-toggle" class="lg:hidden p-2 border border-[#C4A574] rounded-lg bronze-text tap" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <div class="hidden lg:flex items-center gap-5 text-sm font-medium flex-wrap justify-end">
+                <a href="index.html" class="nav-link">Dashboard</a><a href="sectors.html" class="nav-link">Sectors</a><a href="awards.html" class="nav-link">Awards</a><a href="companies.html" class="nav-link">Companies</a><a href="top-companies.html" class="nav-link">Top companies</a><a href="glossary.html" class="nav-link">Glossary</a><a href="pipeline.html" class="nav-link">Pipeline</a><a href="international.html" class="nav-link">International</a><a href="historical.html" class="nav-link">Historical</a><a href="watchlist.html" class="nav-link">Watchlist</a><a href="free-report.html" class="nav-link cta-outline px-4 py-2 rounded-xl text-sm">Free briefing</a>
+            </div>
+        </div>
+        <div id="nav-mobile" class="hidden lg:hidden border-t border-[#2C382E] px-6 py-3 text-sm font-medium" role="navigation">
+            <a href="index.html">Dashboard</a><a href="sectors.html">Sectors</a><a href="awards.html">Awards</a><a href="companies.html">Companies</a><a href="top-companies.html">Top companies</a><a href="glossary.html">Glossary</a><a href="pipeline.html">Pipeline</a><a href="international.html">International</a><a href="historical.html">Historical</a><a href="watchlist.html">Watchlist</a><a href="free-report.html">Free briefing</a>
+        </div>
+    </nav>
+    <main id="main">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <p class="text-sm bronze-text mb-2 tracking-wide uppercase">Free · no account · no email · no tracking</p>
+        <h1 class="text-3xl md:text-4xl font-semibold mb-3 leading-tight">Follow new federal awards</h1>
+        <p class="text-lg text-[#A3A89A] mb-8 max-w-3xl">FedForge publishes an RSS feed of the awards it tracks. Each item has the recipient, the ticker when the recipient is a verified public company, the status (FINAL, CONDITIONAL, LOI or UCA), the dollar amount as the source states it, and the official source link. New items appear in your reader when this site's data is refreshed.</p>
+
+        <section class="deco-card rounded-3xl p-6 md:p-8 mb-8" aria-labelledby="feed-h">
+            <h2 id="feed-h" class="text-2xl font-semibold mb-3">1. Copy the feed address</h2>
+            <div class="feed-copy flex flex-col sm:flex-row gap-3 sm:items-center mb-3">
+                <code id="feed-url" class="feed-url">https://thefedforge.com/feed.xml</code>
+                <button type="button" class="cta-primary px-5 py-2 rounded-xl font-semibold" data-copy-target="feed-url">Copy feed URL</button>
+            </div>
+            <p class="text-sm text-[#A3A89A]" role="status" aria-live="polite" id="copy-status"></p>
+            <p class="text-sm text-[#A3A89A]">Or open it directly: <a class="bronze-link" href="feed.xml" type="application/rss+xml">feed.xml</a>.</p>
+        </section>
+
+        <section class="deco-card rounded-3xl p-6 md:p-8 mb-8" aria-labelledby="reader-h">
+            <h2 id="reader-h" class="text-2xl font-semibold mb-3">2. Paste it into a feed reader</h2>
+            <p class="text-[#A3A89A] mb-3">Any RSS reader works. Most have a "+ Add" or "Subscribe" button that accepts a URL. Common free options include Feedly, Inoreader, NetNewsWire (Mac / iPhone), Thunderbird, and the RSS features built into many email and news apps. FedForge is not affiliated with any of them.</p>
+            <p class="text-sm text-[#A3A89A]">Slack users can also add the feed to a channel with Slack's RSS app.</p>
+        </section>
+
+        <section class="deco-card rounded-3xl p-6 md:p-8 mb-8" aria-labelledby="watch-h">
+            <h2 id="watch-h" class="text-2xl font-semibold mb-3">Also useful</h2>
+            <ul class="list-disc pl-5 space-y-2 text-[#A3A89A]">
+                <li><a class="bronze-link" href="watchlist.html">Watchlist</a>: star the tickers you care about. It is saved only in this browser (no account), and the dashboard can filter to your watched names.</li>
+                <li><a class="bronze-link" href="awards.html">Awards</a>: every award card has a "Copy link" button so you can share one specific award.</li>
+                <li><a class="bronze-link" href="free-report.html">Free briefing</a>: a printable one-page summary. No email gate.</li>
+            </ul>
+        </section>
+
+        <!--
+          EMAIL SIGNUP PLACEHOLDER: disabled by default and hidden.
+          To enable it later: choose an email provider (for example Buttondown, Mailchimp or
+          Kit/ConvertKit), paste that provider's form "action" URL into data-endpoint below,
+          and check the field name it expects (usually "email"). js/follow.js then shows the form.
+          Do not point this at Netlify Forms or Netlify Functions.
+        -->
+        <section id="email-signup" class="deco-card rounded-3xl p-6 md:p-8 mb-8" data-endpoint="" hidden aria-labelledby="email-h">
+            <h2 id="email-h" class="text-2xl font-semibold mb-3">Get new awards by email</h2>
+            <form method="post" target="_blank" class="flex flex-col sm:flex-row gap-3">
+                <label for="email-input" class="sr-only">Email address</label>
+                <input id="email-input" type="email" name="email" required autocomplete="email" placeholder="you@example.com" class="email-input rounded-xl px-4 py-2">
+                <button type="submit" class="cta-primary px-5 py-2 rounded-xl font-semibold">Subscribe</button>
+            </form>
+        </section>
+
+        <div class="disclaimer-banner rounded-2xl p-4 text-sm"><strong>Not investment advice.</strong> The feed repeats what official notices say. Award amounts can be ceilings, and a letter of intent or undefinitized contract action is not cash out the door. Always read the official source.</div>
+    </div>
+    </main>
+    <footer class="border-t border-[#2C382E] py-10 text-center text-sm text-[#8A8F82]">
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p>FedForge — a federal-money radar. Follow U.S. government investments into companies and sectors.</p>
+            <p class="text-xs">Not investment advice. Nothing here is a recommendation to buy or sell any security.</p>
+            <p class="text-xs">Sources: official DoW/DoD contract notices, DOE, NIST/CHIPS, White House, OSC, and USAspending.gov. Amounts are as cited — we do not invent dollars or tickers. Historical returns are close-to-close only and are not forecasts.</p>
+        </div>
+    </footer>
+    <script src="js/nav.js"></script>
+    <script src="js/follow.js"></script>
+</body>
+</html>

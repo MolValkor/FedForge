@@ -65,14 +65,17 @@
         var src = a.source_url
           ? '<a href="' + esc(a.source_url) + '" target="_blank" rel="noopener">Source</a>'
           : "—";
-        html += "<tr data-ticker=\"" + esc(a.ticker) + "\">" +
-          '<td><a href="ticker/' + esc(a.ticker) + '.html"><strong>' + esc(a.ticker) + "</strong></a></td>" +
-          '<td><a href="' + esc(awardHref(a, r.flagship)) + '">' + esc(a.title || a.recipient_name) + "</a>" +
+        var rowId = "row-" + String(a.id || "").replace(/[^A-Za-z0-9_-]+/g, "-");
+        var base = location.origin && location.origin !== "null" ? location.origin : "https://thefedforge.com";
+        var link = base + "/" + awardHref(a, r.flagship);
+        html += "<tr id=\"" + esc(rowId) + "\" data-ticker=\"" + esc(a.ticker) + "\">" +
+          '<td data-label="Ticker"><a href="ticker/' + esc(a.ticker) + '.html"><strong>' + esc(a.ticker) + "</strong></a></td>" +
+          '<td data-label="Deal"><a href="' + esc(awardHref(a, r.flagship)) + '">' + esc(a.title || a.recipient_name) + "</a>" +
             '<div class="text-xs text-[#8A8F82]">' + esc(a.recipient_name || "") + " · " + esc(a.date || "") + " · " + esc(r.layer) + "</div></td>" +
-          '<td><span class="badge-status badge-' + esc(String(a.status || "FINAL").split("/")[0]) + '">' + esc(st) + "</span></td>" +
-          "<td class=\"amount-pos\">" + esc(a.amount_display || fmtMoney(a.amount)) + "</td>" +
-          "<td>" + src + "</td>";
-        if (showHist) html += "<td>" + retCell + "</td>";
+          '<td data-label="Status"><span class="badge-status badge-' + esc(String(a.status || "FINAL").split("/")[0]) + '">' + esc(st) + "</span></td>" +
+          "<td data-label=\"Sourced $\" class=\"amount-pos\">" + esc(a.amount_display || fmtMoney(a.amount)) + "</td>" +
+          "<td data-label=\"Source\">" + src + ' <button type="button" class="share-btn no-print" data-copy-link="' + esc(link) + '" aria-label="Copy link to ' + esc(a.title || a.recipient_name || "") + '">Copy link</button></td>';
+        if (showHist) html += "<td data-label=\"Close-to-close\">" + retCell + "</td>";
         html += "</tr>";
       });
       if (!shown.length) html += '<tr><td colspan="' + (showHist ? 6 : 5) + '" class="text-[#8A8F82]">No watched public awards. Watch a ticker first.</td></tr>';

@@ -37,6 +37,13 @@
     return "awards.html";
   }
   function tickerHref(t) { return "ticker/" + encodeURIComponent(t) + ".html"; }
+  // Stable in-page anchor for one award card, e.g. awards.html#award-doe-haleu-centrus
+  function anchorId(a) { return "award-" + String(a.id || "").replace(/[^A-Za-z0-9_-]+/g, "-"); }
+  // Shareable URL: flagship deals have their own static page; new primes use award.html?id=
+  function shareUrl(a, kind) {
+    var base = location.origin && location.origin !== "null" ? location.origin : "https://thefedforge.com";
+    return base + "/" + awardHref(a, kind);
+  }
   var RETURNS = {};
   function returnLine(a) {
     if (!a.ticker) return '<p class="text-xs text-[#8A8F82] mt-2">Private recipient — no announcement-to-now return.</p>';
@@ -61,7 +68,8 @@
       : (kind === "primes" ? '<span class="badge-status badge-FINAL">NEW PRIME</span>' : "");
     var sourceLabel = kind === "primes" ? "USAspending source →" : "Official source →";
     var el = document.createElement("article");
-    el.className = "deco-card rounded-3xl p-6";
+    el.className = "deco-card award-card rounded-3xl p-6";
+    if (a.id) el.id = anchorId(a);
     el.setAttribute("data-sector", a.sector || "");
     if (a.ticker) el.setAttribute("data-ticker", a.ticker);
     el.innerHTML =
@@ -76,10 +84,26 @@
       obligatedNote(a) +
       '<p class="text-sm text-[#8A8F82] mb-2">' + esc(a.description || "") + "</p>" + ticker +
       returnLine(a) +
-      (a.source_url ? '<a href="' + esc(a.source_url) + '" target="_blank" rel="noopener" class="inline-block mt-3 text-xs bronze-link">' + sourceLabel + "</a>" : "");
+      '<div class="award-actions no-print">' +
+        (a.source_url ? '<a href="' + esc(a.source_url) + '" target="_blank" rel="noopener" class="text-xs bronze-link">' + sourceLabel + "</a>" : "") +
+        (a.id ? '<button type="button" class="share-btn" data-copy-link="' + esc(shareUrl(a, kind)) + '" aria-label="Copy link to ' + esc(titleText) + ' (' + esc(a.recipient_name || "") + ')">Copy link</button>' +
+          '<a class="share-anchor" href="#' + esc(anchorId(a)) + '" aria-label="Link to this card on this page">#</a>' : "") +
+      "</div>";
     return el;
   }
   var feeds = [];
+  // If the URL points at a specific award card (#award-...), scroll to it once it renders.
+  var hashDone = false;
+  function focusHash() {
+    if (hashDone || !/^#award-/.test(location.hash)) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!el) return;
+    hashDone = true;
+    el.classList.add("is-target");
+    el.setAttribute("tabindex", "-1");
+    el.scrollIntoView({ block: "center" });
+    el.focus({ preventScroll: true });
+  }
   var currentSector = (function () {
     var q = new URLSearchParams(location.search).get("sector");
     if (q && /^(nuclear|magnets|chips|other)$/.test(q)) return q;
@@ -133,6 +157,7 @@
       }
       DATA = data;
       apply(currentSector);
+      focusHash();
     }
     if (bake && Array.isArray(bake.awards) && bake.awards.length) use(bake);
     fetch(url)
@@ -162,6 +187,7 @@
     });
   document.querySelectorAll("[data-filter-sector]").forEach(function (btn) {
     btn.classList.toggle("is-on", btn.getAttribute("data-filter-sector") === currentSector);
+    btn.setAttribute("aria-pressed", btn.getAttribute("data-filter-sector") === currentSector ? "true" : "false");
     btn.addEventListener("click", function () {
       currentSector = btn.getAttribute("data-filter-sector") || "all";
       if (history.replaceState) {
@@ -172,6 +198,7 @@
       }
       document.querySelectorAll("[data-filter-sector]").forEach(function (b) {
         b.classList.toggle("is-on", b.getAttribute("data-filter-sector") === currentSector);
+        b.setAttribute("aria-pressed", b.getAttribute("data-filter-sector") === currentSector ? "true" : "false");
       });
       feeds.forEach(function (fn) { fn(currentSector); });
     });

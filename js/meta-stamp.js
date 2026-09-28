@@ -1,7 +1,7 @@
 (function () {
   function prefix() {
     var path = location.pathname || "";
-    if (/\/(ticker|award)\/[^/]*$/.test(path)) return "../";
+    if (/\/(ticker|award|guides)\/[^/]*$/.test(path)) return "../";
     return "";
   }
   function fmtIso(iso) {
