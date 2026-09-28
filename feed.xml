@@ -1,79 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FedForge awards this window</title>
+    <title>FedForge: new federal awards to public companies</title>
     <link>https://thefedforge.com/</link>
-    <description>Flagship official notices, findings, and public-company primes. Poll this feed — live email pings are not wired yet. Not investment advice.</description>
+    <atom:link href="https://thefedforge.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>New U.S. federal awards and contracts tracked by FedForge: recipient, ticker when public, status (FINAL / CONDITIONAL / LOI / UCA), the dollar amount as the source states it, and the official source link. Not investment advice.</description>
     <language>en-us</language>
+    <lastBuildDate>Thu, 03 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <image>
+      <url>https://thefedforge.com/apple-touch-icon.png</url>
+      <title>FedForge: new federal awards to public companies</title>
+      <link>https://thefedforge.com/</link>
+    </image>
+    <item>
+      <title>How to read a federal award</title>
+      <link>https://thefedforge.com/guides/how-to-read-a-federal-award.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/guides/how-to-read-a-federal-award.html</guid>
+      <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <category>FedForge analysis</category>
+      <description>FINAL, LOI, UCA, obligated vs face. Educational guide. Not investment advice.</description>
+    </item>
+    <item>
+      <title>Finding: PAC-3 MSE $53.86B face / $0 obligated</title>
+      <link>https://thefedforge.com/finding.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/finding.html</guid>
+      <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <category>FedForge analysis</category>
+      <description>Lockheed Martin PAC-3 MSE Army modification. Face is not cash. UCA/mod. Not investment advice.</description>
+    </item>
     <item>
       <title>Finding: most award-day names went red</title>
       <link>https://thefedforge.com/finding-red.html</link>
-      <guid>https://thefedforge.com/finding-red.html</guid>
-      <pubDate>Wed, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://thefedforge.com/finding-red.html</guid>
+      <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <category>FedForge analysis</category>
       <description>10 of 14 announcement-to-now closes in returns.json were negative as of 2026-09-01. Close-to-close only. Not investment advice.</description>
     </item>
     <item>
       <title>Finding: LOI vs FINAL CHIPS DFAs (GFS)</title>
       <link>https://thefedforge.com/finding-loi.html</link>
-      <guid>https://thefedforge.com/finding-loi.html</guid>
-      <pubDate>Wed, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://thefedforge.com/finding-loi.html</guid>
+      <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <category>FedForge analysis</category>
       <description>$874M CHIPS LOI package vs curated FINAL DFAs. Status tags matter. Not investment advice.</description>
     </item>
     <item>
-      <title>Finding: PAC-3 MSE $53.86B face / $0 obligated</title>
-      <link>https://thefedforge.com/finding.html</link>
-      <guid>https://thefedforge.com/finding.html</guid>
-      <pubDate>Wed, 03 Sep 2026 12:00:00 GMT</pubDate>
-      <description>Lockheed Martin PAC-3 MSE Army modification. Face is not cash. UCA/mod. Not investment advice.</description>
-    </item>
-    <item>
-      <title>How to read a federal award</title>
-      <link>https://thefedforge.com/guides/how-to-read-a-federal-award.html</link>
-      <guid>https://thefedforge.com/guides/how-to-read-a-federal-award.html</guid>
-      <pubDate>Wed, 03 Sep 2026 12:00:00 GMT</pubDate>
-      <description>FINAL, LOI, UCA, obligated vs face. Educational guide. Not investment advice.</description>
-    </item>
-    <item>
       <title>Tomahawk / munitions acceleration</title>
-      <link>https://thefedforge.com/award/war-rtx-tomahawk-2026-08-17</link>
-      <guid>https://thefedforge.com/award/war-rtx-tomahawk-2026-08-17</guid>
+      <link>https://thefedforge.com/award/war-rtx-tomahawk-2026-08-17.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/war-rtx-tomahawk-2026-08-17</guid>
       <pubDate>Mon, 17 Aug 2026 12:00:00 GMT</pubDate>
-      <description>Raytheon (RTX) · FINAL · $22.9B · DoW and RTX accelerate Tomahawk / critical munitions production through a Navy partnership valued at $22.9B.</description>
+      <category>Defense / other</category>
+      <description>Raytheon (RTX) (RTX) · FINAL · $22.9B · Department of War / Navy. DoW and RTX accelerate Tomahawk / critical munitions production through a Navy partnership valued at $22.9B. Official source: https://www.war.gov/News/Releases/Release/Article/4573544/department-of-war-and-rtx-accelerate-critical-munitions-production-through-navy/ Not investment advice.</description>
     </item>
     <item>
       <title>Civil Nuclear Credit payment</title>
-      <link>https://thefedforge.com/award/doe-cnc-pge-2026-08-14</link>
-      <guid>https://thefedforge.com/award/doe-cnc-pge-2026-08-14</guid>
+      <link>https://thefedforge.com/award/doe-cnc-pge-2026-08-14.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/doe-cnc-pge-2026-08-14</guid>
       <pubDate>Fri, 14 Aug 2026 12:00:00 GMT</pubDate>
-      <description>Pacific Gas &amp; Electric (Diablo Canyon) · FINAL · $271M paid · First Civil Nuclear Credit program payment for Diablo Canyon: $271M paid.</description>
+      <category>Nuclear / SMRs</category>
+      <description>Pacific Gas &amp; Electric (Diablo Canyon) (PCG) · FINAL · $271M paid · Department of Energy. First Civil Nuclear Credit program payment for Diablo Canyon: $271M paid. Official source: https://www.energy.gov/ne/articles/department-energy-awards-first-civil-nuclear-credit-payment-california-power-plant Not investment advice.</description>
+    </item>
+    <item>
+      <title>OSC conditional loan</title>
+      <link>https://thefedforge.com/award/osc-sila-2026-08-07.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/osc-sila-2026-08-07</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 GMT</pubDate>
+      <category>Defense / other</category>
+      <description>Sila Nanotechnologies (private recipient, no public ticker) · CONDITIONAL · up to $1.4B conditional · Office of Strategic Capital. OSC conditional loan commitment up to $1.4B. Private company. Official source: https://www.whitehouse.gov/fact-sheets/2026/08/fact-sheet-president-donald-j-trump-announces-billions-in-new-deals-and-investments-to-power-american-mining/ Not investment advice.</description>
+    </item>
+    <item>
+      <title>OSC conditional magnet loan</title>
+      <link>https://thefedforge.com/award/osc-niron-2026-08-07.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/osc-niron-2026-08-07</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 GMT</pubDate>
+      <category>Magnets / rare earths</category>
+      <description>Niron Magnetics (private recipient, no public ticker) · CONDITIONAL · $150M conditional · Office of Strategic Capital. OSC $150M conditional loan commitment for domestic magnet manufacturing. Private. Official source: https://www.war.gov/News/Releases/Release/Article/4566567/office-of-strategic-capital-signs-150-million-conditional-loan-commitment-with/ Not investment advice.</description>
     </item>
     <item>
       <title>PAC-3 MSE UCA/mod</title>
-      <link>https://thefedforge.com/award/war-pac3-mse-2026-07-29</link>
-      <guid>https://thefedforge.com/award/war-pac3-mse-2026-07-29</guid>
+      <link>https://thefedforge.com/award/war-pac3-mse-2026-07-29.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/war-pac3-mse-2026-07-29</guid>
       <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-      <description>Lockheed Martin · UCA/mod · $53.86B face on mod / $0 obligated at announcement.</description>
+      <category>Defense / other</category>
+      <description>Lockheed Martin Corp. (LMT) · UCA/mod · $53,859,843,289 mod; cumulative face $58,620,843,289; $0 obligated at mod · U.S. Army. Lockheed Martin PAC-3 MSE Army modification $53,859,843,289; cumulative face $58,620,843,289. No funds obligated on the modification itself. Read obligated vs face. Official source: https://www.war.gov/News/Contracts/Contract/Article/4560267/contracts-for-july-30-2026/ Not investment advice.</description>
     </item>
     <item>
       <title>CHIPS R&amp;D 7-company LOIs</title>
-      <link>https://thefedforge.com/award/chips-loi-7co-2026-07-29</link>
-      <guid>https://thefedforge.com/award/chips-loi-7co-2026-07-29</guid>
+      <link>https://thefedforge.com/award/chips-loi-7co-2026-07-29.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/chips-loi-7co-2026-07-29</guid>
       <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-      <description>GlobalFoundries (GFS) · LOI · $874M total LOIs (GFS up to $300M verified; others private).</description>
+      <category>Semiconductors / CHIPS</category>
+      <description>7-company CHIPS R&amp;D LOIs (incl. GlobalFoundries) (GFS) · LOI · $874M total LOIs (GFS up to $300M verified; others private) · Department of Commerce (CHIPS). Seven CHIPS R&amp;D letters of intent totaling $874M. Verified ticker: GFS up to $300M. Other companies private / ticker not verified — omitted. TSMC $100B private FDI excluded. Official source: https://www.nist.gov/news-events/news/2026/07/department-commerce-announces-letters-intent-7-companies-874-million Not investment advice.</description>
+    </item>
+    <item>
+      <title>CHIPS SiC DFA</title>
+      <link>https://thefedforge.com/award/chips-bosch-2026-07-13.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/chips-bosch-2026-07-13</guid>
+      <pubDate>Mon, 13 Jul 2026 12:00:00 GMT</pubDate>
+      <category>Semiconductors / CHIPS</category>
+      <description>Bosch Semiconductor (private recipient, no public ticker) · FINAL · up to $225M · Department of Commerce (CHIPS). CHIPS direct funding agreement up to $225M for SiC. Private. Official source: https://www.nist.gov/news-events/news/2026/07/department-commerce-announces-direct-funding-agreement-bosch-225-million Not investment advice.</description>
     </item>
     <item>
       <title>HALEU production task order</title>
-      <link>https://thefedforge.com/award/doe-haleu-centrus</link>
-      <guid>https://thefedforge.com/award/doe-haleu-centrus</guid>
+      <link>https://thefedforge.com/award/doe-haleu-centrus.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/doe-haleu-centrus</guid>
       <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
-      <description>Centrus (LEU) · FINAL · $900M FFP / $1.07B base+options.</description>
+      <category>Nuclear / SMRs</category>
+      <description>AMERICAN CENTRIFUGE OPERATING LLC (Centrus) (LEU) · FINAL · $900M FFP / $1.07B base+options · Department of Energy. HALEU fixed-price task order to establish domestic commercial capacity. $900M FFP / $1.07B base+options. Official source: https://www.usaspending.gov/award/CONT_AWD_89243226FNE400212_8900_89243225DNE000022_8900 Not investment advice.</description>
+    </item>
+    <item>
+      <title>CHIPS SiC R&amp;D DFA</title>
+      <link>https://thefedforge.com/award/chips-ipulse-2026-06-25.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/chips-ipulse-2026-06-25</guid>
+      <pubDate>Thu, 25 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Semiconductors / CHIPS</category>
+      <description>I-Pulse (private recipient, no public ticker) · FINAL · $250M SiC · Department of Commerce (CHIPS). CHIPS R&amp;D definitive agreement $250M for silicon carbide (SiC). Private. Official source: https://www.nist.gov/news-events/news/2026/06/department-commerce-announces-definitive-agreement-i-pulse-250-million Not investment advice.</description>
+    </item>
+    <item>
+      <title>THAAD UCA</title>
+      <link>https://thefedforge.com/award/war-thaad-uca-2026-06-24.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/war-thaad-uca-2026-06-24</guid>
+      <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Defense / other</category>
+      <description>Lockheed Martin Corp. (LMT) · UCA · $35,327,237,604 total UCA / $842,871,672 obligated · Missile Defense Agency. Lockheed Martin THAAD undefinitized contract action. Total UCA $35,327,237,604; $842,871,672 obligated on the announcement. Read obligated vs face. Official source: https://www.war.gov/News/Contracts/Contract/Article/4525817/contracts-for-june-24-2026/ Not investment advice.</description>
+    </item>
+    <item>
+      <title>AMRAAM D4/C9 UCA</title>
+      <link>https://thefedforge.com/award/war-amraam-uca-2026-06-23.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/war-amraam-uca-2026-06-23</guid>
+      <pubDate>Tue, 23 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Defense / other</category>
+      <description>Raytheon (RTX) (RTX) · UCA · $398,691,358 UCA / $104,103,634 FMS obligated · U.S. Air Force / FMS. Raytheon AMRAAM D4/C9 undefinitized contract action. UCA $398,691,358; $104,103,634 FMS obligated. Read obligated vs face. Official source: https://www.war.gov/News/Contracts/Contract/Article/4525817/contracts-for-june-24-2026/ Not investment advice.</description>
+    </item>
+    <item>
+      <title>Westinghouse AP1000 EDF loans</title>
+      <link>https://thefedforge.com/award/doe-edf-andp-westinghouse.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/doe-edf-andp-westinghouse</guid>
+      <pubDate>Tue, 23 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Nuclear / SMRs</category>
+      <description>ANDP HOLDCO LLC (Westinghouse sponsor) (private recipient, no public ticker) · CONDITIONAL · $17.5B conditional · Department of Energy (EDF). DOE EDF $17.5B conditional loans for AP1000 long-lead items. Recipient is private (Westinghouse sponsor). Official source: https://www.energy.gov/articles/department-energy-announces-american-nuclear-supply-chain-loans Not investment advice.</description>
+    </item>
+    <item>
+      <title>CHIPS R&amp;D DFA</title>
+      <link>https://thefedforge.com/award/chips-sandboxaq-2026-06-17.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/chips-sandboxaq-2026-06-17</guid>
+      <pubDate>Wed, 17 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Semiconductors / CHIPS</category>
+      <description>SandboxAQ (private recipient, no public ticker) · FINAL · $500M · Department of Commerce (CHIPS). CHIPS R&amp;D definitive agreement for $500M. Private company. Official source: https://www.nist.gov/news-events/news/2026/06/department-commerce-announces-definitive-agreement-sandboxaq-500-million Not investment advice.</description>
     </item>
     <item>
       <title>CHIPS mine-to-magnet DFA</title>
-      <link>https://thefedforge.com/award/chips-usar-2026-06-03</link>
-      <guid>https://thefedforge.com/award/chips-usar-2026-06-03</guid>
+      <link>https://thefedforge.com/award/chips-usar-2026-06-03.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/award/chips-usar-2026-06-03</guid>
       <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
-      <description>USA Rare Earth (USAR) · FINAL · up to $277M + up to $1.3B loan.</description>
+      <category>Magnets / rare earths</category>
+      <description>USA Rare Earth (USAR) · FINAL · up to $277M + up to $1.3B loan · Department of Commerce (CHIPS). CHIPS program finalizes a definitive agreement for a mine-to-magnet supply chain: up to $277M plus up to $1.3B loan. Official source: https://www.nist.gov/news-events/news/2026/06/department-commerces-chips-program-finalizes-definitive-agreement-usa-rare Not investment advice.</description>
+    </item>
+    <item>
+      <title>Trusted Foundry Access (ASICs, Apr 15)</title>
+      <link>https://thefedforge.com/award.html?id=HQ072726FE058</link>
+      <guid isPermaLink="true">https://thefedforge.com/award.html?id=HQ072726FE058</guid>
+      <pubDate>Wed, 15 Apr 2026 12:00:00 GMT</pubDate>
+      <category>Semiconductors / CHIPS</category>
+      <description>GLOBALFOUNDRIES U.S. 2 LLC (GFS) · FINAL · $353,248 Award Amount · Department of Defense · 12-month USAspending public prime. Trusted Foundry Access delivery order for application-specific integrated circuits (ASICs). Source: https://www.usaspending.gov/award/CONT_AWD_HQ072726FE058_9700_HQ072723D0003_9700 Not investment advice.</description>
+    </item>
+    <item>
+      <title>Trusted Foundry Access (ASICs)</title>
+      <link>https://thefedforge.com/award.html?id=HQ072726FE051</link>
+      <guid isPermaLink="true">https://thefedforge.com/award.html?id=HQ072726FE051</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 GMT</pubDate>
+      <category>Semiconductors / CHIPS</category>
+      <description>GLOBALFOUNDRIES U.S. 2 LLC (GFS) · FINAL · $26,477,200 Award Amount · Department of Defense · 12-month USAspending public prime. Trusted Foundry Access (TFA) delivery order for application-specific integrated circuits (ASICs). Semiconductor foundry work for a verified public ticker (GFS). Outside the Jun 3–Sep 1 flagship window; included in the 12-month public-prime lookback. Source: https://www.usaspending.gov/award/CONT_AWD_HQ072726FE051_9700_HQ072723D0003_9700 Not investment advice.</description>
+    </item>
+    <item>
+      <title>Trusted Foundry Access (SOW 25-5G1)</title>
+      <link>https://thefedforge.com/award.html?id=HQ072726FE006</link>
+      <guid isPermaLink="true">https://thefedforge.com/award.html?id=HQ072726FE006</guid>
+      <pubDate>Thu, 06 Nov 2025 12:00:00 GMT</pubDate>
+      <category>Semiconductors / CHIPS</category>
+      <description>GLOBALFOUNDRIES U.S. 2 LLC (GFS) · FINAL · $10,413,422 Award Amount · Department of Defense · 12-month USAspending public prime. Trusted Foundry Access delivery order (SOW 25-5G1) to GlobalFoundries U.S. 2 LLC. Same TFA vehicle as HQ072726FE051. Source: https://www.usaspending.gov/award/CONT_AWD_HQ072726FE006_9700_HQ072723D0003_9700 Not investment advice.</description>
+    </item>
+    <item>
+      <title>HPDU production services</title>
+      <link>https://thefedforge.com/award.html?id=89233125CNA000429</link>
+      <guid isPermaLink="true">https://thefedforge.com/award.html?id=89233125CNA000429</guid>
+      <pubDate>Wed, 01 Oct 2025 12:00:00 GMT</pubDate>
+      <category>Nuclear / SMRs</category>
+      <description>BWXT ORDNANCE TENNESSEE, INC. (BWXT) · FINAL · $131.3M Award Amount · Department of Energy · 12-month USAspending public prime. High Purity Depleted Uranium (HPDU) production services. Named recipient is a BWX Technologies (NYSE: BWXT) subsidiary. New 12-month public prime — not in the Jun 3–Sep 1 flagship window. Source: https://www.usaspending.gov/award/CONT_AWD_89233125CNA000429_8900_-NONE-_-NONE- Not investment advice.</description>
     </item>
   </channel>
 </rss>

@@ -1,3 +1,49 @@
+/* Shared copy-to-clipboard helper + "Copy link" buttons (any element with data-copy-link). */
+(function () {
+  function fallback(text) {
+    try {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch (e) { return false; }
+  }
+  window.FedForgeCopy = function (text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return fallback(text); });
+    }
+    return Promise.resolve(fallback(text));
+  };
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest ? e.target.closest("[data-copy-link]") : null;
+    if (!btn) return;
+    e.preventDefault();
+    var url = btn.getAttribute("data-copy-link");
+    var label = btn.getAttribute("data-label-default") || btn.textContent;
+    btn.setAttribute("data-label-default", label);
+    window.FedForgeCopy(url).then(function (ok) {
+      var live = document.getElementById("ff-live");
+      if (!live) {
+        live = document.createElement("div");
+        live.id = "ff-live";
+        live.className = "sr-only";
+        live.setAttribute("aria-live", "polite");
+        document.body.appendChild(live);
+      }
+      live.textContent = ok ? "Link copied to clipboard" : "Copy failed";
+      btn.textContent = ok ? "Link copied" : "Copy failed";
+      btn.classList.toggle("is-on", ok);
+      setTimeout(function () { btn.textContent = label; btn.classList.remove("is-on"); }, 2000);
+    });
+  });
+})();
+
 /* FedForge primary navigation.
  * One source of truth for the menu on every page: the static markup in each HTML file is a
  * no-JS fallback, and this script rebuilds the desktop row and the mobile panel from ITEMS.
