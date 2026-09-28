@@ -171,3 +171,20 @@ details.hist-returns summary { cursor:pointer; color:var(--bronze,#C4A574); font
 .faq-block details p { color:#8A8F82; font-size:0.875rem; margin-top:0.5rem; }
 .share-blurb { background:#12150F; border:1px solid #2C382E; border-radius:1rem; padding:1rem; margin-bottom:1rem; }
 .share-blurb pre { white-space:pre-wrap; font-size:0.8rem; color:#E8E4D9; }
+
+/* ---- Navigation (growth pass 1) ---- */
+.nav-desktop { flex-wrap: nowrap; gap: 1.1rem; white-space: nowrap; }
+.nav-more { position: relative; }
+.nav-more-btn { background: transparent; border: 0; cursor: pointer; gap: 0.25rem; font: inherit; }
+.nav-more-btn.is-active { color: var(--bronze); }
+.nav-more-menu {
+  position: absolute; right: 0; top: calc(100% + 0.25rem); min-width: 13rem;
+  background: var(--card); border: 1px solid var(--border); border-radius: 0.9rem;
+  padding: 0.4rem; box-shadow: 0 12px 30px rgba(0,0,0,0.45); z-index: 60;
+}
+.nav-more-menu[hidden] { display: none; }
+.nav-more-menu a { display: flex; align-items: center; min-height: 44px; padding: 0 0.75rem; border-radius: 0.6rem; color: var(--text); }
+.nav-more-menu a:hover, .nav-more-menu a.is-active { color: var(--bronze); background: rgba(196,165,116,0.08); }
+.nav-mobile-heading { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+#nav-mobile a.nav-mobile-cta { color: var(--bronze); font-weight: 600; }
+a.tap { display: inline-flex; align-items: center; }

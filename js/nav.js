@@ -1,110 +1,139 @@
+/* FedForge primary navigation.
+ * One source of truth for the menu on every page: the static markup in each HTML file is a
+ * no-JS fallback, and this script rebuilds the desktop row and the mobile panel from ITEMS.
+ *
+ * Why: Netlify's "Pretty URLs" post-processing rewrites hrefs on the live site from
+ * "awards.html" to "/awards". The previous script compared raw hrefs, so every
+ * "is this link already present?" check failed and a second copy of the menu was appended
+ * (visible at 1280px as the nav appearing twice). Links are now compared by a normalised
+ * key and the menu is rebuilt, never appended to.
+ */
 (function () {
-  function depthPrefix() {
-    var path = location.pathname || "";
-    if (/\/(ticker|award|guides)\/[^/]*$/.test(path)) return "../";
-    return "";
+  var ITEMS = [
+    { file: "index.html", label: "Dashboard" },
+    { file: "awards.html", label: "Awards", dirs: ["award"], also: ["award.html"] },
+    { file: "sectors.html", label: "Sectors", also: ["nuclear.html", "magnets.html", "chips.html"] },
+    { file: "companies.html", label: "Companies", dirs: ["ticker"] },
+    { file: "top-companies.html", label: "Top companies" },
+    { file: "findings.html", label: "Findings", also: ["finding.html", "finding-red.html", "finding-loi.html"] },
+    { file: "watchlist.html", label: "Watchlist" },
+    { file: "follow.html", label: "Follow" }
+  ];
+  var MORE = [
+    { file: "glossary.html", label: "Glossary" },
+    { file: "guides/how-to-read-a-federal-award.html", label: "How to read an award" },
+    { file: "pipeline.html", label: "Pipeline" },
+    { file: "movers.html", label: "Movers" },
+    { file: "international.html", label: "International" },
+    { file: "historical.html", label: "Historical" },
+    { file: "share.html", label: "Share pack" }
+  ];
+  var CTA = { file: "free-report.html", label: "Free briefing" };
+
+  function segments(pathname) {
+    return String(pathname || "").split("#")[0].split("?")[0].replace(/\/+$/, "").split("/").filter(Boolean);
   }
-  var P = depthPrefix();
-  function pageFile() {
-    var p = (location.pathname.split("/").pop() || "");
-    if (!p || p.indexOf(".") === -1) {
-      if (/\/nuclear\/?$/.test(location.pathname)) return "nuclear.html";
-      if (/\/magnets\/?$/.test(location.pathname)) return "magnets.html";
-      if (/\/chips\/?$/.test(location.pathname)) return "chips.html";
-      if (/\/watchlist\/?$/.test(location.pathname)) return "watchlist.html";
-      if (/\/finding\/?$/.test(location.pathname)) return "finding.html";
-      if (/\/findings\/?$/.test(location.pathname)) return "findings.html";
-      if (/\/share\/?$/.test(location.pathname)) return "share.html";
-      p = "index.html";
-    }
-    return p;
+  var segs = segments(location.pathname);
+  var inSubdir = segs.length > 1 && /^(ticker|award|guides)$/i.test(segs[segs.length - 2]);
+  var P = inSubdir ? "../" : "";
+  var dir = inSubdir ? segs[segs.length - 2].toLowerCase() : "";
+  var page = (segs[segs.length - 1] || "index").toLowerCase();
+  if (!/\.html$/.test(page)) page += ".html";
+  var here = (dir ? dir + "/" : "") + page;
+
+  function isActive(item) {
+    if (item.file === here) return true;
+    if (!dir && item.also && item.also.indexOf(page) !== -1) return true;
+    if (dir && item.dirs && item.dirs.indexOf(dir) !== -1) return true;
+    return false;
   }
-  function hrefOf(a) {
-    return (a.getAttribute("href") || "").replace(/^\.\.\//, "");
-  }
-  function ensureLink(container, file, label, opts) {
-    opts = opts || {};
-    if (!container) return;
-    var exists = false;
-    container.querySelectorAll("a").forEach(function (a) {
-      if (hrefOf(a) === file) exists = true;
-    });
-    if (exists) return;
+  function link(item, className) {
     var a = document.createElement("a");
-    a.href = P + file;
-    a.textContent = label;
-    if (opts.className) a.className = opts.className;
-    if (pageFile() === file) {
+    a.href = P + item.file;
+    a.textContent = item.label;
+    if (className) a.className = className;
+    if (isActive(item)) {
       a.classList.add("is-active");
       a.setAttribute("aria-current", "page");
     }
-    var after = null;
-    if (opts.afterFile) {
-      container.querySelectorAll("a").forEach(function (x) {
-        if (hrefOf(x) === opts.afterFile) after = x;
-      });
-    }
-    var briefing = null;
-    container.querySelectorAll("a").forEach(function (x) {
-      if (hrefOf(x) === "free-report.html") briefing = x;
-    });
-    if (opts.beforeBriefing && briefing) container.insertBefore(a, briefing);
-    else if (after && after.nextSibling) container.insertBefore(a, after.nextSibling);
-    else if (after) container.appendChild(a);
-    else if (briefing) container.insertBefore(a, briefing);
-    else container.appendChild(a);
+    return a;
   }
-  var desktop = document.querySelector("nav[aria-label='Primary'] .nav-link");
-  desktop = desktop ? desktop.parentElement : null;
+
+  var nav = document.querySelector("nav[aria-label='Primary']");
+  if (!nav) return;
+  var firstLink = nav.querySelector(".nav-link");
+  var desktop = firstLink ? firstLink.parentElement : null;
   var mobile = document.getElementById("nav-mobile");
-  ensureLink(desktop, "top-companies.html", "Top companies", { className: "nav-link", afterFile: "companies.html" });
-  ensureLink(desktop, "findings.html", "Findings", { className: "nav-link", afterFile: "top-companies.html" });
-  ensureLink(desktop, "share.html", "Share", { className: "nav-link", afterFile: "findings.html" });
-  ensureLink(desktop, "glossary.html", "Glossary", { className: "nav-link", afterFile: "share.html" });
-  ensureLink(desktop, "watchlist.html", "Watchlist", { className: "nav-link", beforeBriefing: true });
-  ensureLink(mobile, "top-companies.html", "Top companies", { afterFile: "companies.html" });
-  ensureLink(mobile, "findings.html", "Findings", { afterFile: "top-companies.html" });
-  ensureLink(mobile, "share.html", "Share", { afterFile: "findings.html" });
-  ensureLink(mobile, "glossary.html", "Glossary", { afterFile: "share.html" });
-  ensureLink(mobile, "watchlist.html", "Watchlist", { beforeBriefing: true });
-  var pf = pageFile();
-  var sectorPages = { "nuclear.html": 1, "magnets.html": 1, "chips.html": 1, "sectors.html": 1 };
-  if (sectorPages[pf]) {
-    document.querySelectorAll("a").forEach(function (a) {
-      if (hrefOf(a) === "sectors.html") {
-        a.classList.add("is-active");
-        a.setAttribute("aria-current", "page");
-      }
+
+  if (desktop) {
+    desktop.innerHTML = "";
+    desktop.classList.remove("flex-wrap");
+    desktop.classList.add("nav-desktop");
+    ITEMS.forEach(function (it) { desktop.appendChild(link(it, "nav-link")); });
+    var wrap = document.createElement("div");
+    wrap.className = "nav-more";
+    var moreBtn = document.createElement("button");
+    moreBtn.type = "button";
+    moreBtn.className = "nav-link nav-more-btn";
+    moreBtn.setAttribute("aria-expanded", "false");
+    moreBtn.setAttribute("aria-controls", "nav-more-menu");
+    moreBtn.innerHTML = 'More <span aria-hidden="true">▾</span>';
+    var menu = document.createElement("div");
+    menu.id = "nav-more-menu";
+    menu.className = "nav-more-menu";
+    menu.hidden = true;
+    var moreActive = false;
+    MORE.forEach(function (it) {
+      var a = link(it);
+      if (a.classList.contains("is-active")) moreActive = true;
+      menu.appendChild(a);
+    });
+    if (moreActive) moreBtn.classList.add("is-active");
+    wrap.appendChild(moreBtn);
+    wrap.appendChild(menu);
+    desktop.appendChild(wrap);
+    desktop.appendChild(link(CTA, "nav-link cta-outline px-4 py-2 rounded-xl text-sm"));
+    function setMore(open) {
+      menu.hidden = !open;
+      moreBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    moreBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setMore(menu.hidden);
+    });
+    document.addEventListener("click", function (e) {
+      if (!wrap.contains(e.target)) setMore(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !menu.hidden) { setMore(false); moreBtn.focus(); }
     });
   }
-  ["watchlist.html", "findings.html", "share.html", "finding.html", "finding-red.html", "finding-loi.html"].forEach(function (f) {
-    if (pf === f || (f === "findings.html" && /finding/.test(pf))) {
-      document.querySelectorAll("a").forEach(function (a) {
-        var h = hrefOf(a);
-        if (h === f || (f === "findings.html" && (h === "findings.html" || h === "finding.html"))) {
-          if (h === "findings.html" || h === f) {
-            a.classList.add("is-active");
-            a.setAttribute("aria-current", "page");
-          }
-        }
-      });
-    }
-  });
+
+  if (mobile) {
+    mobile.innerHTML = "";
+    ITEMS.forEach(function (it) { mobile.appendChild(link(it)); });
+    var h = document.createElement("p");
+    h.className = "nav-mobile-heading";
+    h.textContent = "More";
+    mobile.appendChild(h);
+    MORE.forEach(function (it) { mobile.appendChild(link(it)); });
+    mobile.appendChild(link(CTA, "nav-mobile-cta"));
+  }
+
   var btn = document.getElementById("nav-toggle");
-  var menu = document.getElementById("nav-mobile");
-  if (!btn || !menu) return;
+  if (!btn || !mobile) return;
   function setOpen(open) {
-    menu.classList.toggle("hidden", !open);
+    mobile.classList.toggle("hidden", !open);
     btn.setAttribute("aria-expanded", open ? "true" : "false");
     btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   }
   btn.addEventListener("click", function () {
-    setOpen(menu.classList.contains("hidden"));
+    setOpen(mobile.classList.contains("hidden"));
   });
-  menu.querySelectorAll("a").forEach(function (a) {
+  mobile.querySelectorAll("a").forEach(function (a) {
     a.addEventListener("click", function () { setOpen(false); });
   });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") setOpen(false);
+    if (e.key === "Escape" && !mobile.classList.contains("hidden")) { setOpen(false); btn.focus(); }
   });
 })();
