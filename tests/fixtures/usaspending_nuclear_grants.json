@@ -1,0 +1,75 @@
+{
+ "spending_level": "awards",
+ "limit": 100,
+ "results": [
+  {
+   "Award ID": "DENE0009629",
+   "Recipient Name": "THE PENNSYLVANIA STATE UNIVERSITY",
+   "Award Amount": 5975000.0,
+   "Description": "FISCAL YEAR 2025 UNIVERSITY NUCLEAR RESEARCH INFRASTRUCTURE REVITALIZATION - PENNSYLVANIA STATE UNIVERSITY",
+   "Start Date": "2026-08-01",
+   "Base Obligation Date": "2026-08-01",
+   "Awarding Agency": "Department of Energy",
+   "Awarding Sub Agency": "Department of Energy",
+   "generated_internal_id": "ASST_NON_DENE0009629_089",
+   "Award Type": "PROJECT GRANT (B)",
+   "CFDA Number": "81.121"
+  },
+  {
+   "Award ID": "DENE0009630",
+   "Recipient Name": "UNIVERSITY OF UTAH",
+   "Award Amount": 2650000.0,
+   "Description": "FISCAL YEAR 2025 CONSOLIDATED INNOVATIVE NUCLEAR RESEARCH, INTEGRATED RESEARCH PROJECT AWARD - UNIVERSITY OF UTAH",
+   "Start Date": "2026-08-01",
+   "Base Obligation Date": "2026-08-01",
+   "Awarding Agency": "Department of Energy",
+   "Awarding Sub Agency": "Department of Energy",
+   "generated_internal_id": "ASST_NON_DENE0009630_089",
+   "Award Type": "PROJECT GRANT (B)",
+   "CFDA Number": "81.121"
+  },
+  {
+   "Award ID": "DENE0009631",
+   "Recipient Name": "UNIVERSITY OF ILLINOIS",
+   "Award Amount": 2471053.0,
+   "Description": "FISCAL YEAR 2025 CONSOLIDATED INNOVATIVE NUCLEAR RESEARCH, INTEGRATED RESEARCH PROJECT AWARD - UNIVERSITY OF ILLINOIS",
+   "Start Date": "2026-08-01",
+   "Base Obligation Date": "2026-08-01",
+   "Awarding Agency": "Department of Energy",
+   "Awarding Sub Agency": "Department of Energy",
+   "generated_internal_id": "ASST_NON_DENE0009631_089",
+   "Award Type": "PROJECT GRANT (B)",
+   "CFDA Number": "81.121"
+  },
+  {
+   "Award ID": "DENE0009598",
+   "Recipient Name": "UNIVERSITY OF TENNESSEE",
+   "Award Amount": 1000000.0,
+   "Description": "FISCAL YEAR 2025 CONSOLIDATED INNOVATIVE NUCLEAR RESEARCH AWARD - UNIVERSITY OF TENNESSEE AT KNOXVILLE",
+   "Start Date": "2026-08-01",
+   "Base Obligation Date": "2026-08-01",
+   "Awarding Agency": "Department of Energy",
+   "Awarding Sub Agency": "Department of Energy",
+   "generated_internal_id": "ASST_NON_DENE0009598_089",
+   "Award Type": "PROJECT GRANT (B)",
+   "CFDA Number": "81.121"
+  },
+  {
+   "Award ID": "DENE0009616",
+   "Recipient Name": "NORTH CAROLINA STATE UNIVERSITY",
+   "Award Amount": 1000000.0,
+   "Description": "FISCAL YEAR 2025 CONSOLIDATED INNOVATIVE NUCLEAR RESEARCH AWARD - NORTH CAROLINA STATE UNIVERSITY",
+   "Start Date": "2026-08-01",
+   "Base Obligation Date": "2026-08-01",
+   "Awarding Agency": "Department of Energy",
+   "Awarding Sub Agency": "Department of Energy",
+   "generated_internal_id": "ASST_NON_DENE0009616_089",
+   "Award Type": "PROJECT GRANT (B)",
+   "CFDA Number": "81.121"
+  }
+ ],
+ "page_metadata": {
+  "page": 1,
+  "hasNext": false
+ }
+}

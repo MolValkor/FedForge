@@ -1,0 +1,127 @@
+{
+ "spending_level": "awards",
+ "limit": 6,
+ "results": [
+  {
+   "internal_id": 360626458,
+   "Award ID": "1333ND26FNB200154",
+   "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+   "Award Amount": 561600.0,
+   "Description": "OU02-FY26-014-NEW SUBSCRIPTION SERVICES TO SEMICONDUCTOR SUPPLY CHAIN DATABASE.",
+   "Start Date": "2026-07-20",
+   "Base Obligation Date": "2026-07-20",
+   "Awarding Agency": "Department of Commerce",
+   "Awarding Sub Agency": "National Institute of Standards and Technology",
+   "generated_internal_id": "CONT_AWD_1333ND26FNB200154_1341_NNG15SD26B_8000",
+   "NAICS": {
+    "code": "541519",
+    "description": "OTHER COMPUTER RELATED SERVICES"
+   },
+   "PSC": {
+    "code": "R408",
+    "description": "SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT"
+   },
+   "Contract Award Type": "DELIVERY ORDER",
+   "awarding_agency_id": 183,
+   "agency_slug": "department-of-commerce"
+  },
+  {
+   "internal_id": 360207197,
+   "Award ID": "1333ND26PNB030136",
+   "Recipient Name": "SAMYAK SOLUTIONS, INC.",
+   "Award Amount": 516919.62,
+   "Description": "OU03-FY26-218-NEWLABRAM ODESSEY RAMAN MICROSCOPE",
+   "Start Date": "2026-07-15",
+   "Base Obligation Date": "2026-07-15",
+   "Awarding Agency": "Department of Commerce",
+   "Awarding Sub Agency": "National Institute of Standards and Technology",
+   "generated_internal_id": "CONT_AWD_1333ND26PNB030136_1341_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "334516",
+    "description": "ANALYTICAL LABORATORY INSTRUMENT MANUFACTURING"
+   },
+   "PSC": {
+    "code": "5961",
+    "description": "SEMICONDUCTOR DEVICES AND ASSOCIATED HARDWARE"
+   },
+   "Contract Award Type": "PURCHASE ORDER",
+   "awarding_agency_id": 183,
+   "agency_slug": "department-of-commerce"
+  },
+  {
+   "internal_id": 361036026,
+   "Award ID": "15UC0C26C00001702",
+   "Recipient Name": "CARL ZEISS VISION INC",
+   "Award Amount": 485528.56,
+   "Description": "AR COATING EQUIPMENT",
+   "Start Date": "2026-08-03",
+   "Base Obligation Date": "2026-08-03",
+   "Awarding Agency": "Department of Justice",
+   "Awarding Sub Agency": "Federal Prison Industries / Unicor",
+   "generated_internal_id": "CONT_AWD_15UC0C26C00001702_1542_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "333242",
+    "description": "SEMICONDUCTOR MACHINERY MANUFACTURING"
+   },
+   "PSC": {
+    "code": "6640",
+    "description": "LABORATORY EQUIPMENT AND SUPPLIES"
+   },
+   "Contract Award Type": "DEFINITIVE CONTRACT",
+   "awarding_agency_id": 252,
+   "agency_slug": "department-of-justice"
+  },
+  {
+   "internal_id": 361858242,
+   "Award ID": "1333ND26PNB030360",
+   "Recipient Name": "KEYSIGHT TECHNOLOGIES, INC.",
+   "Award Amount": 414272.04,
+   "Description": "OU03-FY26-128-NEW KEYSIGHT MICROWAVE NETWORK ANALAYZER",
+   "Start Date": "2026-08-28",
+   "Base Obligation Date": "2026-08-28",
+   "Awarding Agency": "Department of Commerce",
+   "Awarding Sub Agency": "National Institute of Standards and Technology",
+   "generated_internal_id": "CONT_AWD_1333ND26PNB030360_1341_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "334515",
+    "description": "INSTRUMENT MANUFACTURING FOR MEASURING AND TESTING ELECTRICITY AND ELECTRICAL SIGNALS"
+   },
+   "PSC": {
+    "code": "5961",
+    "description": "SEMICONDUCTOR DEVICES AND ASSOCIATED HARDWARE"
+   },
+   "Contract Award Type": "PURCHASE ORDER",
+   "awarding_agency_id": 183,
+   "agency_slug": "department-of-commerce"
+  },
+  {
+   "internal_id": 363075454,
+   "Award ID": "70RDA226P00000021",
+   "Recipient Name": "SENSORS UNLIMITED INC",
+   "Award Amount": 402560.0,
+   "Description": "OCSO REQUESTS RAYTHEON SWIR POCKET SCOPE-MULTI MODE TRACKERS FOR THE TECHNICAL OPERATIONS BRANCH.  POP: 120 DAYS FROM DATE OF AWARD WITH A ONE (1) YEAR WARRANTY.",
+   "Start Date": "2026-09-30",
+   "Base Obligation Date": "2026-09-29",
+   "Awarding Agency": "Department of Homeland Security",
+   "Awarding Sub Agency": "Office of Procurement Operations",
+   "generated_internal_id": "CONT_AWD_70RDA226P00000021_7001_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "334413",
+    "description": "SEMICONDUCTOR AND RELATED DEVICE MANUFACTURING"
+   },
+   "PSC": {
+    "code": "5855",
+    "description": "NIGHT VISION EQUIPMENT, EMITTED AND REFLECTED RADIATION"
+   },
+   "Contract Award Type": "PURCHASE ORDER",
+   "awarding_agency_id": 766,
+   "agency_slug": "department-of-homeland-security"
+  }
+ ],
+ "page_metadata": {
+  "page": 2,
+  "hasNext": false,
+  "last_record_unique_id": 363075454,
+  "last_record_sort_value": "40256000"
+ }
+}

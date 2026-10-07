@@ -1,0 +1,150 @@
+{
+ "spending_level": "awards",
+ "limit": 6,
+ "results": [
+  {
+   "internal_id": 360984113,
+   "Award ID": "1333ND26PNB680225",
+   "Recipient Name": "CAMECA INSTRUMENTS, INC",
+   "Award Amount": 3869359.0,
+   "Description": "OU03-FY26-283-NEW CHIPS R&D ATOM PROBE TOMOGRAPHY CHAMBER LEAP",
+   "Start Date": "2026-07-31",
+   "Base Obligation Date": "2026-07-31",
+   "Awarding Agency": "Department of Commerce",
+   "Awarding Sub Agency": "National Institute of Standards and Technology",
+   "generated_internal_id": "CONT_AWD_1333ND26PNB680225_1341_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "334516",
+    "description": "ANALYTICAL LABORATORY INSTRUMENT MANUFACTURING"
+   },
+   "PSC": {
+    "code": "5961",
+    "description": "SEMICONDUCTOR DEVICES AND ASSOCIATED HARDWARE"
+   },
+   "Contract Award Type": "PURCHASE ORDER",
+   "awarding_agency_id": 183,
+   "agency_slug": "department-of-commerce"
+  },
+  {
+   "internal_id": 360934669,
+   "Award ID": "80JSC026C0007",
+   "Recipient Name": "UNITED SEMICONDUCTORS, LLC",
+   "Award Amount": 3760000.0,
+   "Description": "UNITED SEMICONDUCTOR INSPA PHASE 2",
+   "Start Date": "2026-07-30",
+   "Base Obligation Date": "2026-07-29",
+   "Awarding Agency": "National Aeronautics and Space Administration",
+   "Awarding Sub Agency": "National Aeronautics and Space Administration",
+   "generated_internal_id": "CONT_AWD_80JSC026C0007_8000_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "541715",
+    "description": "RESEARCH AND DEVELOPMENT IN THE PHYSICAL, ENGINEERING, AND LIFE SCIENCES (EXCEPT NANOTECHNOLOGY AND BIOTECHNOLOGY)"
+   },
+   "PSC": {
+    "code": "AR12",
+    "description": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; APPLIED RESEARCH"
+   },
+   "Contract Award Type": "DEFINITIVE CONTRACT",
+   "awarding_agency_id": 862,
+   "agency_slug": "national-aeronautics-and-space-administration"
+  },
+  {
+   "internal_id": 362649612,
+   "Award ID": "1333ND26PNB030228",
+   "Recipient Name": "SCIENTA OMICRON, INC.",
+   "Award Amount": 1219679.0,
+   "Description": "OU03-FY26-211-NEW HIPP LAB SYSTEM (B005771)",
+   "Start Date": "2026-09-24",
+   "Base Obligation Date": "2026-09-23",
+   "Awarding Agency": "Department of Commerce",
+   "Awarding Sub Agency": "National Institute of Standards and Technology",
+   "generated_internal_id": "CONT_AWD_1333ND26PNB030228_1341_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "334516",
+    "description": "ANALYTICAL LABORATORY INSTRUMENT MANUFACTURING"
+   },
+   "PSC": {
+    "code": "5961",
+    "description": "SEMICONDUCTOR DEVICES AND ASSOCIATED HARDWARE"
+   },
+   "Contract Award Type": "PURCHASE ORDER",
+   "awarding_agency_id": 183,
+   "agency_slug": "department-of-commerce"
+  },
+  {
+   "internal_id": 361161798,
+   "Award ID": "1333ND26PNB030305",
+   "Recipient Name": "IPG PHOTONICS CORPORATION",
+   "Award Amount": 818735.0,
+   "Description": "OU03-26-215-NEW CLPF-2400 OPTICAL FREQUENCY COMB",
+   "Start Date": "2026-08-06",
+   "Base Obligation Date": "2026-08-06",
+   "Awarding Agency": "Department of Commerce",
+   "Awarding Sub Agency": "National Institute of Standards and Technology",
+   "generated_internal_id": "CONT_AWD_1333ND26PNB030305_1341_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "334516",
+    "description": "ANALYTICAL LABORATORY INSTRUMENT MANUFACTURING"
+   },
+   "PSC": {
+    "code": "5961",
+    "description": "SEMICONDUCTOR DEVICES AND ASSOCIATED HARDWARE"
+   },
+   "Contract Award Type": "PURCHASE ORDER",
+   "awarding_agency_id": 183,
+   "agency_slug": "department-of-commerce"
+  },
+  {
+   "internal_id": 363020250,
+   "Award ID": "80NM0026F7066",
+   "Recipient Name": "CALIFORNIA INSTITUTE OF TECHNOLOGY",
+   "Award Amount": 756474.0,
+   "Description": "DEVELOP TIME-RESOLVED EMISSION MICROSCOPY SYSTEM FOR SEMICONDUCTOR FAILURE ANALYSIS AND METROLOGY",
+   "Start Date": "2026-04-01",
+   "Base Obligation Date": "2026-09-28",
+   "Awarding Agency": "National Aeronautics and Space Administration",
+   "Awarding Sub Agency": "National Aeronautics and Space Administration",
+   "generated_internal_id": "CONT_AWD_80NM0026F7066_8000_80NM0018D0004_8000",
+   "NAICS": {
+    "code": "541715",
+    "description": "RESEARCH AND DEVELOPMENT IN THE PHYSICAL, ENGINEERING, AND LIFE SCIENCES (EXCEPT NANOTECHNOLOGY AND BIOTECHNOLOGY)"
+   },
+   "PSC": {
+    "code": "AR12",
+    "description": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; APPLIED RESEARCH"
+   },
+   "Contract Award Type": "DELIVERY ORDER",
+   "awarding_agency_id": 862,
+   "agency_slug": "national-aeronautics-and-space-administration"
+  },
+  {
+   "internal_id": 362599030,
+   "Award ID": "1333ND26PNB030571",
+   "Recipient Name": "MCALLISTER TECHNICAL SERVICES, INC.",
+   "Award Amount": 648712.0,
+   "Description": "OU03-FY26-265-NEW CHIPS R&D CUSTOM DIFFRACTOMETRY AND FP END STATION",
+   "Start Date": "2026-09-22",
+   "Base Obligation Date": "2026-09-22",
+   "Awarding Agency": "Department of Commerce",
+   "Awarding Sub Agency": "National Institute of Standards and Technology",
+   "generated_internal_id": "CONT_AWD_1333ND26PNB030571_1341_-NONE-_-NONE-",
+   "NAICS": {
+    "code": "334519",
+    "description": "OTHER MEASURING AND CONTROLLING DEVICE MANUFACTURING"
+   },
+   "PSC": {
+    "code": "5961",
+    "description": "SEMICONDUCTOR DEVICES AND ASSOCIATED HARDWARE"
+   },
+   "Contract Award Type": "PURCHASE ORDER",
+   "awarding_agency_id": 183,
+   "agency_slug": "department-of-commerce"
+  }
+ ],
+ "page_metadata": {
+  "page": 1,
+  "hasNext": true,
+  "last_record_unique_id": 362599030,
+  "last_record_sort_value": "64871200"
+ }
+}
