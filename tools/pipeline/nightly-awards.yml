@@ -8,10 +8,9 @@
 # from the bot branch below. It NEVER pushes to main: nothing reaches thefedforge.com (and no Netlify
 # production build is spent) until a human reviews and merges the PR.
 #
-# Netlify note: the bot commit message carries "[skip netlify]" so Netlify does not spend build
-# minutes on a Deploy Preview for every nightly update. Merge these PRs with "Create a merge commit"
-# (the default merge message does not contain the skip tag, so the production deploy runs once on merge).
-# A squash merge copies the commit messages into the squash commit and would skip that deploy.
+# Netlify cost note: Deploy Previews for the bot PR are free on Netlify's credit plans; only production deploys
+# (15 credits each) cost anything, and those happen only when a human merges. The bot branch is rebuilt from main
+# every night, so you can let the PR sit and merge it weekly (one production deploy) instead of nightly.
 
 name: Nightly award refresh
 
@@ -80,8 +79,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BOT_BRANCH"
           git add data/awards.json js/awards-data.js data/meta.json feed.xml sitemap.xml
-          git commit -m "data: nightly USAspending award refresh ${today} [skip netlify]" \
-                     -m "Automated by .github/workflows/nightly-awards.yml. Review, then merge with a merge commit."
+          git commit -m "data: nightly USAspending award refresh ${today}" \
+                     -m "Automated by .github/workflows/nightly-awards.yml. Review, then merge."
           # The bot branch is rebuilt from main every night, so the PR always shows main vs the latest pull.
           git push --force origin "HEAD:refs/heads/$BOT_BRANCH"
 
@@ -90,7 +89,7 @@ jobs:
             echo
             echo "---"
             echo "Opened by the nightly award refresh workflow. Nothing here is live until a human merges."
-            echo "Merge with **Create a merge commit** (a squash merge would carry the [skip netlify] tag and skip the production deploy)."
+            echo "Merging triggers one Netlify production deploy (15 credits). The branch is rebuilt nightly, so merging weekly is enough."
           } > "$RUNNER_TEMP/body.md"
 
           title="Nightly award refresh: ${today}"

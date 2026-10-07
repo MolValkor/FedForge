@@ -95,9 +95,9 @@ the result to the `bot/award-refresh` branch and opens (or updates) a pull reque
 
 - **It never pushes to `main`.** Nothing reaches thefedforge.com until a human merges the PR, so Netlify only
   builds production when you choose to.
-- Bot commits carry `[skip netlify]`, so Netlify does not spend build minutes on a Deploy Preview each night.
-  **Merge these PRs with "Create a merge commit"**: the merge commit message does not contain the tag, so the
-  production deploy runs once. A squash merge copies the commit messages and would skip that deploy.
+- Netlify cost: Deploy Previews for the bot PR are free on credit-based plans; each merge into `main` is one
+  production deploy (15 credits). The bot branch is rebuilt from `main` nightly, so you can let the PR sit and
+  merge it weekly instead of nightly.
 - The bot branch is rebuilt from `main` each night; do not hand-edit it (edit `main` instead).
 - For the job to open the PR itself, enable **Settings > Actions > General > Workflow permissions >
   "Allow GitHub Actions to create and approve pull requests"**. Without it the job still pushes the branch and
