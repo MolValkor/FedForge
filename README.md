@@ -90,6 +90,7 @@ and push, or on github.com use Add file > Create new file, name it `.github/work
 paste the contents (delete the first two INSTALL comment lines if you like).
 
 Runs every day at 10:23 UTC (6:23 AM EDT) and on demand (Actions tab > Nightly award refresh > Run workflow).
+It runs the unit tests first and the data-quality gate before and after writing (see below).
 If the award list changed it regenerates `feed.xml` / `sitemap.xml`, runs `tools/check_site.py`, force-pushes
 the result to the `bot/award-refresh` branch and opens (or updates) a pull request into `main`.
 
@@ -112,6 +113,43 @@ A personal key without a SAM.gov role is limited to 10 requests a day, so the pi
 3 (`SAM_MAX_REQUESTS`). SAM.gov rows only fill in contracts USAspending has not loaded yet and are labelled
 "obligated (SAM.gov)". Without the secret the pipeline runs on USAspending alone. Locally:
 `SAM_API_KEY=... python3 tools/fetch_awards.py --dry-run`.
+
+### Tests and data-quality gate
+
+**Unit tests** (`tests/`, pytest) cover `tools/fetch_awards.py` and the gate: API response parsing, paging,
+lane matching (including the look-alike masks), dedup, per-lane caps, verified-only tickers and the exact output
+shape. They replay recorded USAspending responses from `tests/fixtures/` and never touch the network.
+
+```sh
+python3 -m pip install -r requirements-dev.txt   # pytest only; the pipeline itself stays stdlib-only
+python3 -m pytest -q
+```
+
+**Data-quality gate** (`tools/pipeline/validate_awards.py`). `fetch_awards.py` runs it on the new data *before*
+writing anything; if it fails, the script writes nothing and exits 3. The nightly job runs it again on the
+written files against `main`'s copy. It fails on:
+
+- schema problems: missing or unknown fields (so no invented growth %, returns or price targets can slip in),
+  `count` not matching the rows, or a bad window
+- amounts that are not positive numbers, are below the run's `min_amount`, or are above the $50B sanity cap
+- dates that are not real `YYYY-MM-DD` dates or fall after the window end or in the future
+- duplicate award ids, or links that are not USAspending award pages
+- tickers that are not already human-verified in `data/*.json`, or `public` not matching "has a ticker"
+- a row-count swing vs the previous snapshot over the limits in `lanes.json` > `quality` (default: more than a
+  50% drop or a 100% rise, ignoring changes of 10 rows or fewer), or a lane that had 5+ rows going to zero
+- `data/meta.json` or `js/awards-data.js` disagreeing with `data/awards.json`
+
+Blank recipient, agency or description text is left blank and listed as a warning; it is never filled in.
+
+```sh
+python3 tools/pipeline/validate_awards.py data/awards.json --previous data/awards.json \
+    --meta data/meta.json --js js/awards-data.js
+```
+
+In the nightly job a failure turns the run red (GitHub emails the repo owner), prints the reasons in the run
+summary, and opens or updates **no** data PR. If a big count change is intended (for example after editing
+lanes), run the workflow by hand with **allow_count_change** ticked, or pass `--allow-count-change` locally.
+That skips only the row-count check; every other check still runs.
 
 ## Rules the content follows
 

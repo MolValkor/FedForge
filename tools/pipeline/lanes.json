@@ -246,5 +246,14 @@
     "lead_chars": 150,
     "lead_bonus": 15,
     "core_score": 60
+  },
+  "quality": {
+    "_doc": "Data-quality gate limits (tools/pipeline/validate_awards.py). A run that breaks any of them writes nothing and fails the nightly job. Row-count limits compare against the previous published data/awards.json; changes of <= count_change_slack rows always pass. A lane that had >= lane_vanish_min_previous rows and now has 0 fails. Use --allow-count-change (or the workflow's allow_count_change input) once after an intentional lane/threshold change.",
+    "max_count_drop_pct": 50,
+    "max_count_rise_pct": 100,
+    "count_change_slack": 10,
+    "lane_vanish_min_previous": 5,
+    "max_award_amount": 50000000000,
+    "max_description_chars": 200
   }
 }

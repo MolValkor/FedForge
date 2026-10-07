@@ -24,11 +24,14 @@ Pipeline
 
 Every amount, date, recipient and description is copied from the API response. Nothing is estimated,
 projected or invented; if the APIs return nothing, the file says so (count 0) rather than keeping stale rows.
-Exit code is 0 on success, 2 if USAspending could not be reached (files are left untouched in that case).
+Before anything is written, the result goes through the data-quality gate (tools/pipeline/validate_awards.py):
+schema, required fields, sane positive amounts, valid in-window dates, unique ids, verified-only tickers and a
+row-count change vs the previous snapshot within the limits in lanes.json "quality".
+Exit codes: 0 success, 2 USAspending could not be reached, 3 the data-quality gate failed.
+Files are left untouched on 2 and 3.
 """
 import argparse
 import json
-import math
 import os
 import re
 import sys
@@ -37,6 +40,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "pipeline"))
+import validate_awards  # noqa: E402  (tools/pipeline/validate_awards.py, the data-quality gate)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANES_FILE = os.path.join(ROOT, "tools", "pipeline", "lanes.json")
@@ -129,9 +135,10 @@ def code_of(v):
 
 def normalize_usa(r):
     gid = r.get("generated_internal_id") or ""
+    award_id = str(r.get("Award ID") or "").strip()
     return {
-        "key": gid or f"USA:{r.get('Award ID')}",
-        "id": str(r.get("Award ID") or "").strip(),
+        "key": gid or f"USA:{award_id}",
+        "id": award_id,
         "date": (r.get("Base Obligation Date") or r.get("Start Date") or "")[:10],
         "agency": r.get("Awarding Agency") or "",
         "sub_agency": r.get("Awarding Sub Agency") or "",
@@ -289,14 +296,17 @@ def norm_name(s):
     return re.sub(r"\s+", " ", re.sub(r"[^A-Z0-9 ]+", " ", (s or "").upper())).strip()
 
 
-def verified_tickers():
+def verified_tickers(root=None):
     """Ticker sources: rows in data/*.json that already carry a ticker (human-verified). Exact matches only."""
+    root = root or ROOT
     by_id, by_name = {}, {}
     for fn in ("awards.json", "public-primes.json", "curated.json"):
-        p = os.path.join(ROOT, "data", fn)
+        p = os.path.join(root, "data", fn)
         if not os.path.exists(p):
             continue
-        for a in json.load(open(p, encoding="utf-8")).get("awards", []):
+        with open(p, encoding="utf-8") as f:
+            rows = json.load(f).get("awards", [])
+        for a in rows:
             t = a.get("ticker")
             if not t:
                 continue
@@ -305,6 +315,95 @@ def verified_tickers():
             if a.get("recipient_name"):
                 by_name[norm_name(a["recipient_name"])] = t
     return by_id, by_name
+
+
+# ---------------------------------------------------------------- pipeline steps (pure, unit-tested)
+
+def dedupe(raw):
+    """One row per award. USAspending rows come first in `raw`, so they win over SAM.gov copies of the same
+    contract (same generated_internal_id, or a SAM.gov row whose PIID was already seen)."""
+    seen, seen_ids, uniq = set(), set(), []
+    for a in raw:
+        if a["key"] in seen or (a["origin"] == "sam.gov" and a["id"] in seen_ids):
+            continue
+        seen.add(a["key"])
+        seen_ids.add(a["id"])
+        uniq.append(a)
+    return uniq
+
+
+def select_awards(uniq, lanes, sc, per_lane):
+    """Score, threshold, cap per lane and collapse duplicate display ids.
+    Returns (rows, rejected_count, fate, lane_stats); rows are sorted newest first."""
+    kept, rejected, fate = {k: [] for k in lanes}, 0, {}
+    for a in uniq:
+        if not a["id"] or not a["date"] or a["amount"] is None or not a["source_url"]:
+            rejected += 1
+            fate[a["id"]] = "returned without id/date/amount/source"
+            continue
+        s, lane, why = classify(a, lanes, sc)
+        if lane is None or s < sc["threshold"]:
+            rejected += 1
+            fate[a["id"]] = f"below relevance threshold (score {s} < {sc['threshold']})"
+            continue
+        a.update(score=s, sector=lane, why=why)
+        kept[lane].append(a)
+
+    final, lane_stats = [], {}
+    for k, rows in kept.items():
+        # Relevance decides IF an award is in. For the per-lane cut, "core" awards (score >= core_score:
+        # the award is about the lane, not a passing mention) go first, largest dollars first ("follow the
+        # money"); passing-mention awards only fill leftover slots. Ties fall back to score, then id.
+        core = sc.get("core_score", 60)
+        rows.sort(key=lambda a: (a["score"] < core, -(a["amount"] or 0), -a["score"], a["id"]))
+        for a in rows[per_lane:]:
+            fate[a["id"]] = f"qualified (score {a['score']}) but below the top {per_lane} by amount in {k}"
+        lane_stats[k] = {"label": lanes[k]["label"], "qualified": len(rows), "kept": min(len(rows), per_lane),
+                         "amount_kept": sum(a["amount"] for a in rows[:per_lane])}
+        final.extend(rows[:per_lane])
+    final.sort(key=lambda a: (a["date"], a["amount"] or 0, a["id"]), reverse=True)
+
+    # collapse duplicate display ids (award.html?id= looks up by id); keep the higher score
+    out_rows, ids = [], {}
+    for a in final:
+        if a["id"] in ids:
+            if a["score"] > ids[a["id"]]["score"]:
+                out_rows[out_rows.index(ids[a["id"]])] = a
+                ids[a["id"]] = a
+            continue
+        ids[a["id"]] = a
+        out_rows.append(a)
+    return out_rows, rejected, fate, lane_stats
+
+
+def to_site_rows(out_rows, by_id, by_name):
+    """The exact row shape awards.html / award.html read. A ticker is attached only from the verified maps."""
+    awards = []
+    for a in out_rows:
+        t = by_id.get(a["id"]) or by_name.get(norm_name(a["recipient_name"]))
+        row = {"id": a["id"], "date": a["date"], "agency": a["agency"], "recipient_name": a["recipient_name"],
+               "amount": a["amount"], "description": short_desc(a["description_full"]), "source_url": a["source_url"],
+               "sector": a["sector"], "public": bool(t)}
+        if a.get("amount_display_suffix"):
+            row["amount_display"] = f"{fmt_money(a['amount'])} {a['amount_display_suffix']}"
+        if t:
+            row["ticker"] = t
+        row["score"] = a["score"]
+        awards.append(row)
+    return awards
+
+
+def diff_vs_old(old, awards, fate, s_iso, e_iso):
+    """(added rows, dropped [{id, recipient_name, date, reason}], changed?) versus the previous snapshot."""
+    old_ids = {x["id"]: x for x in old.get("awards", [])}
+    new_ids = {x["id"] for x in awards}
+    added = [x for x in awards if x["id"] not in old_ids]
+    dropped = [{"id": i, "recipient_name": x.get("recipient_name"), "date": x.get("date"),
+                "reason": fate.get(i, f"not a new award inside {s_iso}..{e_iso} (aged out of the rolling window or not matched by the lane queries)")}
+               for i, x in old_ids.items() if i not in new_ids]
+    strip = lambda rows: [{k: v for k, v in r.items() if k != "score"} for r in rows]
+    changed = strip(old.get("awards", [])) != strip(awards)
+    return added, dropped, changed
 
 
 # ---------------------------------------------------------------- output
@@ -331,7 +430,7 @@ def write_text(path, text):
         f.write(text)
 
 
-def main():
+def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--end", default=date.today().isoformat(), help="window end (YYYY-MM-DD), default today")
     ap.add_argument("--days", type=int, default=90, help="rolling window length in days (default 90)")
@@ -341,9 +440,13 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="fetch and report only, write no site files")
     ap.add_argument("--report-json", help="write a machine-readable run report here")
     ap.add_argument("--report-md", help="write a Markdown run summary here (used as the PR body)")
-    args = ap.parse_args()
+    ap.add_argument("--allow-count-change", action="store_true",
+                    help="skip ONLY the row-count-vs-previous check of the data-quality gate (use after an intentional "
+                         "lane/threshold change); every other check still runs")
+    args = ap.parse_args(argv)
 
-    cfg = json.load(open(LANES_FILE, encoding="utf-8"))
+    with open(LANES_FILE, encoding="utf-8") as f:
+        cfg = json.load(f)
     lanes, sc = compile_lanes(cfg), cfg["scoring"]
     end = date.fromisoformat(args.end)
     start = end - timedelta(days=args.days)
@@ -356,7 +459,7 @@ def main():
         raw = fetch_usaspending(lanes, s_iso, e_iso, args.min_amount, args.max_pages, stats)
     except Exception as e:  # noqa: BLE001
         log(f"ERROR: USAspending unreachable or rejected the query: {e}. No files written.")
-        sys.exit(2)
+        return 2
 
     sam_key = os.environ.get("SAM_API_KEY", "").strip()
     sam_status = "skipped (SAM_API_KEY not set)"
@@ -367,78 +470,17 @@ def main():
         sam_status = f"{stats['sam_requests']} request(s), {len(sam_rows)} row(s)" + (f", errors: {stats['sam_errors']}" if stats["sam_errors"] else "")
         raw.extend(sam_rows)
 
-    # dedupe: USAspending rows first so they win over SAM.gov copies of the same contract
-    seen, seen_ids, uniq = set(), set(), []
-    for a in raw:
-        if a["key"] in seen or (a["origin"] == "sam.gov" and a["id"] in seen_ids):
-            continue
-        seen.add(a["key"])
-        seen_ids.add(a["id"])
-        uniq.append(a)
-
+    uniq = dedupe(raw)
     by_id, by_name = verified_tickers()
-    kept, rejected, fate = {k: [] for k in lanes}, 0, {}
-    for a in uniq:
-        if not a["id"] or not a["date"] or a["amount"] is None or not a["source_url"]:
-            rejected += 1
-            fate[a["id"]] = "returned without id/date/amount/source"
-            continue
-        s, lane, why = classify(a, lanes, sc)
-        if lane is None or s < sc["threshold"]:
-            rejected += 1
-            fate[a["id"]] = f"below relevance threshold (score {s} < {sc['threshold']})"
-            continue
-        a.update(score=s, sector=lane, why=why)
-        kept[lane].append(a)
-
-    final, lane_stats = [], {}
-    for k, rows in kept.items():
-        # Relevance decides IF an award is in. For the per-lane cut, "core" awards (score >= core_score:
-        # the award is about the lane, not a passing mention) go first, largest dollars first ("follow the
-        # money"); passing-mention awards only fill leftover slots. Ties fall back to score, then id.
-        core = sc.get("core_score", 60)
-        rows.sort(key=lambda a: (a["score"] < core, -(a["amount"] or 0), -a["score"], a["id"]))
-        for a in rows[args.per_lane:]:
-            fate[a["id"]] = f"qualified (score {a['score']}) but below the top {args.per_lane} by amount in {k}"
-        lane_stats[k] = {"label": lanes[k]["label"], "qualified": len(rows), "kept": min(len(rows), args.per_lane),
-                         "amount_kept": sum(a["amount"] for a in rows[:args.per_lane])}
-        final.extend(rows[:args.per_lane])
-    final.sort(key=lambda a: (a["date"], a["amount"] or 0, a["id"]), reverse=True)
-
-    # collapse duplicate display ids (award.html?id= looks up by id); keep the higher score
-    out_rows, ids = [], {}
-    for a in final:
-        if a["id"] in ids:
-            if a["score"] > ids[a["id"]]["score"]:
-                out_rows[out_rows.index(ids[a["id"]])] = a
-                ids[a["id"]] = a
-            continue
-        ids[a["id"]] = a
-        out_rows.append(a)
-
-    awards = []
-    for a in out_rows:
-        t = by_id.get(a["id"]) or by_name.get(norm_name(a["recipient_name"]))
-        row = {"id": a["id"], "date": a["date"], "agency": a["agency"], "recipient_name": a["recipient_name"],
-               "amount": a["amount"], "description": short_desc(a["description_full"]), "source_url": a["source_url"],
-               "sector": a["sector"], "public": bool(t)}
-        if a.get("amount_display_suffix"):
-            row["amount_display"] = f"{fmt_money(a['amount'])} {a['amount_display_suffix']}"
-        if t:
-            row["ticker"] = t
-        row["score"] = a["score"]
-        awards.append(row)
+    out_rows, rejected, fate, lane_stats = select_awards(uniq, lanes, sc, args.per_lane)
+    awards = to_site_rows(out_rows, by_id, by_name)
 
     old_path = os.path.join(ROOT, "data", "awards.json")
-    old = json.load(open(old_path, encoding="utf-8")) if os.path.exists(old_path) else {"awards": []}
-    old_ids = {x["id"]: x for x in old.get("awards", [])}
-    new_ids = {x["id"] for x in awards}
-    added = [x for x in awards if x["id"] not in old_ids]
-    dropped = [{"id": i, "recipient_name": x.get("recipient_name"), "date": x.get("date"),
-                "reason": fate.get(i, f"not a new award inside {s_iso}..{e_iso} (aged out of the rolling window or not matched by the lane queries)")}
-               for i, x in old_ids.items() if i not in new_ids]
-    strip = lambda rows: [{k: v for k, v in r.items() if k != "score"} for r in rows]
-    changed = strip(old.get("awards", [])) != strip(awards)
+    old = {"awards": []}
+    if os.path.exists(old_path):
+        with open(old_path, encoding="utf-8") as f:
+            old = json.load(f)
+    added, dropped, changed = diff_vs_old(old, awards, fate, s_iso, e_iso)
 
     lane_list = ", ".join(f"{v['label']} ({k})" for k, v in lanes.items())
     doc = {
@@ -460,28 +502,45 @@ def main():
                  "and reaches the live site only after a human merges the data pull request."),
         "count": len(awards),
         "pipeline": {"version": 1, "score_threshold": sc["threshold"], "per_lane_cap": args.per_lane,
-                     "candidates": len(uniq), "sam_gov": sam_status},
+                     "min_amount": args.min_amount, "candidates": len(uniq), "sam_gov": sam_status},
         "awards": awards,
     }
+
+    # Data-quality gate: runs BEFORE anything is written. A failing gate writes no site files and exits 3.
+    gate = validate_awards.validate(
+        doc, previous=old if os.path.exists(old_path) else None, lanes=list(lanes), quality=cfg.get("quality"),
+        verified_tickers=set(by_id.values()) | set(by_name.values()),
+        allow_count_change=args.allow_count_change, today=datetime.now(timezone.utc).date())
 
     report = {"pulled_at": pulled_at, "window": doc["window"], "requests": stats["requests"],
               "per_query": stats["per_query"], "truncated_queries": stats["truncated"], "raw_rows": len(raw),
               "unique_candidates": len(uniq), "rejected": rejected, "lanes": lane_stats, "total_kept": len(awards),
               "public_with_ticker": sum(1 for a in awards if a.get("ticker")), "sam_gov": sam_status,
-              "changed": changed, "added": [a["id"] for a in added], "dropped": dropped}
+              "changed": changed, "added": [a["id"] for a in added], "dropped": dropped,
+              "quality_gate": gate.as_dict()}
 
     if args.report_json:
         write_text(args.report_json, json.dumps(report, indent=2) + "\n")
-    md = render_md(report, awards, added, dropped, lanes)
+    md = render_md(report, awards, added, dropped, lanes) + "\n" + gate.render_md()
     if args.report_md:
         write_text(args.report_md, md)
     print(md)
+    gate.annotate()
+
+    if not gate.ok:
+        log(f"ERROR: data-quality gate FAILED with {len(gate.errors)} error(s); refusing to publish. No files written.")
+        for e in gate.errors:
+            log(f"  - {e}")
+        return 3
 
     if not args.dry_run:
         write_text(old_path, json.dumps(doc, separators=(",", ":")) + "\n")
         write_text(os.path.join(ROOT, "js", "awards-data.js"), "window.FEDFORGE_AWARDS=" + json.dumps(doc, separators=(",", ":")) + ";\n")
         meta_path = os.path.join(ROOT, "data", "meta.json")
-        meta = json.load(open(meta_path, encoding="utf-8")) if os.path.exists(meta_path) else {}
+        meta = {}
+        if os.path.exists(meta_path):
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
         meta.update(last_usaspending_pull=pulled_at, primes_count=len(awards), primes_window={"start": s_iso, "end": e_iso})
         write_text(meta_path, json.dumps(meta, indent=2) + "\n")
         log("wrote data/awards.json, js/awards-data.js, data/meta.json")
@@ -490,6 +549,7 @@ def main():
     if gh_out:
         with open(gh_out, "a", encoding="utf-8") as f:
             f.write(f"changed={'true' if changed else 'false'}\ncount={len(awards)}\nadded={len(added)}\ndropped={len(dropped)}\n")
+    return 0
 
 
 def render_md(rep, awards, added, dropped, lanes):
@@ -520,4 +580,4 @@ def render_md(rep, awards, added, dropped, lanes):
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

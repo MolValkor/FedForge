@@ -8,6 +8,10 @@
 # from the bot branch below. It NEVER pushes to main: nothing reaches thefedforge.com (and no Netlify
 # production build is spent) until a human reviews and merges the PR.
 #
+# Trust: unit tests run first, and the data-quality gate (tools/pipeline/validate_awards.py) checks schema,
+# amounts, dates, duplicate ids, verified-only tickers and the row-count change vs main's snapshot. Any failure
+# fails this job loudly (red run + GitHub's failure email) and NO data PR is opened or updated.
+#
 # Netlify cost note: Deploy Previews for the bot PR are free on Netlify's credit plans; only production deploys
 # (15 credits each) cost anything, and those happen only when a human merges. The bot branch is rebuilt from main
 # every night, so you can let the PR sit and merge it weekly (one production deploy) instead of nightly.
@@ -23,6 +27,10 @@ on:
         description: "Rolling window length in days"
         default: "90"
         required: false
+      allow_count_change:
+        description: "Skip ONLY the row-count-vs-previous check (after an intentional lane/threshold change)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write        # push the bot branch (never main)
@@ -50,16 +58,46 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch, filter and score awards
+      - name: Unit tests (pipeline code)
+        run: |
+          python3 -m pip install --quiet -r requirements-dev.txt
+          python3 -m pytest -q
+
+      - name: Keep the last published snapshot for the data-quality gate
+        run: cp data/awards.json "$RUNNER_TEMP/previous-awards.json"
+
+      - name: Fetch, filter and score awards (gate runs before anything is written)
         id: fetch
         env:
           SAM_API_KEY: ${{ secrets.SAM_API_KEY }}   # optional; leave unset to use USAspending only
+          ALLOW_COUNT_CHANGE: ${{ github.event.inputs.allow_count_change == 'true' && '--allow-count-change' || '' }}
         run: |
+          set -o pipefail
+          # Exit 2 = USAspending unreachable, 3 = data-quality gate failed. Either way no files are written and
+          # the job fails here, so no data PR is opened or updated.
+          status=0
           python3 tools/fetch_awards.py \
             --days "${{ github.event.inputs.days || '90' }}" \
             --report-md "$RUNNER_TEMP/summary.md" \
-            --report-json "$RUNNER_TEMP/report.json"
-          cat "$RUNNER_TEMP/summary.md" >> "$GITHUB_STEP_SUMMARY"
+            --report-json "$RUNNER_TEMP/report.json" \
+            $ALLOW_COUNT_CHANGE || status=$?
+          [ -f "$RUNNER_TEMP/summary.md" ] && cat "$RUNNER_TEMP/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$status" -ne 0 ]; then
+            echo "::error title=Nightly award refresh::fetch_awards.py exited $status (2 = API unreachable, 3 = data-quality gate failed). Nothing was published."
+            exit "$status"
+          fi
+
+      - name: Data-quality gate (re-check the written files against main's snapshot)
+        if: steps.fetch.outputs.changed == 'true'
+        env:
+          ALLOW_COUNT_CHANGE: ${{ github.event.inputs.allow_count_change == 'true' && '--allow-count-change' || '' }}
+        run: |
+          python3 tools/pipeline/validate_awards.py data/awards.json \
+            --previous "$RUNNER_TEMP/previous-awards.json" \
+            --meta data/meta.json \
+            --js js/awards-data.js \
+            --report-md "$GITHUB_STEP_SUMMARY" \
+            $ALLOW_COUNT_CHANGE
 
       - name: Regenerate feed/sitemap and run site checks
         if: steps.fetch.outputs.changed == 'true'
