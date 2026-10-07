@@ -1,0 +1,250 @@
+{
+  "_doc": "FedForge lane definitions for tools/fetch_awards.py. 'query_keywords' are sent to the USAspending keyword filter (OR'd). 'strong'/'weak' are case-insensitive regexes matched against the award description after 'mask' phrases are removed. Score weights live in 'scoring'. Edit this file to tune lanes; no code change needed.",
+  "lanes": {
+    "nuclear": {
+      "label": "Nuclear / SMRs",
+      "query_keywords": [
+        "small modular reactor",
+        "advanced reactor",
+        "microreactor",
+        "HALEU",
+        "uranium enrichment",
+        "enriched uranium",
+        "nuclear fuel",
+        "nuclear reactor",
+        "nuclear energy",
+        "nuclear power",
+        "fission",
+        "TRISO"
+      ],
+      "naics": [
+        "221113"
+      ],
+      "strong": [
+        "small modular reactors?",
+        "\\bSMRs?\\b",
+        "advanced (nuclear )?reactors?",
+        "\\bHALEU\\b",
+        "high[- ]assay low[- ]enriched uranium",
+        "uranium enrichment",
+        "enriched uranium",
+        "\\bLEU\\b",
+        "nuclear fuel",
+        "nuclear reactors?",
+        "nuclear energy",
+        "nuclear power",
+        "\\bTRISO\\b",
+        "molten salt reactors?",
+        "light[- ]water reactors?",
+        "reactor fuel",
+        "fuel cycle",
+        "\\bUF6\\b",
+        "uranium hexafluoride",
+        "deconversion",
+        "test reactor",
+        "reactor demonstration",
+        "nuclear micro-?reactors?",
+        "micro-?reactor (test|demonstration|pilot|fuel|program)",
+        "fission (energy|power|reactors?|products?)",
+        "nuclear fission"
+      ],
+      "weak": [
+        "\\bnuclear\\b",
+        "uranium",
+        "reactors?",
+        "fusion energy",
+        "radioisotope",
+        "fission",
+        "micro-?reactors?"
+      ],
+      "mask": [
+        "nuclear magnetic resonance",
+        "\\bNMR\\b",
+        "nuclear medicine",
+        "nuclear receptors?",
+        "nuclear envelope",
+        "nuclear pore",
+        "nuclear factor",
+        "nuclear famil(y|ies)",
+        "nuclear cardiology",
+        "nuclear imaging",
+        "bio-?reactors?",
+        "photo-?reactors?",
+        "chemical reactors?",
+        "plasma reactors?",
+        "reactor vessel heads? for (boilers?|tanks?)",
+        "fission yeast",
+        "mitochondrial fission",
+        "binary fission",
+        "membrane fission",
+        "singlet fission",
+        "nuclear spins?",
+        "(flow|photo|chemical|catalytic|micro-?fluidic)[- ]micro-?reactors?"
+      ],
+      "agencies": [
+        "Department of Energy",
+        "Nuclear Regulatory Commission"
+      ]
+    },
+    "magnets": {
+      "label": "Magnets / rare earths",
+      "query_keywords": [
+        "rare earth",
+        "rare-earth",
+        "permanent magnet",
+        "neodymium",
+        "NdFeB",
+        "samarium",
+        "dysprosium",
+        "critical mineral",
+        "critical minerals"
+      ],
+      "naics": [
+        "212290",
+        "331410",
+        "325180"
+      ],
+      "strong": [
+        "rare[- ]earths?",
+        "\\bREEs?\\b",
+        "permanent magnets?",
+        "neodymium",
+        "\\bNdFeB\\b",
+        "samarium",
+        "dysprosium",
+        "terbium",
+        "praseodymium",
+        "lanthanides?",
+        "critical minerals?",
+        "critical materials?",
+        "magnet manufacturing",
+        "magnetic materials?"
+      ],
+      "weak": [
+        "\\bmagnets?\\b",
+        "gallium",
+        "germanium",
+        "antimony",
+        "cobalt",
+        "mineral recovery",
+        "\\bore\\b",
+        "\\bmining\\b"
+      ],
+      "mask": [
+        "magnetic resonance",
+        "\\bMRI\\b",
+        "rare earth (wht|white|glass|disc|magnet sweeper)",
+        "magnet sweepers?",
+        "magnet school",
+        "data mining",
+        "text mining"
+      ],
+      "agencies": [
+        "Department of Energy",
+        "Department of Defense",
+        "Department of the Interior",
+        "National Science Foundation"
+      ]
+    },
+    "chips": {
+      "label": "Semiconductors / CHIPS",
+      "query_keywords": [
+        "semiconductor",
+        "CHIPS Act",
+        "CHIPS R&D",
+        "CHIPS for America",
+        "microelectronics",
+        "integrated circuit",
+        "advanced packaging",
+        "lithography",
+        "wafer"
+      ],
+      "naics": [
+        "334413",
+        "333242",
+        "334412"
+      ],
+      "strong": [
+        "semiconductors?",
+        "\\bCHIPS (act|r&d|for america|and science|program|incentives?|manufacturing)\\b",
+        "microelectronics",
+        "integrated circuits?",
+        "wafers?",
+        "lithography",
+        "advanced packaging",
+        "\\bNSTC\\b",
+        "natcast",
+        "transistors?",
+        "gallium nitride",
+        "\\bGaN\\b",
+        "silicon carbide",
+        "\\bSiC\\b",
+        "chiplets?"
+      ],
+      "weak": [
+        "\\bchips?\\b",
+        "photonics?",
+        "nanofabrication",
+        "cleanroom",
+        "epitax(y|ial)",
+        "\\bfabs?\\b",
+        "\\bfoundry\\b"
+      ],
+      "mask": [
+        "potato chips?",
+        "wood ?chips?",
+        "chip ?seal(ing)?",
+        "chocolate chips?",
+        "chippers?",
+        "chipping",
+        "poker chips?",
+        "tortilla chips?",
+        "corn chips?",
+        "chips? and dip",
+        "metal chips?",
+        "paint chips?",
+        "rock chips?",
+        "bark chips?"
+      ],
+      "agencies": [
+        "Department of Commerce",
+        "National Science Foundation",
+        "Department of Defense"
+      ]
+    }
+  },
+  "scoring": {
+    "_doc": "Score is 0-100. An award must reach 'threshold' in some lane to be kept; it is filed under its best lane. 'lead_bonus' is added when a strong term appears in the first 'lead_chars' characters (award title / lead sentence), which separates awards that are about the lane from abstracts that mention it in passing. When a lane has more qualifying awards than the cap, awards scoring >= 'core_score' are kept first (largest Award Amount first), then the rest by amount.",
+    "first_strong": 30,
+    "extra_strong": 10,
+    "strong_cap": 50,
+    "weak_each": 8,
+    "weak_cap": 16,
+    "naics_match": 15,
+    "agency_match": 10,
+    "amount_tiers": [
+      [
+        100000000,
+        15
+      ],
+      [
+        10000000,
+        10
+      ],
+      [
+        1000000,
+        5
+      ]
+    ],
+    "lab_equipment_penalty": 10,
+    "lab_equipment_naics": [
+      "334516",
+      "423490",
+      "334515"
+    ],
+    "threshold": 45,
+    "lead_chars": 150,
+    "lead_bonus": 15,
+    "core_score": 60
+  }
+}

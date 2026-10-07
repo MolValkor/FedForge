@@ -1,0 +1,111 @@
+# INSTALL: move this file to .github/workflows/nightly-awards.yml (GitHub only runs workflows from that folder).
+# It ships here because the token that opened this PR lacks GitHub's `workflow` scope. See README > Nightly job.
+#
+# Nightly FedForge award refresh.
+#
+# Pulls new awards from USAspending.gov (and SAM.gov when the SAM_API_KEY secret exists), rewrites
+# data/awards.json + js/awards-data.js + data/meta.json, and proposes the change as a pull request
+# from the bot branch below. It NEVER pushes to main: nothing reaches thefedforge.com (and no Netlify
+# production build is spent) until a human reviews and merges the PR.
+#
+# Netlify note: the bot commit message carries "[skip netlify]" so Netlify does not spend build
+# minutes on a Deploy Preview for every nightly update. Merge these PRs with "Create a merge commit"
+# (the default merge message does not contain the skip tag, so the production deploy runs once on merge).
+# A squash merge copies the commit messages into the squash commit and would skip that deploy.
+
+name: Nightly award refresh
+
+on:
+  schedule:
+    - cron: "23 10 * * *"   # 10:23 UTC = 6:23 AM EDT / 5:23 AM EST, after USAspending's overnight load
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Rolling window length in days"
+        default: "90"
+        required: false
+
+permissions:
+  contents: write        # push the bot branch (never main)
+  pull-requests: write   # open / update the data PR
+
+concurrency:
+  group: nightly-awards
+  cancel-in-progress: false
+
+env:
+  BOT_BRANCH: bot/award-refresh
+
+jobs:
+  refresh:
+    if: github.repository == 'MolValkor/FedForge'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch, filter and score awards
+        id: fetch
+        env:
+          SAM_API_KEY: ${{ secrets.SAM_API_KEY }}   # optional; leave unset to use USAspending only
+        run: |
+          python3 tools/fetch_awards.py \
+            --days "${{ github.event.inputs.days || '90' }}" \
+            --report-md "$RUNNER_TEMP/summary.md" \
+            --report-json "$RUNNER_TEMP/report.json"
+          cat "$RUNNER_TEMP/summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Regenerate feed/sitemap and run site checks
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          python3 tools/build_site_files.py
+          python3 tools/check_site.py
+
+      - name: Commit to bot branch and open or update the PR
+        if: steps.fetch.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ "$BOT_BRANCH" = "main" ] || [ -z "$BOT_BRANCH" ]; then echo "refusing to push to main"; exit 1; fi
+          today="$(date -u +%Y-%m-%d)"
+          git config user.name  "fedforge-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BOT_BRANCH"
+          git add data/awards.json js/awards-data.js data/meta.json feed.xml sitemap.xml
+          git commit -m "data: nightly USAspending award refresh ${today} [skip netlify]" \
+                     -m "Automated by .github/workflows/nightly-awards.yml. Review, then merge with a merge commit."
+          # The bot branch is rebuilt from main every night, so the PR always shows main vs the latest pull.
+          git push --force origin "HEAD:refs/heads/$BOT_BRANCH"
+
+          {
+            cat "$RUNNER_TEMP/summary.md"
+            echo
+            echo "---"
+            echo "Opened by the nightly award refresh workflow. Nothing here is live until a human merges."
+            echo "Merge with **Create a merge commit** (a squash merge would carry the [skip netlify] tag and skip the production deploy)."
+          } > "$RUNNER_TEMP/body.md"
+
+          title="Nightly award refresh: ${today}"
+          pr="$(gh pr list --head "$BOT_BRANCH" --base main --state open --json number --jq '.[0].number // empty')"
+          if [ -n "$pr" ]; then
+            gh pr edit "$pr" --title "$title" --body-file "$RUNNER_TEMP/body.md"
+            echo "Updated PR #$pr" >> "$GITHUB_STEP_SUMMARY"
+          elif gh pr create --base main --head "$BOT_BRANCH" --title "$title" --body-file "$RUNNER_TEMP/body.md"; then
+            echo "Opened a new PR" >> "$GITHUB_STEP_SUMMARY"
+          else
+            url="https://github.com/${GITHUB_REPOSITORY}/compare/main...${BOT_BRANCH}?expand=1"
+            echo "::warning::Pushed ${BOT_BRANCH} but could not open a PR (enable Settings > Actions > General > 'Allow GitHub Actions to create and approve pull requests'). Open it by hand: ${url}"
+            echo "Branch pushed; open the PR by hand: ${url}" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: No change
+        if: steps.fetch.outputs.changed != 'true'
+        run: echo "Award list unchanged since main; nothing to propose." >> "$GITHUB_STEP_SUMMARY"
