@@ -38,7 +38,9 @@ def test_committed_awards_file_passes_against_itself():
         doc = json.load(f)
     meta = json.load(open(os.path.join(REPO, "data", "meta.json"), encoding="utf-8"))
     tickers = va.repo_verified_tickers([os.path.join(REPO, "data", n) for n in ("curated.json", "public-primes.json", "awards.json")])
-    res = check(doc, previous=doc, verified_tickers=tickers, meta=meta, js_doc=va.load_js(os.path.join(REPO, "js", "awards-data.js")))
+    # The committed file is refreshed over time, so judge it against the real date, not the fixed fixture date.
+    res = check(doc, previous=doc, verified_tickers=tickers, meta=meta, js_doc=va.load_js(os.path.join(REPO, "js", "awards-data.js")),
+                today=date.today())
     assert res.ok, res.errors
 
 
