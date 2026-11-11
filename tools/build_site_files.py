@@ -26,6 +26,10 @@ DISCLAIMER = "Not investment advice."
 
 # Hand-written pages that belong in the feed. Dates are the dates these pages were published.
 EDITORIAL = [
+    {"title": "New section: private capital building federal capacity", "path": "private-capital.html",
+     "guid": "private-capital.html", "date": "2026-10-07",
+     "description": "18 sourced private investments in shipyards, rocket motors, drones, nuclear fuel, magnets, chips and launch, "
+                    "starting with Anduril's $3.7B Arsenal-2 submarine shipyard. Amounts only where a source states them."},
     {"title": "Finding: most award-day names went red", "path": "finding-red.html", "guid": "finding-red.html",
      "date": "2026-09-03",
      "description": "10 of 14 announcement-to-now closes in returns.json were negative as of 2026-09-01. Close-to-close only."},

@@ -6,12 +6,20 @@
     <atom:link href="https://thefedforge.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>New U.S. federal awards and contracts tracked by FedForge: recipient, ticker when public, status (FINAL / CONDITIONAL / LOI / UCA), the dollar amount as the source states it, and the official source link. Not investment advice.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 12:00:00 GMT</lastBuildDate>
     <image>
       <url>https://thefedforge.com/apple-touch-icon.png</url>
       <title>FedForge: new federal awards to public companies</title>
       <link>https://thefedforge.com/</link>
     </image>
+    <item>
+      <title>New section: private capital building federal capacity</title>
+      <link>https://thefedforge.com/private-capital.html</link>
+      <guid isPermaLink="true">https://thefedforge.com/private-capital.html</guid>
+      <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
+      <category>FedForge analysis</category>
+      <description>18 sourced private investments in shipyards, rocket motors, drones, nuclear fuel, magnets, chips and launch, starting with Anduril's $3.7B Arsenal-2 submarine shipyard. Amounts only where a source states them. Not investment advice.</description>
+    </item>
     <item>
       <title>How to read a federal award</title>
       <link>https://thefedforge.com/guides/how-to-read-a-federal-award.html</link>

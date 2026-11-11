@@ -59,6 +59,7 @@
     { file: "index.html", label: "Dashboard" },
     { file: "awards.html", label: "Awards", dirs: ["award"], also: ["award.html"] },
     { file: "sectors.html", label: "Sectors", also: ["nuclear.html", "magnets.html", "chips.html"] },
+    { file: "private-capital.html", label: "Private capital" },
     { file: "companies.html", label: "Companies", dirs: ["ticker"] },
     { file: "top-companies.html", label: "Top companies" },
     { file: "findings.html", label: "Findings", also: ["finding.html", "finding-red.html", "finding-loi.html"] },
