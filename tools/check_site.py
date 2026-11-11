@@ -10,6 +10,7 @@
 - feed.xml / sitemap.xml are in sync with data/ (tools/build_site_files.py --check)
 - every flagship award in data/curated.json has an https source_url
 - data/private-capital.json passes tools/check_private_capital.py (sources, dates, amounts, tickers)
+- recommendations.html is in sync with data/recommendations.json and every takeaway cites USAspending awards (tools/build_recommendations.py --check)
 """
 import json
 import os
@@ -141,7 +142,7 @@ for a in json.load(open(os.path.join(ROOT, "data", "curated.json"), encoding="ut
     if not str(a.get("source_url", "")).startswith("https://"):
         err(f"curated.json: {a.get('id')} has no https source_url")
 
-for script in ("build_site_files.py", "seo_head.py", "check_private_capital.py"):
+for script in ("build_site_files.py", "seo_head.py", "check_private_capital.py", "build_recommendations.py"):
     args = [] if script == "check_private_capital.py" else ["--check"]
     r = subprocess.run([sys.executable, os.path.join(ROOT, "tools", script)] + args, capture_output=True, text=True)
     if r.returncode != 0:

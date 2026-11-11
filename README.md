@@ -37,6 +37,7 @@ Requires Python 3 (standard library only). Node is only needed if you rebuild Ta
 
 ```sh
 python3 tools/build_site_files.py     # regenerate feed.xml + sitemap.xml from data/
+python3 tools/build_recommendations.py # regenerate recommendations.html from data/recommendations.json
 python3 tools/seo_head.py             # add any missing canonical / Open Graph / Twitter / favicon tags to new pages
 python3 tools/check_site.py           # static checks: meta tags, broken local links, XML well-formed, feed in sync
                                       # (also runs tools/check_private_capital.py)

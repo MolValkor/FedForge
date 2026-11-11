@@ -283,14 +283,30 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   .pc-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pc-filter-label { min-width: 100%; }
 }
-/* Nav gained a ninth item (Private capital). 1024-1199px: use the menu button instead of a cramped row;
-   1200-1279px: tighten spacing so the row still fits; 1280px+: unchanged. */
-@media (min-width: 1024px) and (max-width: 1199px) {
+/* Nav has ten items (Private capital, Recommendations). 1024-1439px: use the menu button instead of a cramped row;
+   1440-1535px: tighten spacing so the row still fits; 1536px+: unchanged. */
+@media (min-width: 1024px) and (max-width: 1439px) {
   #nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
   nav[aria-label='Primary'] .nav-desktop { display: none; }
   #nav-mobile:not(.hidden) { display: block; }
 }
-@media (min-width: 1200px) and (max-width: 1279px) {
+@media (min-width: 1440px) and (max-width: 1535px) {
   .nav-desktop { gap: 0.7rem; font-size: 0.82rem; }
   .nav-desktop .cta-outline { padding-left: 0.75rem; padding-right: 0.75rem; }
 }
+
+/* Recommendations page */
+.rec-table-wrap { overflow-x: auto; }
+.rec-table { width: 100%; border-collapse: collapse; }
+.rec-table th, .rec-table td { padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.rec-table th { text-align: left; font-weight: 600; color: #C9CBBF; }
+.rec-table th.text-right, .rec-table td.text-right { text-align: right; white-space: nowrap; }
+.rec-cites { list-style: disc; padding-left: 1.1rem; }
+.rec-cites li { margin: 0.2rem 0; }
+.rec-home-card { border-left-width: 4px; border-left-color: var(--bronze); }
+@media (max-width: 640px) {
+  .rec-table { font-size: 0.75rem; }
+  .rec-table th, .rec-table td { padding: 0.35rem 0.3rem; }
+}
+/* Keep the wordmark clear of the first nav link */
+nav[aria-label='Primary'] > div > a:first-child { flex-shrink: 0; margin-right: 1.25rem; }

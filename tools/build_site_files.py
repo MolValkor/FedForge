@@ -26,6 +26,11 @@ DISCLAIMER = "Not investment advice."
 
 # Hand-written pages that belong in the feed. Dates are the dates these pages were published.
 EDITORIAL = [
+    {"title": "Recommendations: what the Nov 11 award refresh says", "path": "recommendations.html",
+     "guid": "recommendations.html", "date": "2026-11-11",
+     "description": "Seven data-backed takeaways from 114 qualifying USAspending awards (Aug 13 to Nov 11, 2026) in nuclear, "
+                    "magnets / rare earths and CHIPS: NASA space-reactor orders, a NIST grant surge, DOE critical-minerals "
+                    "studies and an expected DoD backfill. Each cites its awards."},
     {"title": "New section: private capital building federal capacity", "path": "private-capital.html",
      "guid": "private-capital.html", "date": "2026-10-07",
      "description": "18 sourced private investments in shipyards, rocket motors, drones, nuclear fuel, magnets, chips and launch, "

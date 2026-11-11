@@ -1,0 +1,354 @@
+{
+ "generated_at": "2026-11-11",
+ "method": "FedForge pipeline (tools/fetch_awards.py, tools/pipeline/lanes.json): USAspending.gov spending_by_award, new_awards_only, domestic prime awards >= $250K, scored >= 45 per lane. Totals below count every qualifying award before the site's 25-per-lane display cap.",
+ "windows": {
+  "current": {
+   "start": "2026-08-13",
+   "end": "2026-11-11",
+   "count": 114,
+   "amount": 268799383.17,
+   "lanes": {
+    "nuclear": {
+     "count": 22,
+     "amount": 102790995.58
+    },
+    "magnets": {
+     "count": 29,
+     "amount": 83676510.34
+    },
+    "chips": {
+     "count": 63,
+     "amount": 82331877.25
+    }
+   }
+  },
+  "prior": {
+   "start": "2026-05-15",
+   "end": "2026-08-13",
+   "count": 259,
+   "amount": 1336216864.42,
+   "lanes": {
+    "nuclear": {
+     "count": 20,
+     "amount": 940830280.55
+    },
+    "magnets": {
+     "count": 74,
+     "amount": 109912191.72
+    },
+    "chips": {
+     "count": 165,
+     "amount": 285474392.15
+    }
+   }
+  }
+ },
+ "disclaimer": "Informational only. Nothing here is a recommendation to buy or sell any security. Amounts are USAspending Award Amounts as returned by the API and can include unexercised options; recent months are incomplete because agencies report with a lag.",
+ "recommendations": [
+  {
+   "id": "space-nuclear",
+   "lane": "nuclear",
+   "headline": "Space nuclear power is now the biggest new-money line in the nuclear lane",
+   "body": "NASA accounts for $76.1M of the $102.8M in 22 new nuclear awards this window, almost all of it two Glenn Research Center task orders to Sierra Lobo for the Space Reactor-1 \"Freedom\" Nuclear Power Module power conversion system. The newest award in the whole refresh (Oct 28) is also NASA nuclear-power work. Worth following: further SR-1 task orders under the same vehicle.",
+   "cites": [
+    {
+     "id": "80GRC026FA019",
+     "date": "2026-08-28",
+     "agency": "National Aeronautics and Space Administration",
+     "recipient_name": "SIERRA LOBO INC",
+     "amount": 38545472.83,
+     "source_url": "https://www.usaspending.gov/award/CONT_AWD_80GRC026FA019_8000_80GRC024DA003_8000",
+     "sector": "nuclear"
+    },
+    {
+     "id": "80GRC026FA018",
+     "date": "2026-08-28",
+     "agency": "National Aeronautics and Space Administration",
+     "recipient_name": "SIERRA LOBO INC",
+     "amount": 37204070.33,
+     "source_url": "https://www.usaspending.gov/award/CONT_AWD_80GRC026FA018_8000_80GRC024DA003_8000",
+     "sector": "nuclear"
+    },
+    {
+     "id": "80ARC027F0007",
+     "date": "2026-10-28",
+     "agency": "National Aeronautics and Space Administration",
+     "recipient_name": "BASTION TECHNOLOGIES, INC.",
+     "amount": 348662.0,
+     "source_url": "https://www.usaspending.gov/award/CONT_AWD_80ARC027F0007_8000_80ARC025D0001_8000",
+     "sector": "nuclear"
+    }
+   ]
+  },
+  {
+   "id": "nuclear-lumpy",
+   "lane": "nuclear",
+   "headline": "Nuclear dollars fell about 89% versus the prior 90 days, but that is one $900M award, not a slowdown",
+   "body": "Nuclear went from $940.8M (20 awards, May 15 to Aug 13) to $102.8M (22 awards) now. The prior window held DOE's $900M HALEU task order to American Centrifuge Operating (Centrus), already a FedForge flagship. Award counts were flat (20 to 22). Fuel-cycle money arrives in large, irregular blocks, so quarter-over-quarter totals in this lane are noisy.",
+   "cites": [
+    {
+     "id": "89243226FNE400212",
+     "date": "2026-07-01",
+     "agency": "Department of Energy",
+     "recipient_name": "AMERICAN CENTRIFUGE OPERATING, LLC",
+     "amount": 900000000.0,
+     "source_url": "https://www.usaspending.gov/award/CONT_AWD_89243226FNE400212_8900_89243225DNE000022_8900",
+     "sector": "nuclear"
+    }
+   ],
+   "links": [
+    {
+     "label": "Flagship: HALEU production task order",
+     "href": "award/doe-haleu-centrus.html"
+    }
+   ]
+  },
+  {
+   "id": "nist-chips",
+   "lane": "chips",
+   "headline": "Commerce / NIST is the fastest-accelerating agency: 25 grants vs 1",
+   "body": "NIST 60NANB26D grants rose from 1 ($1.5M) in the prior window to 25 ($52.9M) in this one, 20 of them ($41.6M) in semiconductors. They mostly fund equipment, test, packaging and training at regional universities rather than fabs. Department of Commerce overall: 4 awards to 28. Worth following: whether these sites become nodes for later CHIPS R&D work.",
+   "cites": [
+    {
+     "id": "60NANB26D180",
+     "date": "2026-08-26",
+     "agency": "Department of Commerce",
+     "recipient_name": "RAGIN' CAJUN FACILITIES, INC.",
+     "amount": 5000000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_60NANB26D180_013",
+     "sector": "chips"
+    },
+    {
+     "id": "60NANB26D146",
+     "date": "2026-08-21",
+     "agency": "Department of Commerce",
+     "recipient_name": "MORGAN STATE UNIVERSITY",
+     "amount": 3400000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_60NANB26D146_013",
+     "sector": "chips"
+    },
+    {
+     "id": "60NANB26D162",
+     "date": "2026-08-21",
+     "agency": "Department of Commerce",
+     "recipient_name": "OREGON STATE UNIVERSITY",
+     "amount": 2520000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_60NANB26D162_013",
+     "sector": "chips"
+    },
+    {
+     "id": "60NANB26D114",
+     "date": "2026-08-26",
+     "agency": "Department of Commerce",
+     "recipient_name": "FLORIDA INTERNATIONAL UNIVERSITY",
+     "amount": 2100000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_60NANB26D114_013",
+     "sector": "chips"
+    },
+    {
+     "id": "60NANB26D048",
+     "date": "2026-09-02",
+     "agency": "Department of Commerce",
+     "recipient_name": "UNIVERSITY OF UTAH",
+     "amount": 625000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_60NANB26D048_013",
+     "sector": "chips"
+    }
+   ]
+  },
+  {
+   "id": "core-cm",
+   "lane": "magnets",
+   "headline": "DOE's regional critical-minerals (CORE-CM) grants are about 45% of the magnets lane",
+   "body": "Five DOE Office of Fossil Energy and Carbon Management awards of about $7.5M each (Wyoming, Virginia Tech, Illinois, Georgia Tech, UT Austin) total $37.5M, out of $83.7M across 29 magnets / rare-earth awards. Smaller IIJA commercialization grants went to two companies, Loukus Technologies (rare-earth mining value-add) and CorePower Magnetics (rare-earth-free magnets). Worth following: these regional studies are the scouting layer for future feedstock and processing projects.",
+   "cites": [
+    {
+     "id": "DEFE0032589",
+     "date": "2026-09-03",
+     "agency": "Department of Energy",
+     "recipient_name": "UNIVERSITY OF WYOMING",
+     "amount": 7500000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEFE0032589_089",
+     "sector": "magnets"
+    },
+    {
+     "id": "DEFE0032587",
+     "date": "2026-08-26",
+     "agency": "Department of Energy",
+     "recipient_name": "VIRGINIA POLYTECHNIC INSTITUTE & STATE UNIVERSITY",
+     "amount": 7500000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEFE0032587_089",
+     "sector": "magnets"
+    },
+    {
+     "id": "DEFE0032588",
+     "date": "2026-09-18",
+     "agency": "Department of Energy",
+     "recipient_name": "UNIVERSITY OF ILLINOIS",
+     "amount": 7500000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEFE0032588_089",
+     "sector": "magnets"
+    },
+    {
+     "id": "DEFE0032586",
+     "date": "2026-09-22",
+     "agency": "Department of Energy",
+     "recipient_name": "GEORGIA TECH RESEARCH CORP",
+     "amount": 7500000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEFE0032586_089",
+     "sector": "magnets"
+    },
+    {
+     "id": "DEFE0032590",
+     "date": "2026-09-23",
+     "agency": "Department of Energy",
+     "recipient_name": "UNIVERSITY OF TEXAS AT AUSTIN",
+     "amount": 7499999.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEFE0032590_089",
+     "sector": "magnets"
+    },
+    {
+     "id": "DEFE0032717",
+     "date": "2026-09-24",
+     "agency": "Department of Energy",
+     "recipient_name": "LOUKUS TECHNOLOGIES, INC.",
+     "amount": 1000000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEFE0032717_089",
+     "sector": "magnets"
+    },
+    {
+     "id": "DEFE0032638",
+     "date": "2026-09-24",
+     "agency": "Department of Energy",
+     "recipient_name": "COREPOWER MAGNETICS INC",
+     "amount": 956879.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEFE0032638_089",
+     "sector": "magnets"
+    }
+   ]
+  },
+  {
+   "id": "waste-siting",
+   "lane": "nuclear",
+   "headline": "Waste transmutation and state siting are early-stage signals worth tracking",
+   "body": "ARPA-E's NEWTON program (Nuclear Energy Waste Transmutation Optimized Now) made three company awards: General Atomics, Transmutex U.S.A. and Omega-P R&D, together $7.2M. Separately, DOE Office of Nuclear Energy gave $500K each to Utah, Tennessee and Louisiana for community outreach and a draft host agreement for \"nuclear lifecycle innovation\" work. Small dollars, but these awards show which states are engaging on fuel-cycle siting.",
+   "cites": [
+    {
+     "id": "DEAR0002079",
+     "date": "2026-08-26",
+     "agency": "Department of Energy",
+     "recipient_name": "TRANSMUTEX U.S.A., INC.",
+     "amount": 2805624.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEAR0002079_089",
+     "sector": "nuclear"
+    },
+    {
+     "id": "DEAR0002081",
+     "date": "2026-08-17",
+     "agency": "Department of Energy",
+     "recipient_name": "GENERAL ATOMICS",
+     "amount": 2571990.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEAR0002081_089",
+     "sector": "nuclear"
+    },
+    {
+     "id": "DEAR0002087",
+     "date": "2026-08-26",
+     "agency": "Department of Energy",
+     "recipient_name": "OMEGA P R&D, INC.",
+     "amount": 1794932.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DEAR0002087_089",
+     "sector": "nuclear"
+    },
+    {
+     "id": "DENE0009668",
+     "date": "2026-09-17",
+     "agency": "Department of Energy",
+     "recipient_name": "UTAH OFFICE OF ENERGY DEVELOPMENT",
+     "amount": 500000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DENE0009668_089",
+     "sector": "nuclear"
+    },
+    {
+     "id": "DENE0009667",
+     "date": "2026-09-17",
+     "agency": "Department of Energy",
+     "recipient_name": "DEPARTMENT OF ENVIRONMENT & CONSERVATION TENNESSEE",
+     "amount": 500000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DENE0009667_089",
+     "sector": "nuclear"
+    },
+    {
+     "id": "DENE0009664",
+     "date": "2026-09-17",
+     "agency": "Department of Energy",
+     "recipient_name": "DEPARTMENT OF CONSERVATION AND ENERGY, STATE OF LOUISIANA",
+     "amount": 500000.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_DENE0009664_089",
+     "sector": "nuclear"
+    }
+   ]
+  },
+  {
+   "id": "state-dept",
+   "lane": "magnets",
+   "headline": "State Department enters the lanes: critical-minerals screening abroad and SMR workshops",
+   "body": "The State Department had no awards in these lanes in the prior window and 2 this window ($7.2M). The larger one is a $6.9M cooperative agreement to bolster export controls, customs and investment screening in up to 33 critical-mineral producer countries. The other plans small modular reactor technical workshops. Worth following: diplomacy-side spending often comes before supply-chain deals.",
+   "cites": [
+    {
+     "id": "SAQMMA26CA0284",
+     "date": "2026-09-24",
+     "agency": "Department of State",
+     "recipient_name": "FINANCIAL SERVICES VOLUNTEER CORPS",
+     "amount": 6906758.0,
+     "source_url": "https://www.usaspending.gov/award/ASST_NON_SAQMMA26CA0284_019",
+     "sector": "magnets"
+    },
+    {
+     "id": "19GE5026F0463",
+     "date": "2026-09-23",
+     "agency": "Department of State",
+     "recipient_name": "WEBSTER GROUP INC, THE",
+     "amount": 264265.36,
+     "source_url": "https://www.usaspending.gov/award/CONT_AWD_19GE5026F0463_1900_GS07F0461T_4730",
+     "sector": "nuclear"
+    }
+   ]
+  },
+  {
+   "id": "dod-lag",
+   "lane": "all",
+   "headline": "Expect a DoD backfill: zero DoD awards and zero verified public tickers so far this window",
+   "body": "The prior window had 16 DoD awards ($124.7M), including Raytheon's $48.0M ATSP order and two $12.9M NdFeB magnet-block buys from e-VAC and Noveon. This window has none, and contracts overall fell from 25 to 14. DoD contract records reach USAspending on a delay of about 90 days, and only one award in the refresh is dated after Sep 25. Read this window as incomplete. DoD magnet and chip awards from Aug to Nov should appear in later refreshes, and that is where public-company primes (Raytheon, GlobalFoundries, IBM, Microchip) showed up last time.",
+   "cites": [
+    {
+     "id": "HQ072726FE030",
+     "date": "2026-05-29",
+     "agency": "Department of Defense",
+     "recipient_name": "RAYTHEON COMPANY",
+     "amount": 48000000.0,
+     "source_url": "https://www.usaspending.gov/award/CONT_AWD_HQ072726FE030_9700_HQ072716D0006_9700",
+     "sector": "chips"
+    },
+    {
+     "id": "SP800026F0027",
+     "date": "2026-05-26",
+     "agency": "Department of Defense",
+     "recipient_name": "E-VAC MAGNETICS LLC",
+     "amount": 12895550.0,
+     "source_url": "https://www.usaspending.gov/award/CONT_AWD_SP800026F0027_9700_SP800026D0011_9700",
+     "sector": "magnets"
+    },
+    {
+     "id": "SP800026F0026",
+     "date": "2026-05-26",
+     "agency": "Department of Defense",
+     "recipient_name": "NOVEON MAGNETICS INC",
+     "amount": 12894620.0,
+     "source_url": "https://www.usaspending.gov/award/CONT_AWD_SP800026F0026_9700_SP800026D0010_9700",
+     "sector": "magnets"
+    }
+   ]
+  }
+ ]
+}

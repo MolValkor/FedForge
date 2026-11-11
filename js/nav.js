@@ -63,6 +63,7 @@
     { file: "companies.html", label: "Companies", dirs: ["ticker"] },
     { file: "top-companies.html", label: "Top companies" },
     { file: "findings.html", label: "Findings", also: ["finding.html", "finding-red.html", "finding-loi.html"] },
+    { file: "recommendations.html", label: "Recommendations" },
     { file: "watchlist.html", label: "Watchlist" },
     { file: "follow.html", label: "Follow" }
   ];
